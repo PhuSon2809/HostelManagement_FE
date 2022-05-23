@@ -9,6 +9,7 @@ function Hostel(props) {
     return (
         <div>
             This is hostel page
+            <h1>Hostel</h1>
         </div>
     );
 }

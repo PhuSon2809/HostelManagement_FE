@@ -9,6 +9,7 @@ function Footer(props) {
     return (
         <div>
             This is Footer
+            <h1>Footer</h1>
         </div>
     );
 }

@@ -9,6 +9,7 @@ function listRoom(props) {
     return (
         <div>
             This is list room pages
+            <h1>List room</h1>
         </div>
     );
 }

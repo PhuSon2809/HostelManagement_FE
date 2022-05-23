@@ -9,6 +9,7 @@ function Header(props) {
     return (
         <div>
             This is Header
+            <h1>Header</h1>
         </div>
     );
 }
