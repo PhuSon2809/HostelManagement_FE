@@ -1,0 +1,65 @@
+@import url("https://fonts.googleapis.com/css2?family=Bitter:wght@400;500;600;700&family=Inter:wght@400;700&family=PT+Serif:wght@400;700&family=Poppins:wght@200;300;400;500;600;700&family=Raleway:ital,wght@0,100;0,300;0,400;0,500;1,600&family=Roboto+Slab:wght@100;200;300;400;500;600;700;800&family=Tiro+Devanagari+Sanskrit&display=swap");
+* {
+  font-family: "Bitter", sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  outline: none;
+  text-decoration: none;
+  transition: all 0.4s linear;
+}
+
+.btn {
+  background-color: #dd1f26;
+  color: #fff;
+  cursor: pointer;
+  margin: 0.3rem 0.3rem;
+  padding: 0.5rem 1.5rem;
+  transition: 0.4s all linear;
+}
+.btn:hover {
+  transform: scale(1.05);
+}
+
+footer {
+  background: #1b3453;
+  color: #fff;
+  padding: 2% 6%;
+}
+footer .logo a {
+  text-decoration: none;
+  font-size: 2.5rem;
+  color: #fff;
+  font-weight: 700;
+}
+footer .box-mail {
+  transition: 0.4s all linear;
+  margin-top: 12px;
+}
+footer .box-mail:hover i {
+  transform: scale(1.1);
+}
+footer .box-mail i {
+  padding: 1rem;
+  background: #dd1f26;
+  border-radius: 50%;
+  font-size: 1.5rem;
+}
+footer .box-mail a {
+  color: #fff;
+  text-decoration: none;
+}
+footer .box-mail a:hover {
+  color: rgb(213, 210, 210);
+}
+footer .social a {
+  font-size: 1.14rem;
+}
+footer .social a:hover {
+  color: #fff;
+}
+footer .support p:hover {
+  color: rgb(188, 187, 187);
+}
+
+/*# sourceMappingURL=style.css.map */
