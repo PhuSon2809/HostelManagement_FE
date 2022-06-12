@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import './style.css';
+import './footer.scss';
 
 Footer.propTypes = {
 
@@ -12,7 +12,7 @@ function Footer(props) {
             <div className="row">
                 <div className="col-12 col-md-4 align-self-center logo">
                     <a href="#">
-                        <img src="./images/logo_white.png" alt height={100} width={100} /><span> HOM</span>
+                        <img src="./images/logo_white.png" alt height={100} width={110} /><span> HOM</span>
                     </a>
                     <h4>Hostel - Option good for live</h4>
                 </div>

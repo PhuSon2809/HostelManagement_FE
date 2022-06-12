@@ -1,10 +1,10 @@
 import React from 'react';
-import './style.css';
+import './header.scss';
 
 function Header(props) {
 
     return (
-        <nav className="navbar navbar-dark navbar-expand-md fixed-top">
+        <nav className="navbar navbar-expand-md fixed-top navbar-dark ">
             <a href="#" className="navbar-brand">
                 <img src="./images/logo_white.png" alt height={70} width={70} /><span> HOM</span>
             </a>
@@ -26,7 +26,24 @@ function Header(props) {
                         <a href="#" className="nav-link">Reviews</a>
                     </li>
                 </ul>
-                <a className="nav-link text-white btn d-inline-block"><span className="fa fa-book fa-lg" /> Booking</a>
+
+                <div className="dropdown">
+                    <button className="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <img src="./images/avatar.jpg" alt="avatar" className="img-fluid" /> <span> Tran Phu Son</span>
+                    </button>
+                    <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <a className="dropdown-item" href="#">
+                            <i class="fa fa-calendar" aria-hidden="true"> Booking</i>
+                        </a>
+                        <a className="dropdown-item" href="#">
+                            <i className="fa fa-user"> Account</i>
+                        </a>
+                        <a className="dropdown-item" href="#">
+                            <i class="fa fa-power-off" aria-hidden="true"> Logout</i>
+                        </a>
+                    </div>
+                </div>
+
                 <a className="nav-link text-white btn d-inline-block"><span className="fa fa-sign-in fa-lg" /> Sign in</a>
             </div>
         </nav>

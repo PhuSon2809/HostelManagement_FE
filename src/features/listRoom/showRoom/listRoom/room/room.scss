@@ -1,0 +1,71 @@
+@import '../../../../../App.scss';
+
+.btn {
+    @include btn;
+}
+
+.room {
+    display: flex;
+    align-items: center;
+    border: 1px #1b34532b solid;
+    border-radius: 10px;
+    padding: 0.8rem 0;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+
+    &:hover {
+        box-shadow: 0.3rem 0.3rem 0.3rem #1b34532b;
+    }
+
+    .image{
+        position: relative;
+
+        .img1{
+            width: 100%;
+        }
+
+        .img2{
+            width: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            opacity: 0;
+
+            &:hover{
+                opacity: 1;
+            }
+        }
+    }
+
+    .content {
+        h3 {
+            font-size: 1.5rem;
+            color: $navi;
+        }
+
+        i {
+            color: $red;
+            font-size: 1.2rem;
+            margin: 0.1rem;
+        }
+
+        P {
+            color: $gray;
+        }
+
+        .house-price {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: 0.5rem;
+
+            .red{
+                color: $red;
+            }
+        }
+
+        .btn{
+            margin: 0;
+        }
+    }
+}

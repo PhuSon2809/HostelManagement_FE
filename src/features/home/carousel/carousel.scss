@@ -1,0 +1,30 @@
+@import '../../../App.scss';
+
+.btn {
+    @include btn;
+}
+
+.carousel {
+    .carousel-indicators li {
+        width: 0.5rem;
+        height: 0.5rem;
+        border-radius: 50%;
+    }
+
+    .carousel-item {
+        height: 40rem;
+
+        .btn {
+            color: $white;
+            font-size: 1.3rem;
+        }
+    }
+
+    .carousel-item img {
+        height: 40rem;
+    }
+
+    .carousel-caption {
+        text-align: left;
+    }
+}
