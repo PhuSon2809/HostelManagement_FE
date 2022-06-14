@@ -10,6 +10,7 @@ function App() {
   return (
   
     <Routes>
+      <Route path="/" exact element={<Home />} />
       <Route path="/home" exact element={<Home />} />
       <Route path="/hostel" exact element={<Hostel />} />
       <Route path="/listRoom" exact element={<ListRoom />} />
