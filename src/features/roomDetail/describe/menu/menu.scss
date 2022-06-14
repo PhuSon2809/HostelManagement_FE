@@ -1,0 +1,45 @@
+@import '../../../../App.scss';
+
+.btn{
+    @include btn;
+}
+
+.menu{
+    width: 100%;
+    padding: 0.5rem;
+    margin: 1rem 0;
+    border: $border;
+    border-radius: 0.4rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    ul{
+        li{
+            position: relative;
+            margin-right: 1rem;
+
+            a{
+                color: $navi;
+                font-size: 1.1rem;
+                font-weight: 500;
+                padding: 0.5rem;
+
+                &::after {
+                    content: '';
+                    width: 0;
+                    height: 2px;
+                    position: absolute;
+                    background: $red;
+                    bottom: 0px;
+                    left: 0;
+                    transition: 0.4s all linear;
+                }
+
+                &:hover::after {
+                    width: 100%;
+                }
+            }
+        }
+    }
+}

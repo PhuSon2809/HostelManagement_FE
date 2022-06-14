@@ -1,0 +1,36 @@
+@import '../../../App.scss';
+
+.service {
+    margin: 2rem 0;
+
+    .row {
+
+        .box {
+            text-align: center;
+            &:hover{
+                i{
+                    transform: scale(1.1);
+                }
+            }
+
+            h3 {
+                color: $navi;
+            }
+
+            i {
+                background-color: $red;
+                color: $white;
+                font-size: 1.5rem;
+                width: 4rem;
+                height: 4rem;
+                line-height: 4rem;
+                border-radius: 50%;
+                margin: 1rem 0;
+            }
+        }
+
+        p {
+            color: $gray;
+        }
+    }
+}

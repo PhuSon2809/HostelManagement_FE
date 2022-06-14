@@ -1,16 +1,23 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Header from '../../components/header';
+import Footer from '../../components/footer';
+import ShowRoom from './showRoom';
+import Banner from '../../components/banner';
 
-listRoom.propTypes = {
+ListRoom.propTypes = {
     
 };
 
-function listRoom(props) {
+function ListRoom(props) {
     return (
         <div>
-            This is list room pages
+            <Header />
+            <Banner />
+            <ShowRoom />
+            <Footer />
         </div>
     );
 }
 
-export default listRoom;
+export default ListRoom;

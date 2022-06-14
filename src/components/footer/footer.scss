@@ -1,0 +1,57 @@
+@import '../../App.scss';
+
+.btn {
+    @include btn;
+}
+
+footer {
+    background: $navi;
+    color: $white;
+    padding: 2% 6%;
+
+    .logo a {
+        text-decoration: none;
+        font-size: 2.5rem;
+        color: $white;
+        font-weight: 700;
+    }
+    
+    .box-mail{
+        transition: 0.4s all linear;
+        margin-top: 12px;
+
+        &:hover{
+            i{
+                transform: scale(1.1);
+            }
+        }
+
+        i{
+            padding: 1rem;
+            background: $red;
+            border-radius: 50%;
+            font-size: 1.5rem;
+        }
+
+        a{
+            color: $white;
+            &:hover{
+                color: rgb(213, 210, 210);
+            }
+        }
+    }
+
+    .social{
+        a{
+            font-size: 1.14rem;
+        }
+    }
+
+    .support{
+        p{
+            &:hover{
+                color: rgb(188, 187, 187);
+            }
+        }
+    }
+}

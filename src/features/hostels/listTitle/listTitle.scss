@@ -1,0 +1,14 @@
+@import '../../../App.scss';
+
+.listTitle {
+    h3 {
+        @include title(3.3rem);
+        padding: 0 1.5rem;
+        display: inline-block;
+        margin: 0rem 0rem 1rem 0rem;
+    }
+
+    p {
+        color: $gray;
+    }
+}

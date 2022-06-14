@@ -9,6 +9,7 @@ function Booking(props) {
     return (
         <div>
             This is Booking page
+            <h1>Booking</h1>
         </div>
     );
 }

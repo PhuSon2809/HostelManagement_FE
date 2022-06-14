@@ -9,6 +9,7 @@ function LoginByGoogle(props) {
     return (
         <div>
             This is login with google
+            <h1>Login With Google</h1>
         </div>
     );
 }

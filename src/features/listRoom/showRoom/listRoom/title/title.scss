@@ -1,0 +1,28 @@
+@import '../../../../../App.scss';
+
+.btn {
+    @include btn;
+}
+
+.name {
+    
+    h3 {
+        @include title(2.5rem);
+        text-align: left;
+        display: inline;
+    }
+
+    p {
+        font-size: 1.2rem;
+        color: $gray;
+        margin: 0.5rem 0;
+        
+        i{
+            color: $red;
+            font-size: 1.5rem;
+            width: 2rem;
+            text-align: center;
+
+        }
+    }
+}

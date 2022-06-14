@@ -9,6 +9,7 @@ function Login(props) {
     return (
         <div>
             This is login page
+            <h1>login</h1>
         </div>
     );
 }
