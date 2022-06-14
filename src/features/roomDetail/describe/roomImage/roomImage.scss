@@ -1,29 +1,80 @@
 @import '../../../../App.scss';
 
 .roomImage {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding-top: 8rem;
+    padding-top: 7.5rem;
 
-    .slideImage {
-        width: 98%;
-        background: $white;
-        border: 1px #1b34532b solid;
-        border-radius: 12px;
-        // box-shadow: 0.3rem 0.3rem 0.3rem #1b3453, 0.5rem 0.5em 0.3rem #dd1f25;
-        padding: 1.5rem;
-
-        img {
-            width: 100%;
+    .nameTitle{
+        margin-bottom: 1.5rem;
+        h3{
+            @include title(2rem); 
+            margin-right: 1.5rem;
+            display: inline-block;
         }
 
-        .swiper-button-prev {
-            color: $white;
+        i{
+            font-size: 1.2rem;
+            color: $red;
         }
 
-        .swiper-button-next {
-            color: $white;
+    }
+
+    .grid-container {
+        display: grid;
+        grid-template-columns: auto auto auto auto auto;
+        gap: 0.8rem;
+
+        .grid-item{
+            position: relative;
+
+            .black{
+                background: #1b3453;
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                opacity: 0;
+
+                &:hover{
+                    opacity: 0.3;
+                }
+            }
+        }
+
+        .item1 {
+            grid-column: 1 / 3;
+            grid-row: 1 / span 2;
+
+            img{
+                height: 100%;
+                border-top-left-radius: 0.4rem;
+                border-bottom-left-radius: 0.4rem;
+            }
+
+            .black{
+                border-top-left-radius: 0.4rem;
+                border-bottom-left-radius: 0.4rem;
+            }
+        }
+
+        .item4 {
+            img{
+                border-top-right-radius: 0.4rem;
+            }
+
+            .black{
+                border-top-right-radius: 0.4rem;
+            }
+        }
+
+        .item7 {
+            img{
+                border-bottom-right-radius: 0.4rem;
+            }
+
+            .black{
+                border-bottom-right-radius: 0.4rem;
+            }
         }
     }
 }

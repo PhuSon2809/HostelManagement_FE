@@ -60,27 +60,28 @@
         }
 
         .dropdown-menu {
-            font-size: 1.1rem;
+            font-size: 1rem;
 
-            a {
-                i {
+            a{
+                display: flex;
+                align-items: center;
+                justify-content: space-around;
 
-                    &::after {
-                        content: '';
-                        width: 2px;
-                        height: 0;
-                        position: absolute;
-                        background: $red;
-                        bottom: 0px;
-                        left: 0;
-                        transition: 0.4s all linear;
-                    }
+                i{
+                    font-size: 1.3rem;
+                    color: $red;
+                }
 
-                    &:hover::after {
-                        height: 100%;
-                    }
+                span{
+                    color: $navi;
+                }
+
+                &:hover{
+                    transform: scale(1.05);
+                    background: none;
                 }
             }
+            
         }
     }
 }

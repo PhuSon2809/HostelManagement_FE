@@ -14,7 +14,7 @@ function Header(props) {
             <div className="collapse navbar-collapse" id="Navbar">
                 <ul className="navbar-nav m-auto">
                     <li className="nav-item active mr-md-5">
-                        <a href="#" className="nav-link home-active">Home</a>
+                        <a href="/home" className="nav-link home-active">Home</a>
                     </li>
                     <li className="nav-item mr-md-5">
                         <a href="#" className="nav-link">Services</a>
@@ -33,13 +33,13 @@ function Header(props) {
                     </button>
                     <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
                         <a className="dropdown-item" href="#">
-                            <i class="fa fa-calendar" aria-hidden="true"> Booking</i>
+                            <i class="fa fa-calendar" aria-hidden="true"></i><span> Booking</span>
                         </a>
                         <a className="dropdown-item" href="#">
-                            <i className="fa fa-user"> Account</i>
+                            <i className="fa fa-user"> </i><span> Account</span>
                         </a>
                         <a className="dropdown-item" href="#">
-                            <i class="fa fa-power-off" aria-hidden="true"> Logout</i>
+                            <i class="fa fa-power-off" aria-hidden="true"> </i><span> Logout</span>
                         </a>
                     </div>
                 </div>
