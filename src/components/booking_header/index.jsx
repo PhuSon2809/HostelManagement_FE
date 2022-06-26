@@ -1,7 +1,7 @@
 import React from 'react';
-import './header.scss';
+import './booking_header.scss';
 
-function Header(props) {
+function Booking_Header(props) {
 
     return (
         <nav className="navbar navbar-expand-md fixed-top navbar-dark ">
@@ -12,27 +12,15 @@ function Header(props) {
                 <span className="navbar-toggler-icon" />
             </button>
             <div className="collapse navbar-collapse" id="Navbar">
-                <ul className="navbar-nav m-auto">
-                    <li className="nav-item active mr-md-5">
-                        <a href="/home" className="nav-link home-active">Home</a>
-                    </li>
-                    <li className="nav-item mr-md-5">
-                        <a href="#" className="nav-link">Services</a>
-                    </li>
-                    <li className="nav-item mr-md-5">
-                        <a href="#hostel" className="nav-link">Our Hostels</a>
-                    </li>
-                    <li className="nav-item mr-md-5">
-                        <a href="#" className="nav-link">Reviews</a>
-                    </li>
-                </ul>
+                <div className="navbar-nav m-auto">
+                </div>
 
                 <div className="dropdown">
                     <button className="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <img src="./images/avatar.jpg" alt="avatar" className="img-fluid" /> <span> Tran Phu Son</span>
                     </button>
                     <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                        <a className="dropdown-item" href="/booking">
+                        <a className="dropdown-item" href="#">
                             <i class="fa fa-calendar" aria-hidden="true"></i><span> Booking</span>
                         </a>
                         <a className="dropdown-item" href="#">
@@ -50,4 +38,4 @@ function Header(props) {
     );
 }
 
-export default Header;
+export default Booking_Header;

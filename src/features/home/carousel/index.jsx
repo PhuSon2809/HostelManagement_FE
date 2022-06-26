@@ -20,7 +20,7 @@ function Carousel(props) {
                     <div className="carousel-caption d-none d-md-block">
                         <h1>Flast Hostel</h1>
                         <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
-                        <a href="#" className="btn">Booking</a>
+                        <a href="/booking" className="btn">Booking</a>
                     </div>
                 </div>
                 <div className="carousel-item">
@@ -28,7 +28,7 @@ function Carousel(props) {
                     <div className="carousel-caption d-none d-md-block">
                         <h1>Dark Hostel</h1>
                         <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
-                        <a href="#" className="btn">Booking</a>
+                        <a href="/booking" className="btn">Booking</a>
                     </div>
                 </div>
                 <div className="carousel-item">
@@ -36,7 +36,7 @@ function Carousel(props) {
                     <div className="carousel-caption d-none d-md-block">
                         <h1>Pool Hostel</h1>
                         <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
-                        <a href="#" className="btn">Booking</a>
+                        <a href="/booking" className="btn">Booking</a>
                     </div>
                 </div>
             </div>
