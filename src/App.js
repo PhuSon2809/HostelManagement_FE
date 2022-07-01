@@ -1,15 +1,15 @@
-import './App.scss';
-import Home from './features/home';
-import { Route, Routes } from 'react-router-dom';
-import Hostel from './features/hostels';
-import ListRoom from './features/listRoom';
-import RoomDetail from './features/roomDetail';
-import Profile from './features/profile';
-import Booking from './features/booking';
+import "./App.scss";
+import Home from "./features/home";
+import { Route, Routes } from "react-router-dom";
+import Hostel from "./features/hostels";
+import ListRoom from "./features/listRoom";
+import RoomDetail from "./features/roomDetail";
+import Profile from "./features/profile";
+import Booking from "./features/booking";
+import Owner from "./features/owner";
 
 function App() {
   return (
-
     <Routes>
       <Route path="/" exact element={<Home />} />
       <Route path="/home" exact element={<Home />} />
@@ -18,8 +18,8 @@ function App() {
       <Route path="/room" exact element={<RoomDetail />} />
       <Route path="/profile" exact element={<Profile />} />
       <Route path="/booking" exact element={<Booking />} />
+      <Route path="/owner/*" exact element={<Owner />} />
     </Routes>
-
   );
 }
 

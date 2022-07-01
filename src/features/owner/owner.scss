@@ -1,0 +1,96 @@
+@import url('https://fonts.googleapis.com/css2?family=Bitter:wght@400;500;600;700&family=Inter:wght@400;700&family=PT+Serif:wght@400;700&family=Poppins:wght@200;300;400;500;600;700&family=Raleway:ital,wght@0,100;0,300;0,400;0,500;1,600&family=Roboto+Slab:wght@100;200;300;400;500;600;700;800&family=Tiro+Devanagari+Sanskrit&display=swap');
+
+$font-primary: "Poppins", Arial, sans-serif;
+$primary: #dd1f26;
+
+#content {
+  width: 100%;
+  padding: 0;
+   min-height: 100vh;
+  transition: all 0.3s;
+  .content-body{
+	justify-content: center;
+	h2{
+		text-align: center;
+	}
+	.submit-btn {
+		text-align: center;
+		margin-top: 30px;
+	}
+  }
+}
+a {
+	transition: .3s all ease;
+	color: $primary;
+	&:hover, &:focus {
+		text-decoration: none !important;
+		outline: none !important;
+		box-shadow: none;
+	}
+}
+button {
+	transition: .3s all ease;
+	&:hover, &:focus {
+		text-decoration: none !important;
+		outline: none !important;
+		box-shadow: none !important;
+	}
+}
+h1, h2, h3, h4, h5,
+.h1, .h2, .h3, .h4, .h5 {
+	line-height: 1.5;
+	font-weight: 400;
+	font-family: $font-primary;
+	color: black;
+}
+
+.ftco-section{
+	padding: 7em 0;
+}
+
+.ftco-no-pt{
+	padding-top: 0;
+}
+.ftco-no-pb{
+	padding-bottom: 0;
+}
+//HEADING SECTION
+.heading-section{
+	font-size: 28px;
+	color: black;
+	small{
+		font-size: 18px;
+	}
+}
+
+//COVER BG
+.img{
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center center;
+}
+.welcome-table {
+	width: 90%;
+	padding-left: 5rem;
+	.form-group {
+		margin-top: 2rem;
+		.form-control {
+			border-bottom: 1px solid !important;
+			padding: 1rem;
+			box-shadow: none !important;
+			border: transparent;
+		}
+		p {
+			color: red;
+			margin-top: 0.1rem;
+		}
+	}
+	.submit-btn {
+		text-align: center;
+		padding: 2rem;
+	}
+}
+
+.card-body{
+	margin-left: 3rem;
+}
