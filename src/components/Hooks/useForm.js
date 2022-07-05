@@ -106,6 +106,17 @@ const useForm = (callback) => {
           setErrors(newObject);
         }
         break;
+      case "address":
+        if (value.length <= 10) {
+          setErrors({
+            ...errors,
+            address: "Address atleast have 10 letters",
+          });
+        } else {
+          let newObject = omit(errors, "address");
+          setErrors(newObject);
+        }
+        break;
       default:
         break;
     }
@@ -154,6 +165,32 @@ const useForm = (callback) => {
       alertify.error("Please! Check your input again!");
     }
   };
+  const handleSubmitCreate = (event) => {
+    if (event) event.preventDefault();
+    if (Object.keys(errors).length === 0 && Object.keys(values).length !== 0) {
+      callback();
+      // alert("Submit successfully!");
+      alertify.success("Create successful!");
+      setValues("");
+      handleReset();
+    } else {
+      // alert("There is Error!");
+      alertify.error("Please! Check your input again!");
+    }
+  };
+  const handleSubmitUpdate = (event) => {
+    if (event) event.preventDefault();
+    if (Object.keys(errors).length === 0 && Object.keys(values).length !== 0) {
+      callback();
+      // alert("Submit successfully!");
+      alertify.success("Update successful!");
+      setValues("");
+      handleReset();
+    } else {
+      // alert("There is Error!");
+      alertify.error("Please! Check your input again!");
+    }
+  };
 
   return {
     values,
@@ -161,6 +198,8 @@ const useForm = (callback) => {
     handleChange,
     handleSubmit,
     handleReset,
+    handleSubmitCreate,
+    handleSubmitUpdate,
   };
 };
 

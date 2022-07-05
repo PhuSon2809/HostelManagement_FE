@@ -20,16 +20,18 @@ function Dashboard() {
           <i class="fa fa-bars"></i>
         </button>
       </div>
-      <div className="p-4 pt-5 bg-dark">
-        <div className="header">
-          <img
-            class="avatar"
-            src="https://www.w3schools.com/howto/img_avatar2.png"
-            alt="Avatar"
-          />
-          <p className="align-self-center pr-2">Full Name</p>
+      <Link to="/owner/profile">
+        <div className="p-4 pt-5 bg-dark">
+          <div className="header">
+            <img
+              class="avatar"
+              src="https://www.w3schools.com/howto/img_avatar2.png"
+              alt="Avatar"
+            />
+            <p className="align-self-center pr-2">Full Name</p>
+          </div>
         </div>
-      </div>
+      </Link>
       <div className="p-4 pt-4">
         <h2>
           <Link to="/owner" className="logo">
@@ -77,7 +79,7 @@ function Dashboard() {
             </ul>
           </li>
           <li>
-            <Link to="/profile">Profile</Link>
+            <Link to="/owner/profile">Profile</Link>
           </li>
         </ul>
       </div>

@@ -94,3 +94,13 @@ h1, h2, h3, h4, h5,
 .card-body{
 	margin-left: 3rem;
 }
+.card{
+	border: none;
+	img{
+		max-width: 20rem;
+		max-height: 20rem;
+		margin-left: auto;
+		margin-right: auto;
+		width: 50%;
+	}
+}
