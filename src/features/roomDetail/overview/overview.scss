@@ -1,0 +1,42 @@
+@import "../../../App.scss";
+
+.btn {
+  @include btn;
+}
+
+.overview {
+  border: $border;
+  border-radius: 0.4rem;
+  padding: 1rem;
+  color: $navi;
+  margin: 0 1rem 1rem 0;
+  .address {
+    i {
+      width: 3%;
+      color: $red;
+      font-size: 1.3rem;
+      text-align: center;
+      margin-right: 0.3rem;
+    }
+
+    p {
+      color: $gray;
+    }
+  }
+
+  .over {
+    i {
+      color: $red;
+      padding-right: 0.5rem;
+    }
+    p {
+      margin-bottom: 0;
+    }
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .overview {
+    margin-right: 0;
+  }
+}

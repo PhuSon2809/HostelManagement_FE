@@ -8,7 +8,7 @@ Services.propTypes = {
 
 function Services(props) {
     return (
-        <div className="service">
+        <div className="service" id='service'>
             <div className="col-12 row">
                 <div className="box col-6 col-md-3">
                     <i className="fa fa-location-arrow" aria-hidden="true" />

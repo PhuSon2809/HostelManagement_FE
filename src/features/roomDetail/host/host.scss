@@ -1,0 +1,60 @@
+@import "../../../App.scss";
+
+.btn {
+  @include btn;
+}
+
+.host {
+  padding: 0 0 1rem 0;
+
+  .hostItem {
+    border: $border;
+    border-radius: 0.4rem;
+    padding: 1rem;
+
+    h3 {
+      @include title(1.8rem);
+      display: inline-block;
+    }
+
+    .information {
+      display: flex;
+      align-items: center;
+      text-align: left;
+
+      .col {
+        color: $navi;
+        div {
+          color: $red;
+
+          &:hover {
+            transform: scale(1.05);
+            padding-left: 0.3rem;
+          }
+        }
+      }
+
+      img {
+        border-radius: 50%;
+        width: 5.5rem;
+        height: 5.5rem;
+        margin: 1rem;
+      }
+    }
+
+    .about {
+      border-left: $border;
+      margin-left: 0.2rem;
+      padding-left: 1rem;
+
+      p {
+        color: $gray;
+        margin-bottom: 0;
+      }
+
+      div {
+        color: $red;
+      }
+    }
+  }
+}
