@@ -1,0 +1,41 @@
+@import "../../../../../App.scss";
+
+.accountInformation {
+  .upload {
+    img {
+      height: 7rem;
+      width: 7rem;
+      border-radius: 50%;
+    }
+
+    .btn {
+      position: relative;
+
+      input {
+        cursor: pointer;
+        position: absolute;
+        left: 0;
+        top: 0;
+        opacity: 0;
+      }
+    }
+  }
+
+  .information {
+    margin-top: 0.5rem;
+
+    label {
+      margin-left: 0.5rem;
+      color: $navi;
+    }
+
+    input{
+      color: $navi;
+    }
+
+    span {
+      margin-left: 3rem;
+      margin-top: 1rem;
+    }
+  }
+}
