@@ -1,0 +1,99 @@
+@import "../../../App.scss";
+
+.anotherRoom {
+  border: $border;
+  border-radius: 0.4rem;
+  padding: 0.5rem 1.5rem;
+  margin-bottom: 1rem;
+
+  .another{
+    h3{
+      @include title(2.5rem);
+      margin-left: 25rem;
+      margin-right: 25rem;
+    }
+  }
+
+  .rooms {
+    display: flex;
+    align-items: center;
+    border: 1px #1b34532b solid;
+    border-radius: 0.4rem;
+    padding: 0.8rem 0;
+    margin: 0.5rem ;
+
+    &:hover {
+      box-shadow: 0.3rem 0.3rem 0.3rem #1b34532b;
+    }
+
+    .image {
+      position: relative;
+
+      .img1 {
+        width: 100%;
+      }
+
+      .img2 {
+        width: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        opacity: 0;
+
+        &:hover {
+          opacity: 1;
+        }
+      }
+    }
+
+    .content {
+      h3 {
+        font-size: 1.2rem;
+        color: $navi;
+      }
+
+      i {
+        color: $red;
+        // font-size: 1rem;
+        margin: 0 0.1rem;
+      }
+
+      P {
+        color: $gray;
+        margin-bottom: 0;
+        font-size: 0.9rem;
+      }
+
+      .house-price {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-top: 0.2rem;
+
+        .red {
+          color: $red;
+        }
+      }
+
+      .btn {
+        font-size: 0.9rem;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .anotherRoom {
+    .another{
+      h3{
+        @include title(2.5rem);
+        margin-left: 0rem;
+        margin-right: 0rem;
+      }
+    }
+
+    .content{
+      margin-left: 1rem;
+    }
+  }
+}

@@ -4,6 +4,7 @@
     .row {
         .titles {
             @include title(4rem);
+            margin: 1rem;
         }
 
         img {
