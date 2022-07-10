@@ -87,7 +87,7 @@
   }
 }
 
-@media only screen and (max-width: 500px) {
+@media only screen and (max-width: 600px) {
   .box-content {
     @include grid(20rem);
     transition: 0.6s all linear;

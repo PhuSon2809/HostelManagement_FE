@@ -29,9 +29,9 @@ function AnotherRoom(props) {
                 <i className="fa fa-star" />
                 <i className="fa fa-star" />
                 <i className="fa fa-star-half" />
+                <p>Thanh pho Ho Chi Minh</p>
                 <div className="house-price">
                   <p>30 m2</p>
-                  <p>Thanh pho Ho Chi Minh</p>
                   <p className="red">
                     &amp; 100 <span>/ day</span>
                   </p>

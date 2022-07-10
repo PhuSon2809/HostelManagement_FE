@@ -1,7 +1,18 @@
 import React, { useState } from "react";
 import "./header.scss";
 import { Link, NavLink } from "react-router-dom";
-import { Navbar, NavbarBrand, NavbarToggler, Collapse, Nav, NavItem, Dropdown, DropdownToggle, DropdownMenu, DropdownItem } from "reactstrap";
+import {
+  Navbar,
+  NavbarBrand,
+  NavbarToggler,
+  Collapse,
+  Nav,
+  NavItem,
+  Dropdown,
+  DropdownToggle,
+  DropdownMenu,
+  DropdownItem,
+} from "reactstrap";
 
 function Header(props) {
   const [isNavOpen, setIsNavOpen] = useState(false);
@@ -35,14 +46,14 @@ function Header(props) {
             </NavLink>
           </NavItem>
           <NavItem>
-            <NavLink className="nav-link" to="/service">
+            <a href="#services" className="nav-link">
               Services
-            </NavLink>
+            </a>
           </NavItem>
           <NavItem>
-            <NavLink className="nav-link" to="/reviews">
-              Reviews
-            </NavLink>
+            <a href="#blog" className="nav-link">
+              Blog
+            </a>
           </NavItem>
         </Nav>
 

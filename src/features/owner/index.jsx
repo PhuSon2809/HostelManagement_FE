@@ -19,6 +19,7 @@ $(function ($) {
 
 function Owner(props) {
   return (
+    <div className="owner">
     <div className="row w-100 d-flex">
       <div className="col col-md-2">
         <Dashboard />
@@ -32,6 +33,7 @@ function Owner(props) {
           <Route path="/create_room" exact element={<Create_Room />} />
         </Routes>
       </div>
+    </div>
     </div>
   );
 }

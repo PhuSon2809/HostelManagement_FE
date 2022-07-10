@@ -6,8 +6,8 @@ ListOption.propTypes = {};
 
 function ListOption(props) {
   return (
-    <div>
-      <div className="sidebar p-3 mt-5">
+    <div className="listOption">
+      <div className="sidebar p-3 mt-md-5 mt-4">
         <h3>Filter by price</h3>
         <div className="filter">
           <input type="checkbox" />
@@ -51,7 +51,7 @@ function ListOption(props) {
         </div>
       </div>
 
-      <div className="sidebar p-3 mt-4 mb-5">
+      <div className="sidebar p-3 mt-4">
         <h3>Filter by area</h3>
         <div className="filter">
           <input type="checkbox" />

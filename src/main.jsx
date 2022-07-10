@@ -7,8 +7,10 @@ import Hostel from "./features/hostels/Hostels";
 import ListRoom from "./features/listRoom/ListRoom";
 import RoomDetail from "./features/roomDetail/RoomDetail";
 import Profile from "./features/profile/Profile";
+import Owner from "./features/owner/index";
 import { useEffect } from "react";
 import HostelAPI from "./apis/hostel";
+import Booking from "./features/booking";
 
 function Main() {
   // const fetchData = async () => {
@@ -32,6 +34,8 @@ function Main() {
         <Route path="/listRoom" exact element={<ListRoom />} />
         <Route path="/room" exact element={<RoomDetail />} />
         <Route path="/profile" exact element={<Profile />} />
+        <Route path="/owner" exact element={<Owner />} />
+        <Route path="/booking" exact element={<Booking />} />
       </Routes>
       <footer>
         <Footer />

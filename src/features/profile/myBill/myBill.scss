@@ -5,6 +5,10 @@
 
   .table {
     border: $border;
+    margin: auto;
+    th {
+      border-bottom: none;
+    }
     thead {
       th {
         border-bottom: 2px solid $red;
