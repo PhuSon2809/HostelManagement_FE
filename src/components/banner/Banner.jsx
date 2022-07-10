@@ -8,7 +8,7 @@ Banner.propTypes = {
 
 function Banner(props) {
     return (
-        <div className="row banner" id="banner">
+        <div className="banner" id="banner">
             <div className="content">
                 <h1><span>welcome to</span> HOM</h1>
                 <p className='d-none d-md-block'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam libero nostrum veniam facere tempore

@@ -1,30 +1,43 @@
-@import '../../../App.scss';
+@import "../../../App.scss";
 
 .btn {
-    @include btn;
+  @include btn;
 }
 
 .carousel {
-    .carousel-indicators li {
-        width: 0.5rem;
-        height: 0.5rem;
-        border-radius: 50%;
+  .carousel-indicators {
+    li {
+      width: 0.5rem;
+      height: 0.5rem;
+      border-radius: 50%;
+    }
+  }
+
+  .carousel-item {
+    height: 35rem;
+
+    .btn {
+      color: $white;
+      font-size: 1.3rem;
     }
 
+    img {
+      height: 35rem;
+    }
+  }
+
+  .carousel-caption {
+    text-align: left;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .carousel {
     .carousel-item {
-        height: 35rem;
-
-        .btn {
-            color: $white;
-            font-size: 1.3rem;
-        }
+      height: 25rem;
+      img {
+        height: 25rem;
+      }
     }
-
-    .carousel-item img {
-        height: 35rem;
-    }
-
-    .carousel-caption {
-        text-align: left;
-    }
+  }
 }

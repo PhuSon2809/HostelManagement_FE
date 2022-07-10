@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Carousel from "./carousel/Carousel";
-import Services from "./services";
+import Services from "./services/Services";
 import Blog from "./blog/Blog";
 import Outline from "./outline/Outline";
 import Hostel from "./hostel/Hostel";

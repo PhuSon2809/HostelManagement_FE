@@ -20,12 +20,16 @@
   }
 }
 
-@media only screen and (max-width: 500px) {
+@media only screen and (max-width: 600px) {
   .utilities {
     margin-right: 0;
     @include grid(10rem);
     .item-service{
         width: 10rem;
+
+        span{
+          font-size: 1.1rem;
+        }
     }
   }
 }

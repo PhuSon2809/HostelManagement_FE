@@ -24,11 +24,12 @@ function Room(props) {
             <i className="fa fa-star" />
             <i className="fa fa-star" />
             <i className="fa fa-star-half" />
+            <p className="mb-0 mt-2">Thanh pho Ho Chi Minh</p>
             <div className="house-price">
               <p>30 m2</p>
-              <p>Thanh pho Ho Chi Minh</p>
+              
               <p className="red">
-                &amp; 100 <span>/ day</span>
+                &amp; 100 <span>/ month</span>
               </p>
             </div>
             <div className="text-center text-md-left">

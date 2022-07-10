@@ -59,7 +59,7 @@ function AccountInformation(props) {
           </FormGroup>
           <FormGroup>
             <Label for="gender">Gender:</Label>
-            <span>
+            <span className="first">
               <Input
                 type="radio"
                 id="gender"
