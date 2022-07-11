@@ -34,7 +34,7 @@ function Main() {
         <Route path="/listRoom" exact element={<ListRoom />} />
         <Route path="/room" exact element={<RoomDetail />} />
         <Route path="/profile" exact element={<Profile />} />
-        <Route path="/owner" exact element={<Owner />} />
+        <Route path="/owner/*" exact element={<Owner />} />
         <Route path="/booking" exact element={<Booking />} />
       </Routes>
       <footer>

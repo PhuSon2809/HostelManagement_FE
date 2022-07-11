@@ -8,30 +8,23 @@ import HostelAPI from "../../apis/hostel";
 
 Home.propTypes = {};
 
-
-
 function Home(props) {
-
   const [hostels, setHostels] = useState([]);
-  const [rooms, setRooms] = useState([]);
+  const [filters, setFilters] = useState({
+    pageIndex: 1,
+    pageSize: 6,
+  });
 
   const fetchData = async () => {
-    const  hostelsApi = await HostelAPI.getHostels();
-    const  roomsApi = await HostelAPI.getHostels();
-    // console.log("hostels:", hostels);
-    // console.log("rooms:", rooms);
-
+    const hostelsApi = await HostelAPI.getHostels(filters);
     setHostels(hostelsApi);
-    setRooms(roomsApi);
-
   };
-  useEffect( () => {
+
+  useEffect(() => {
     try {
-      // const hostels = await HostelAPI.getHostels();
-      // console.log("hostels", hostels);
       fetchData();
     } catch (error) {
-      console.log("fail to get hostel");
+      console.log("Fail to get hostel");
     }
   }, []);
 
@@ -42,7 +35,7 @@ function Home(props) {
         <Blog />
         <Services />
         <Outline />
-        <Hostel hostels={hostels} rooms={rooms}/>
+        <Hostel hostels={hostels} />
       </div>
     </div>
   );

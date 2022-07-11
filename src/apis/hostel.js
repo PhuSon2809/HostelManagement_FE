@@ -1,9 +1,12 @@
 import axiosClient from "./axiosClient";
-const entity = "/Hostels";
 
 const HostelAPI = {
-  async getHostels() {
-    const { data } = await axiosClient.get(entity);
+  async getHostels(filter) {
+    console.log("params", filter);
+    // const data = await axiosClient.getWithFilter("/Hostels", { filter });
+    const data = await axiosClient.getWithFilter(
+      `/Hostels?pageIndex=${filter.pageIndex}&pageSize=${filter.pageSize}`
+    );
     return data;
   },
 };
