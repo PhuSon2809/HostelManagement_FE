@@ -11,7 +11,7 @@ function ListBox(props) {
       <div className="box-content justify-content-center">
         <div className="infor">
           <div className="image">
-            <img src="./images/show1.jfif" alt className="img-fluid" />
+            <img src="./images/show1.jfif" className="img-fluid" />
             <div className="icons">
               <a href="#">
                 <i className="fa fa-user" /> by admin
@@ -34,7 +34,7 @@ function ListBox(props) {
         </div>
         <div className="infor">
           <div className="image">
-            <img src="./images/show2.jfif" alt className="img-fluid" />
+            <img src="./images/show2.jfif" className="img-fluid" />
             <div className="icons">
               <a href="#">
                 <i className="fa fa-user" /> by admin{" "}
@@ -57,7 +57,7 @@ function ListBox(props) {
         </div>
         <div className="infor">
           <div className="image">
-            <img src="./images/show3.jfif" alt className="img-fluid" />
+            <img src="./images/show3.jfif" className="img-fluid" />
             <div className="icons">
               <a href="#">
                 <i className="fa fa-user" /> by admin{" "}
@@ -80,7 +80,7 @@ function ListBox(props) {
         </div>
         <div className="infor">
           <div className="image">
-            <img src="./images/show4.jfif" alt className="img-fluid" />
+            <img src="./images/show4.jfif" className="img-fluid" />
             <div className="icons">
               <a href="#">
                 <i className="fa fa-user" /> by admin{" "}
@@ -103,7 +103,7 @@ function ListBox(props) {
         </div>
         <div className="infor">
           <div className="image">
-            <img src="./images/show5.jfif" alt className="img-fluid" />
+            <img src="./images/show5.jfif" className="img-fluid" />
             <div className="icons">
               <a href="#">
                 <i className="fa fa-user" /> by admin{" "}
@@ -126,7 +126,7 @@ function ListBox(props) {
         </div>
         <div className="infor">
           <div className="image">
-            <img src="./images/show1.jfif" alt className="img-fluid" />
+            <img src="./images/show1.jfif" className="img-fluid" />
             <div className="icons">
               <a href="#">
                 <i className="fa fa-user" /> by admin{" "}
@@ -149,7 +149,7 @@ function ListBox(props) {
         </div>
         <div className="infor">
           <div className="image">
-            <img src="./images/show1.jfif" alt className="img-fluid" />
+            <img src="./images/show1.jfif" className="img-fluid" />
             <div className="icons">
               <a href="#">
                 <i className="fa fa-user" /> by admin{" "}
@@ -172,7 +172,7 @@ function ListBox(props) {
         </div>
         <div className="infor">
           <div className="image">
-            <img src="./images/show1.jfif" alt className="img-fluid" />
+            <img src="./images/show1.jfif" className="img-fluid" />
             <div className="icons">
               <a href="#">
                 <i className="fa fa-user" /> by admin{" "}

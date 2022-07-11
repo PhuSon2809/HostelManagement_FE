@@ -19,7 +19,7 @@ function Booking(props) {
                 <Content_header />
                 <Content_body />
             </div>
-            <Footer />
+            {/* <Footer /> */}
         </div>
     );
 }

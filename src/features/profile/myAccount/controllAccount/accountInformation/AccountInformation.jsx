@@ -2,19 +2,24 @@ import React, { useState } from "react";
 import PropTypes from "prop-types";
 import { Input, Form, FormGroup, FormFeedback, Label } from "reactstrap";
 import "./accountInformation.scss";
+import { event } from "jquery";
 
 AccountInformation.propTypes = {};
 
 function AccountInformation(props) {
   const [avatar, setAvatar] = useState();
-  const [fullName, setFullName] = useState();
+  const [fullName, setFullName] = useState('');
   const [gender, setGender] = useState();
-  const [phone, setPhone] = useState();
+  const [phone, setPhone] = useState('');
 
-  const [avatarError, setAvatarError] = useState();
-  const [fullNameError, setFullNameError] = useState();
-  const [genderError, setGenderError] = useState();
-  const [phoneError, setPhoneError] = useState();
+  const [error, setError] = useState({});
+
+  // const validate = (name, value) => {
+  //   switch (name) {
+  //     case ""
+  //   }
+  // }
+
 
   return (
     <div className="accountInformation">
@@ -34,10 +39,10 @@ function AccountInformation(props) {
               id="fullName"
               name="fullName"
               placeholder="fullName"
-              // value={fullName}
-              // valid={this.state.error.fullName === ""}
-              // invalid={this.state.error.fullName !== ""}
-              // onChange={(event) => setFullName(event.target.value)}
+              value={fullName}
+              onChange={(event) => setFullName(event.target.value)}
+              valid={error === ""}
+              invalid={error !== ""}
               // onBlur={this.handleInputBlur}
             />
             <FormFeedback></FormFeedback>
@@ -49,16 +54,16 @@ function AccountInformation(props) {
               id="phone"
               name="phone"
               placeholder="phone"
-              // value={this.state.fullName}
-              // valid={this.state.error.fullName === ""}
-              // invalid={this.state.error.fullName !== ""}
-              // onChange={this.handleInputChange}
+              value={phone}
+              onChange={(event) => setPhone(event.target.value)}
+              valid={error === ""}
+              invalid={error !== ""}
               // onBlur={this.handleInputBlur}
             />
             <FormFeedback></FormFeedback>
           </FormGroup>
           <FormGroup>
-            <Label for="gender">Gender:</Label>
+            <Label for="gender" className="mr-5">Gender:</Label>
             <span className="first">
               <Input
                 type="radio"

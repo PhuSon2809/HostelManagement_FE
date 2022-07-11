@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import PropTypes from "prop-types";
 import Banner from "../../components/banner/Banner";
 import ListTitle from "./listTitle/ListTitle";
@@ -8,6 +8,7 @@ import ListType from "./listType/ListType";
 Hostel.propTypes = {};
 
 function Hostel(props) {
+
   return (
     <div>
       <Banner />

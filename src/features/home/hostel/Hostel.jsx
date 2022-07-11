@@ -4,12 +4,11 @@ import "./hostel.scss";
 import { Link } from "react-router-dom";
 
 Hostel.propTypes = {
-  hostels: PropTypes.array,
+  hostels: PropTypes.object,
 };
 
-function Hostel({ hostels, rooms }) {
+function Hostel({ hostels }) {
   console.log("hostels props: ", hostels);
-  console.log("rooms props: ", rooms);
 
   return (
     <div className="hostel" id="hostel">
@@ -28,147 +27,42 @@ function Hostel({ hostels, rooms }) {
       </div>
 
       <div className="box-content">
-        {/* {hostels.map((hostel) => { */}
-        <div className="infor">
-          <div className="image">
-            <img src="./images/show1.jfif" alt className="img-fluid" />
-            <div className="icons">
-              <a href="#">
-                <i className="fa fa-user" /> by admin{" "}
-              </a>
+        {hostels.data?.map((hostel) => (
+          <div className="infor" key={hostel.id}>
+            <div className="image">
+              <img
+                src="./images/show1.jfif"
+                alt="hostel"
+                className="img-fluid"
+              />
+              <div className="icons">
+                <a href="#">
+                  <i className="fa fa-user" /> by {hostel.account.name}
+                </a>
+              </div>
             </div>
-          </div>
-          <div className="content">
-            <h3>GRean</h3>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-            <div className="d-flex">
-              <p className="mr-auto">Kali, America. </p>
-              <span>10USD</span>
-            </div>
-            <div className="col-12 text-center">
-              <Link to="/listRoom" className="btn">
-                View room
-              </Link>
-            </div>
-          </div>
-        </div>
-        <div className="infor">
-          <div className="image">
-            <img src="./images/show1.jfif" alt className="img-fluid" />
-            <div className="icons">
-              <a href="#">
-                <i className="fa fa-user" /> by admin{" "}
-              </a>
-            </div>
-          </div>
-          <div className="content">
-            <h3>GRean</h3>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-            <div className="d-flex">
-              <p className="mr-auto">Kali, America. </p>
-              <span>10USD</span>
-            </div>
-            <div className="col-12 text-center">
-              <Link to="/listRoom" className="btn">
-                View room
-              </Link>
-            </div>
-          </div>
-        </div>
-        <div className="infor">
-          <div className="image">
-            <img src="./images/show1.jfif" alt className="img-fluid" />
-            <div className="icons">
-              <a href="#">
-                <i className="fa fa-user" /> by admin{" "}
-              </a>
-            </div>
-          </div>
-          <div className="content">
-            <h3>GRean</h3>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-            <div className="d-flex">
-              <p className="mr-auto">Kali, America. </p>
-              <span>10USD</span>
-            </div>
-            <div className="col-12 text-center">
-              <Link to="/listRoom" className="btn">
-                View room
-              </Link>
-            </div>
-          </div>
-        </div>
-        <div className="infor">
-          <div className="image">
-            <img src="./images/show1.jfif" alt className="img-fluid" />
-            <div className="icons">
-              <a href="#">
-                <i className="fa fa-user" /> by admin{" "}
-              </a>
-            </div>
-          </div>
-          <div className="content">
-            <h3>GRean</h3>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-            <div className="d-flex">
-              <p className="mr-auto">Kali, America. </p>
-              <span>10USD</span>
-            </div>
-            <div className="col-12 text-center">
-              <Link to="/listRoom" className="btn">
-                View room
-              </Link>
-            </div>
-          </div>
-        </div>
-        <div className="infor">
-          <div className="image">
-            <img src="./images/show1.jfif" alt className="img-fluid" />
-            <div className="icons">
-              <a href="#">
-                <i className="fa fa-user" /> by admin{" "}
-              </a>
-            </div>
-          </div>
-          <div className="content">
-            <h3>GRean</h3>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-            <div className="d-flex">
-              <p className="mr-auto">Kali, America. </p>
-              <span>10USD</span>
-            </div>
-            <div className="col-12 text-center">
-              <Link to="/listRoom" className="btn">
-                View room
-              </Link>
-            </div>
-          </div>
-        </div>
-        <div className="infor">
-          <div className="image">
-            <img src="./images/show1.jfif" alt className="img-fluid" />
-            <div className="icons">
-              <a href="#">
-                <i className="fa fa-user" /> by admin{" "}
-              </a>
-            </div>
-          </div>
-          <div className="content">
-            <h3>GRean</h3>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-            <div className="d-flex">
-              <p className="mr-auto">Kali, America. </p>
-              <span>10USD</span>
-            </div>
-            <div className="col-12 text-center">
-              <Link to="/listRoom" className="btn">
-                View room
-              </Link>
-            </div>
-          </div>
-        </div>
+            <div className="content">
+              <div className="h3">
+                <h3>{hostel.name}</h3>
+              </div>
 
-        {/* })} */}
+              <p>{hostel.address}. </p>
+
+              {hostel.roomTypes.map((roomType) => (
+                <div className="d-flex mb-2" key={roomType.id}>
+                  <span className="mr-auto">{roomType.acreage} m2</span>
+                  <span>{roomType.price} VNĐ</span>
+                </div>
+              ))}
+
+              <div className="col-12 text-center">
+                <Link to="/listRoom" className="btn">
+                  View room
+                </Link>
+              </div>
+            </div>
+          </div>
+        ))}
       </div>
 
       <div className="col-12 text-center list_more">

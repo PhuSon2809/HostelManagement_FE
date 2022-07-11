@@ -1,20 +1,18 @@
 import axios from "axios";
-axios.defaults.baseURL = "https://homapi.azurewebsites.net";
+axios.defaults.baseURL = "https://hom-apim.azure-api.net/api/v1";
 axios.defaults.headers.post["Content-Type"] = "application/json";
 
 export const axiosClient = {
-  get(url, slug = "") {
-    return axios.get(`${url}/${slug}`).catch((error) => console.log(error));
+  get(url, params = "") {
+    return axios.get(`${url}/${params}`).catch((error) => console.log(error));
   },
   // get2(url, params) {
   //   return axios.get(`${url}`, params).catch((error) => console.log(error));
   // },
 
-  // getWithFilter(url, slug = "", params) {
-  //   return axios
-  //     .get(`${url}/${slug}`, params)
-  //     .catch((error) => console.log(error));
-  // },
+  getWithFilter(url, params) {
+    return axios.get(`${url}`, params).catch((error) => console.log(error));
+  },
   // getWithFilterMiddleId(url, url2, slug = "", params) {
   //   return axios
   //     .get(`${url}/${slug}/${url2}`, params)
