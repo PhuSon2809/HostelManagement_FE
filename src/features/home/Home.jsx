@@ -3,8 +3,8 @@ import Carousel from "./carousel/Carousel";
 import Services from "./services/Services";
 import Blog from "./blog/Blog";
 import Outline from "./outline/Outline";
-import Hostel from "./hostel/Hostel";
 import HostelAPI from "../../apis/hostel";
+import HostelList from "./hostelList/HostelList";
 
 Home.propTypes = {};
 
@@ -35,7 +35,7 @@ function Home(props) {
         <Blog />
         <Services />
         <Outline />
-        <Hostel hostels={hostels} />
+        <HostelList hostels={hostels} />
       </div>
     </div>
   );
