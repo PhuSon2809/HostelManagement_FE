@@ -27,7 +27,7 @@ function Room(props) {
             <p className="mb-0 mt-2">Thanh pho Ho Chi Minh</p>
             <div className="house-price">
               <p>30 m2</p>
-              
+
               <p className="red">
                 &amp; 100 <span>/ month</span>
               </p>
@@ -167,21 +167,6 @@ function Room(props) {
             </div>
           </div>
         </div>
-      </div>
-
-      <div className="btn-group mb-4" role="group" aria-label="First group">
-        <button type="button" className="btn">
-          1
-        </button>
-        <button type="button" className="btn">
-          2
-        </button>
-        <button type="button" className="btn">
-          3
-        </button>
-        <button type="button" className="btn">
-          4
-        </button>
       </div>
     </div>
   );

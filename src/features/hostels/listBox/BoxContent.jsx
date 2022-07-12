@@ -3,212 +3,47 @@ import PropTypes from "prop-types";
 import "./boxContent.scss";
 import { Link } from "react-router-dom";
 
-ListBox.propTypes = {};
+ListBox.propTypes = {
+  hostels: PropTypes.object,
+};
 
-function ListBox(props) {
+function ListBox({ hostels }) {
+  console.log("hostel page: ", hostels);
+
   return (
-    <div>
-      <div className="box-content justify-content-center">
-        <div className="infor">
+    <div className="box-content justify-content-center">
+      {hostels.data?.map((hostel) => (
+        <div className="infor" key={hostel.id}>
           <div className="image">
             <img src="./images/show1.jfif" className="img-fluid" />
             <div className="icons">
               <a href="#">
-                <i className="fa fa-user" /> by admin
+                <i className="fa fa-user" /> by {hostel.account.name}
               </a>
             </div>
           </div>
           <div className="content">
-            <h3>King Hostel</h3>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-            <div className="d-flex">
-              <p className="mr-auto">Kali, America. </p>
-              <span>10USD</span>
+            <div className="h3">
+              <h3>{hostel.name}</h3>
             </div>
-            <div className="col-12 text-center">
-              <Link to="/listRoom" className="btn">
-                View room
-              </Link>
-            </div>
-          </div>
-        </div>
-        <div className="infor">
-          <div className="image">
-            <img src="./images/show2.jfif" className="img-fluid" />
-            <div className="icons">
-              <a href="#">
-                <i className="fa fa-user" /> by admin{" "}
-              </a>
-            </div>
-          </div>
-          <div className="content">
-            <h3>King Hostel</h3>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-            <div className="d-flex">
-              <p className="mr-auto">Kali, America. </p>
-              <span>10USD</span>
-            </div>
-            <div className="col-12 text-center">
-              <Link to="/listRoom" className="btn">
-                View room
-              </Link>
-            </div>
-          </div>
-        </div>
-        <div className="infor">
-          <div className="image">
-            <img src="./images/show3.jfif" className="img-fluid" />
-            <div className="icons">
-              <a href="#">
-                <i className="fa fa-user" /> by admin{" "}
-              </a>
-            </div>
-          </div>
-          <div className="content">
-            <h3>King Hostel</h3>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-            <div className="d-flex">
-              <p className="mr-auto">Kali, America. </p>
-              <span>10USD</span>
-            </div>
-            <div className="col-12 text-center">
-              <Link to="/listRoom" className="btn">
-                View room
-              </Link>
-            </div>
-          </div>
-        </div>
-        <div className="infor">
-          <div className="image">
-            <img src="./images/show4.jfif" className="img-fluid" />
-            <div className="icons">
-              <a href="#">
-                <i className="fa fa-user" /> by admin{" "}
-              </a>
-            </div>
-          </div>
-          <div className="content">
-            <h3>King Hostel</h3>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-            <div className="d-flex">
-              <p className="mr-auto">Kali, America. </p>
-              <span>10USD</span>
-            </div>
-            <div className="col-12 text-center">
-              <Link to="/listRoom" className="btn">
-                View room
-              </Link>
-            </div>
-          </div>
-        </div>
-        <div className="infor">
-          <div className="image">
-            <img src="./images/show5.jfif" className="img-fluid" />
-            <div className="icons">
-              <a href="#">
-                <i className="fa fa-user" /> by admin{" "}
-              </a>
-            </div>
-          </div>
-          <div className="content">
-            <h3>King Hostel</h3>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-            <div className="d-flex">
-              <p className="mr-auto">Kali, America. </p>
-              <span>10USD</span>
-            </div>
-            <div className="col-12 text-center">
-              <Link to="/listRoom" className="btn">
-                View room
-              </Link>
-            </div>
-          </div>
-        </div>
-        <div className="infor">
-          <div className="image">
-            <img src="./images/show1.jfif" className="img-fluid" />
-            <div className="icons">
-              <a href="#">
-                <i className="fa fa-user" /> by admin{" "}
-              </a>
-            </div>
-          </div>
-          <div className="content">
-            <h3>King Hostel</h3>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-            <div className="d-flex">
-              <p className="mr-auto">Kali, America. </p>
-              <span>10USD</span>
-            </div>
-            <div className="col-12 text-center">
-              <Link to="/listRoom" className="btn">
-                View room
-              </Link>
-            </div>
-          </div>
-        </div>
-        <div className="infor">
-          <div className="image">
-            <img src="./images/show1.jfif" className="img-fluid" />
-            <div className="icons">
-              <a href="#">
-                <i className="fa fa-user" /> by admin{" "}
-              </a>
-            </div>
-          </div>
-          <div className="content">
-            <h3>King Hostel</h3>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-            <div className="d-flex">
-              <p className="mr-auto">Kali, America. </p>
-              <span>10USD</span>
-            </div>
-            <div className="col-12 text-center">
-              <Link to="/listRoom" className="btn">
-                View room
-              </Link>
-            </div>
-          </div>
-        </div>
-        <div className="infor">
-          <div className="image">
-            <img src="./images/show1.jfif" className="img-fluid" />
-            <div className="icons">
-              <a href="#">
-                <i className="fa fa-user" /> by admin{" "}
-              </a>
-            </div>
-          </div>
-          <div className="content">
-            <h3>King Hostel</h3>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-            <div className="d-flex">
-              <p className="mr-auto">Kali, America. </p>
-              <span>10USD</span>
-            </div>
-            <div className="col-12 text-center">
-              <Link to="/listRoom" className="btn">
-                View room
-              </Link>
-            </div>
-          </div>
-        </div>
-      </div>
 
-      <div className="btn-group mt-4" role="group" aria-label="First group">
-        <button type="button" className="btn">
-          1
-        </button>
-        <button type="button" className="btn">
-          2
-        </button>
-        <button type="button" className="btn">
-          3
-        </button>
-        <button type="button" className="btn">
-          4
-        </button>
-      </div>
+            <p>{hostel.address}</p>
+
+            {hostel.roomTypes.map((roomType) => (
+              <div className="d-flex" key={roomType.id}>
+                <span className="mr-auto">{roomType.acreage} m2</span>
+                <span>{roomType.price} VNĐ</span>
+              </div>
+            ))}
+
+            <div className="col-12 text-center">
+              <Link to="/listRoom" className="btn">
+                View room
+              </Link>
+            </div>
+          </div>
+        </div>
+      ))}
     </div>
   );
 }

@@ -12,9 +12,12 @@ import { Link } from "react-router-dom";
 
 import "./slideHostel.scss";
 
-SlideRoom.propTypes = {};
+SlideRoom.propTypes = {
+  hostels: PropTypes.object,
+};
 
-function SlideRoom(props) {
+function SlideRoom({ hostels }) {
+  console.log("list room page: ", hostels);
   return (
     <div className="SlideRoom">
       <h3>Another Hostel</h3>
@@ -45,306 +48,40 @@ function SlideRoom(props) {
           }}
           modules={[Pagination, Autoplay]}
         >
-          <SwiperSlide>
-            <div className="infor">
-              <div className="image">
-                <img src="./images/show1.jfif" alt className="img-fluid" />
-                <div className="icons">
-                  <a href="#">
-                    <i className="fa fa-user" /> by admin{" "}
-                  </a>
+          {hostels.data?.map((hostel) => (
+            <SwiperSlide key={hostel.id}>
+              <div className="infor">
+                <div className="image">
+                  <img src="./images/show1.jfif" className="img-fluid" />
+                  <div className="icons">
+                    <a href="#">
+                      <i className="fa fa-user" /> by {hostel.account.name}
+                    </a>
+                  </div>
+                </div>
+                <div className="content">
+                  <div className="h3">
+                    <h3>{hostel.name}</h3>
+                  </div>
+
+                  <p>{hostel.address}</p>
+
+                  {hostel.roomTypes.map((roomType) => (
+                    <div className="d-flex" key={roomType.id}>
+                      <span className="mr-auto">{roomType.acreage} m2</span>
+                      <span>{roomType.price} VNĐ</span>
+                    </div>
+                  ))}
+
+                  <div className="col-12 text-center">
+                    <Link to="/listRoom" className="btn">
+                      View room
+                    </Link>
+                  </div>
                 </div>
               </div>
-              <div className="content">
-                <h3>King Hostel</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-                <div className="d-flex">
-                  <p className="mr-auto">Kali, America. </p>
-                  <span>10USD</span>
-                </div>
-                <div className="col-12 text-center">
-                  <Link to="/listRoom" className="btn">
-                    View room
-                  </Link>
-                </div>
-              </div>
-            </div>
-          </SwiperSlide>
-          <SwiperSlide>
-            <div className="infor">
-              <div className="image">
-                <img src="./images/show1.jfif" alt className="img-fluid" />
-                <div className="icons">
-                  <a href="#">
-                    <i className="fa fa-user" /> by admin{" "}
-                  </a>
-                </div>
-              </div>
-              <div className="content">
-                <h3>King Hostel</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-                <div className="d-flex">
-                  <p className="mr-auto">Kali, America. </p>
-                  <span>10USD</span>
-                </div>
-                <div className="col-12 text-center">
-                  <Link to="/listRoom" className="btn">
-                    View room
-                  </Link>
-                </div>
-              </div>
-            </div>
-          </SwiperSlide>
-          <SwiperSlide>
-            <div className="infor">
-              <div className="image">
-                <img src="./images/show1.jfif" alt className="img-fluid" />
-                <div className="icons">
-                  <a href="#">
-                    <i className="fa fa-user" /> by admin{" "}
-                  </a>
-                </div>
-              </div>
-              <div className="content">
-                <h3>King Hostel</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-                <div className="d-flex">
-                  <p className="mr-auto">Kali, America. </p>
-                  <span>10USD</span>
-                </div>
-                <div className="col-12 text-center">
-                  <Link to="/listRoom" className="btn">
-                    View room
-                  </Link>
-                </div>
-              </div>
-            </div>
-          </SwiperSlide>
-          <SwiperSlide>
-            <div className="infor">
-              <div className="image">
-                <img src="./images/show1.jfif" alt className="img-fluid" />
-                <div className="icons">
-                  <a href="#">
-                    <i className="fa fa-user" /> by admin{" "}
-                  </a>
-                </div>
-              </div>
-              <div className="content">
-                <h3>King Hostel</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-                <div className="d-flex">
-                  <p className="mr-auto">Kali, America. </p>
-                  <span>10USD</span>
-                </div>
-                <div className="col-12 text-center">
-                  <Link to="/listRoom" className="btn">
-                    View room
-                  </Link>
-                </div>
-              </div>
-            </div>
-          </SwiperSlide>
-          <SwiperSlide>
-            <div className="infor">
-              <div className="image">
-                <img src="./images/show1.jfif" alt className="img-fluid" />
-                <div className="icons">
-                  <a href="#">
-                    <i className="fa fa-user" /> by admin{" "}
-                  </a>
-                </div>
-              </div>
-              <div className="content">
-                <h3>King Hostel</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-                <div className="d-flex">
-                  <p className="mr-auto">Kali, America. </p>
-                  <span>10USD</span>
-                </div>
-                <div className="col-12 text-center">
-                  <Link to="/listRoom" className="btn">
-                    View room
-                  </Link>
-                </div>
-              </div>
-            </div>
-          </SwiperSlide>
-          <SwiperSlide>
-            <div className="infor">
-              <div className="image">
-                <img src="./images/show1.jfif" alt className="img-fluid" />
-                <div className="icons">
-                  <a href="#">
-                    <i className="fa fa-user" /> by admin{" "}
-                  </a>
-                </div>
-              </div>
-              <div className="content">
-                <h3>King Hostel</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-                <div className="d-flex">
-                  <p className="mr-auto">Kali, America. </p>
-                  <span>10USD</span>
-                </div>
-                <div className="col-12 text-center">
-                  <Link to="/listRoom" className="btn">
-                    View room
-                  </Link>
-                </div>
-              </div>
-            </div>
-          </SwiperSlide>
-          <SwiperSlide>
-            <div className="infor">
-              <div className="image">
-                <img src="./images/show1.jfif" alt className="img-fluid" />
-                <div className="icons">
-                  <a href="#">
-                    <i className="fa fa-user" /> by admin{" "}
-                  </a>
-                </div>
-              </div>
-              <div className="content">
-                <h3>King Hostel</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-                <div className="d-flex">
-                  <p className="mr-auto">Kali, America. </p>
-                  <span>10USD</span>
-                </div>
-                <div className="col-12 text-center">
-                  <Link to="/listRoom" className="btn">
-                    View room
-                  </Link>
-                </div>
-              </div>
-            </div>
-          </SwiperSlide>
-          <SwiperSlide>
-            <div className="infor">
-              <div className="image">
-                <img src="./images/show1.jfif" alt className="img-fluid" />
-                <div className="icons">
-                  <a href="#">
-                    <i className="fa fa-user" /> by admin{" "}
-                  </a>
-                </div>
-              </div>
-              <div className="content">
-                <h3>King Hostel</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-                <div className="d-flex">
-                  <p className="mr-auto">Kali, America. </p>
-                  <span>10USD</span>
-                </div>
-                <div className="col-12 text-center">
-                  <Link to="/listRoom" className="btn">
-                    View room
-                  </Link>
-                </div>
-              </div>
-            </div>
-          </SwiperSlide>
-          <SwiperSlide>
-            <div className="infor">
-              <div className="image">
-                <img src="./images/show1.jfif" alt className="img-fluid" />
-                <div className="icons">
-                  <a href="#">
-                    <i className="fa fa-user" /> by admin{" "}
-                  </a>
-                </div>
-              </div>
-              <div className="content">
-                <h3>King Hostel</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-                <div className="d-flex">
-                  <p className="mr-auto">Kali, America. </p>
-                  <span>10USD</span>
-                </div>
-                <div className="col-12 text-center">
-                  <Link to="/listRoom" className="btn">
-                    View room
-                  </Link>
-                </div>
-              </div>
-            </div>
-          </SwiperSlide>
-          <SwiperSlide>
-            <div className="infor">
-              <div className="image">
-                <img src="./images/show1.jfif" alt className="img-fluid" />
-                <div className="icons">
-                  <a href="#">
-                    <i className="fa fa-user" /> by admin{" "}
-                  </a>
-                </div>
-              </div>
-              <div className="content">
-                <h3>King Hostel</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-                <div className="d-flex">
-                  <p className="mr-auto">Kali, America. </p>
-                  <span>10USD</span>
-                </div>
-                <div className="col-12 text-center">
-                  <Link to="/listRoom" className="btn">
-                    View room
-                  </Link>
-                </div>
-              </div>
-            </div>
-          </SwiperSlide>
-          <SwiperSlide>
-            <div className="infor">
-              <div className="image">
-                <img src="./images/show1.jfif" alt className="img-fluid" />
-                <div className="icons">
-                  <a href="#">
-                    <i className="fa fa-user" /> by admin{" "}
-                  </a>
-                </div>
-              </div>
-              <div className="content">
-                <h3>King Hostel</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-                <div className="d-flex">
-                  <p className="mr-auto">Kali, America. </p>
-                  <span>10USD</span>
-                </div>
-                <div className="col-12 text-center">
-                  <Link to="/listRoom" className="btn">
-                    View room
-                  </Link>
-                </div>
-              </div>
-            </div>
-          </SwiperSlide>
-          <SwiperSlide>
-            <div className="infor">
-              <div className="image">
-                <img src="./images/show1.jfif" alt className="img-fluid" />
-                <div className="icons">
-                  <a href="#">
-                    <i className="fa fa-user" /> by admin{" "}
-                  </a>
-                </div>
-              </div>
-              <div className="content">
-                <h3>King Hostel</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-                <div className="d-flex">
-                  <p className="mr-auto">Kali, America. </p>
-                  <span>10USD</span>
-                </div>
-                <div className="col-12 text-center">
-                  <Link to="/listRoom" className="btn">
-                    View room
-                  </Link>
-                </div>
-              </div>
-            </div>
-          </SwiperSlide>
+            </SwiperSlide>
+          ))}
         </Swiper>
       </div>
     </div>

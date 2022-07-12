@@ -5,11 +5,11 @@
 }
 
 .box-content {
-  @include grid(16rem);
+  @include grid(17rem);
   transition: 0.6s all linear;
     
   .infor {
-    width: 16rem;
+    width: 17rem;
     margin: auto;
     border-radius: 12px;
     box-shadow: 0.3rem 0.3rem #1b34532b;
@@ -65,11 +65,12 @@
       padding: 0.7rem;
 
       h3 {
-        @include title(1.6rem);
+        @include title(1.5rem);
       }
 
       p {
         color: $gray;
+        font-size: 0.95rem;
       }
 
       span {

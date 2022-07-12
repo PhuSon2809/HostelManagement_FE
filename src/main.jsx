@@ -3,7 +3,7 @@ import { Route, Routes } from "react-router-dom";
 import Header from "./components/header/Header";
 import Footer from "./components/footer/Footer";
 import Home from "./features/home/Home";
-import Hostel from "./features/hostels/Hostels";
+import Hostels from "./features/hostels/Hostels";
 import ListRoom from "./features/listRoom/ListRoom";
 import RoomDetail from "./features/roomDetail/RoomDetail";
 import Profile from "./features/profile/Profile";
