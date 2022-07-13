@@ -1,40 +1,29 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import LoginForm from '../loginForm';
-import accountApi from '../../../apis/accountApi';
+import React from "react";
+import { useDispatch } from "react-redux";
+import LoginForm from "../loginForm";
 
-Login.propTypes = {
-    
-};
+import { unwrapResult } from "@reduxjs/toolkit";
+import { login } from "../../../redux/actions/login";
 
-function Login(props) {
+Login.propTypes = {};
 
-    const handleSubmit = async (values) => {
+function Login({reload}) {
+  const dispatch = useDispatch();
 
-        try {
-            console.log("values login: " ,values);
-            const response = accountApi.login(values);
-            console.log("response: ", response);
-            // const action = login(values);
-            // const resultAction = await dispatch(action);
-            // unwrapResult(resultAction);
-
-            // // close dialog
-            // const {closeDialog} = props;
-            // if(closeDialog) {
-            //     closeDialog();
-            // }
-
-        } catch (error) {
-            console.log('Failed to login: ', error);
-        }
+  const handleSubmit = async (values) => {
+    try {
+      dispatch(login(values))
+      reload();
+    } catch (error) {
+      console.log("Failed to login: ", error);
     }
+  };
 
-    return (
-        <div>
-            <LoginForm onSubmit={handleSubmit} />
-        </div>
-    );
+  return (
+    <div>
+      <LoginForm onSubmit={handleSubmit} />
+    </div>
+  );
 }
 
 export default Login;

@@ -1,10 +1,12 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 
 import "./styles.scss";
 import Register from "./register";
 import { Typography, Button } from "@mui/material";
 import Login from "./login/Login";
+import { Navigate } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 Authenticated.propTypes = {};
 
@@ -15,18 +17,21 @@ const MODE = {
 
 function Authenticated(props) {
   const [mode, setMode] = useState(MODE.LOGIN);
-  //   const [open, setOpen] = useState(false);
+  const current = useSelector((state) => state.login.infoUser);
 
-  //   const handleClickOpen = () => {
-  //     setOpen(true);
-  //   };
+  const [reload, setReload] = useState(false);
+
+  console.log("current authen: ", current);
 
   const handleClose = () => {
-    // setOpen(false);
     setMode(MODE.LOGIN);
   };
 
-  return (
+  return current && current?.roleId == 2 ? (
+    <Navigate to="/home" />
+  ) : current && current?.roleId == 3 ? <Navigate to="/owner" /> :
+  current && current?.roleId == 1 ? <Navigate to="/admin" /> :
+  (
     <>
       <div className="authenticated"></div>
       <div className="container form__login__register">
@@ -44,10 +49,8 @@ function Authenticated(props) {
 
         {mode === MODE.LOGIN && (
           <>
-            <Login closeDialog={handleClose} />
+            <Login closeDialog={handleClose} reload={() => setReload(!reload)}/>
             <Typography>Or</Typography>
-            {/* <LoginWithGoogle /> */}
-
             <div className="SignUpText">
               <Typography>Don't have an account?</Typography>
               <Button color="inherit" onClick={() => setMode(MODE.REGISTER)}>

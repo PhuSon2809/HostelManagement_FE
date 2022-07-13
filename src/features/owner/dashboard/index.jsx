@@ -20,7 +20,7 @@ function Dashboard() {
           <i class="fa fa-bars"></i>
         </button>
       </div>
-      <div className="p-4 pt-5 bg-dark">
+      {/* <div className="p-4 pt-5 bg-dark">
         <div className="header">
           <img
             class="avatar"
@@ -29,7 +29,7 @@ function Dashboard() {
           />
           <p className="align-self-center pr-2">Full Name</p>
         </div>
-      </div>
+      </div> */}
       <div className="p-4 pt-4">
         <h2>
           <Link to="/owner" className="logo">
@@ -84,37 +84,5 @@ function Dashboard() {
     </nav>
   );
 
-  // const [sidebar, setSidebar] = useState(false);
-  // const showSidebar = () => setSidebar(!sidebar);
-  // return (
-  //   <>
-  //     <IconContext.Provider value={{ color: "red" }}>
-  //       <div className="navbar">
-  //         <Link to="#" className="menu-bars">
-  //           <FaIcons.FaBars onClick={showSidebar} />
-  //         </Link>
-  //       </div>
-  //       <nav className={sidebar ? "nav-menu active" : "nav-menu"}>
-  //         <ul className="nav-menu-item">
-  //           <li className="navbar-toggle">
-  //             <Link to="#" className="menu-bars">
-  //               <AiIcons.AiOutlineCloseSquare />
-  //             </Link>
-  //           </li>
-  //           {SideBarData.map((item, index) => {
-  //             return (
-  //               <li key={index} className={item.cName}>
-  //                 <Link to={item.path}>
-  //                   {item.icon}
-  //                   <span>{item.title}</span>
-  //                 </Link>
-  //               </li>
-  //             );
-  //           })}
-  //         </ul>
-  //       </nav>
-  //     </IconContext.Provider>
-  //   </>
-  // );
 }
 export default Dashboard;
