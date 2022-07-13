@@ -1,10 +1,15 @@
 import axios from "axios";
+
+
 axios.defaults.baseURL = "https://hom-apim.azure-api.net/api/v1";
 axios.defaults.headers.post["Content-Type"] = "application/json";
 
 export const axiosClient = {
   get(url, params = "") {
     return axios.get(`${url}/${params}`).catch((error) => console.log(error));
+  },
+  getNo(url) {
+    return axios.get(`${url}`).catch((error) => console.log(error));
   },
   // get2(url, params) {
   //   return axios.get(`${url}`, params).catch((error) => console.log(error));

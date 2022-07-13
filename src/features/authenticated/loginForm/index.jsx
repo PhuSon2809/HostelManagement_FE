@@ -24,7 +24,6 @@ function LoginForm(props) {
   });
 
   const submitForm = async (data) => {
-    console.log(JSON.stringify(data));
     const { onSubmit } = props;
     if (onSubmit) {
         await onSubmit(data);

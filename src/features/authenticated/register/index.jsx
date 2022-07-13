@@ -12,9 +12,8 @@ function Register(props) {
         try {
             console.log("register values: ", values);
 
-            const reponse = accountApi.register(values);
+            const data = accountApi.register(values);
 
-            console.log("new account: ", reponse);
 
             // // autoset ussername = email
             // values.username = values.email;

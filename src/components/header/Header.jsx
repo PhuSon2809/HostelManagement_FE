@@ -13,10 +13,16 @@ import {
   DropdownMenu,
   DropdownItem,
 } from "reactstrap";
+import axiosClient from "../../apis/axiosClient";
+import StorageKeys from "../../constants/storage-keys";
+import { useDispatch } from "react-redux";
+import { logoutAccount } from "../../redux/actions/login";
 
 function Header(props) {
   const [isNavOpen, setIsNavOpen] = useState(false);
   const [dropdown, setDropdown] = useState(false);
+
+  const dispatch = useDispatch();
 
   const toggleNav = () => {
     setIsNavOpen(!isNavOpen);
@@ -25,6 +31,10 @@ function Header(props) {
   const toggleDropdown = () => {
     setDropdown(!dropdown);
   };
+
+  const handleLogout = () => {
+    dispatch(logoutAccount(true));
+  }
 
   return (
     <Navbar dark expand="md">
@@ -81,8 +91,8 @@ function Header(props) {
                 <span> Bill</span>
               </Link>
             </DropdownItem>
-            <DropdownItem>
-              <Link to="/profile" className="nav-link">
+            <DropdownItem onClick={handleLogout}>
+              <Link to="/" className="nav-link">
                 <i className="fa fa-power-off" aria-hidden="true"></i>
                 <span> Logout</span>
               </Link>

@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import "./content_body.scss";
-import useForm from "../../../components/Hooks/useForm";
+import useForm from "../../../../src/components/Hooks/useForm";
 
 Content_body.prototype = {};
 

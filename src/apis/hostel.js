@@ -9,6 +9,7 @@ const HostelAPI = {
     );
     return data;
   },
+
 };
 
 export default HostelAPI;
