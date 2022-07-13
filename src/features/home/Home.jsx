@@ -3,7 +3,7 @@ import Carousel from "./carousel/Carousel";
 import Services from "./services/Services";
 import Blog from "./blog/Blog";
 import Outline from "./outline/Outline";
-import HostelAPI from "../../apis/hostel";
+import HostelAPI from "../../apis/hostelApi";
 import HostelList from "./hostelList/HostelList";
 
 Home.propTypes = {};
@@ -17,8 +17,10 @@ function Home(props) {
 
   const fetchData = async () => {
     const hostelsApi = await HostelAPI.getHostels(filters);
-    setHostels(hostelsApi);
+    setHostels(hostelsApi.data);
   };
+
+  console.log("hostels: ", hostels);
 
   useEffect(() => {
     try {
@@ -26,7 +28,7 @@ function Home(props) {
     } catch (error) {
       console.log("Fail to get hostel");
     }
-  }, []);
+  }, [filters]);
 
   return (
     <div>

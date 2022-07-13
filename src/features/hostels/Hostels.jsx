@@ -3,7 +3,7 @@ import Banner from "../../components/banner/Banner";
 import ListTitle from "./listTitle/ListTitle";
 import ListBox from "./listBox/BoxContent";
 import ListType from "./listType/ListType";
-import HostelAPI from "../../apis/hostel";
+import HostelAPI from "../../apis/hostelApi";
 import Pagination from "@mui/material/Pagination";
 import { Box } from "@mui/material/";
 import { makeStyles } from "@mui/styles";
@@ -28,10 +28,9 @@ function Hostels(props) {
   });
 
   const fetchData = async () => {
-    const hostelsApi = await HostelAPI.getHostels(filters);
-    console.log("hostelsApi: ", hostelsApi);
-    setHostels(hostelsApi);
-    setCount(hostelsApi.count);
+    const hostelsListApi = await HostelAPI.getHostels(filters);
+    setHostels(hostelsListApi.data);
+    setCount(hostelsListApi.count);
   };
 
   useEffect(() => {

@@ -7,9 +7,23 @@ ChangePassword.propTypes = {};
 
 function ChangePassword(props) {
   const [currentPassword, setCurrentPassword] = useState();
-  const [newPassword, setNewPassword] = useState();
-  const [confirmNewPassword, setConfirmNewPassword] = useState();
 
+  const [form, setForm] = useState({
+    newPassword: "",
+    confirmNewPassword: "",
+  });
+
+  const handleInputChange = (e) => {
+    const valueInput = {
+      ...form,
+      [e.target.name]: e.target.value,
+    };
+    setForm(valueInput);
+  };
+
+  const handleSubmit = e => {
+    e.preventDefault();
+  }
 
   return (
     <div className="changePassword">
@@ -36,10 +50,11 @@ function ChangePassword(props) {
             id="newPassword"
             name="newPassword"
             placeholder="New password"
-            // value={this.state.fullName}
+            value={form.newPassword}
+            onChange={handleInputChange}
             // valid={this.state.error.fullName === ""}
             // invalid={this.state.error.fullName !== ""}
-            // onChange={this.handleInputChange}
+            
             // onBlur={this.handleInputBlur}
           />
           <FormFeedback></FormFeedback>
@@ -50,11 +65,11 @@ function ChangePassword(props) {
             type="text"
             id="confirmNewPassword"
             name="confirmNewPassword"
-            placeholder="Confirm new password"
-            // value={this.state.fullName}
+            placeholder="confirm new password"
+            value={form.confirmNewPassword}
+            onChange={handleInputChange}
             // valid={this.state.error.fullName === ""}
             // invalid={this.state.error.fullName !== ""}
-            // onChange={this.handleInputChange}
             // onBlur={this.handleInputBlur}
           />
           <FormFeedback></FormFeedback>

@@ -14,7 +14,7 @@ function AccountInformation(props) {
 
   const [error, setError] = useState({});
 
-  // const validate = (name, value) => {
+  // const validate = (e, name, value) => {
   //   switch (name) {
   //     case ""
   //   }

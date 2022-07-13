@@ -1,15 +1,36 @@
-import React from "react";
-import PropTypes from "prop-types";
+import React, { useState } from "react";
 import RoomImage from "./roomImage/RoomImage";
 import Menu from "./menu/Menu";
 import Overview from "./overview/Overview";
 import Host from "./host/Host";
-import AnotherRoom from "./slideRoom/SlideRoom";
+import AnotherRoom from "./anotherRoom/AnotherRoom";
 import Utilities from "./utilities/Utilities";
-
-RoomDetail.propTypes = {};
+import { useParams } from "react-router";
+import RoomAPI from "../../apis/roomApi";
+import { useEffect } from "react";
 
 function RoomDetail(props) {
+  const { roomId, hostelId } = useParams();
+  console.log("roomId :", roomId);
+  console.log("hostelId :", hostelId);
+
+  const [roomDetail, setRoomDetail] = useState({});
+
+  const fetchData = async () => {
+    const roomByIdApi = await RoomAPI.getRoomById(roomId);
+    setRoomDetail(roomByIdApi);
+  };
+
+  console.log("roomByIdApi :", roomDetail);
+
+  useEffect(() => {
+    try {
+      fetchData();
+    } catch (error) {
+      console.log("Fail to get room detail!");
+    }
+  }, [roomId]);
+
   return (
     <div className="containers">
       <div className="row">
@@ -28,7 +49,7 @@ function RoomDetail(props) {
         </div>
       </div>
       <div className="row">
-        <AnotherRoom />
+        <AnotherRoom hostelId={hostelId} />
       </div>
     </div>
   );

@@ -5,36 +5,21 @@ import ShowRoom from "./showRoom/ShowRoom";
 import ListOption from "./listOption/ListOption";
 import SlideRoom from "./slideHostel/SlideHostel";
 import { useEffect } from "react";
-import HostelAPI from "../../apis/hostel";
-import Pagination from "@mui/material/Pagination";
-import { makeStyles } from "@mui/styles";
-import { Box } from "@mui/material";
+import HostelAPI from "../../apis/hostelApi";
 
 ListRoom.propTypes = {};
 
-const useStyles = makeStyles((theme) => ({
-  pagination: {
-    display: "flex",
-    flexFlow: "row nowrap",
-    justifyContent: "center",
-    marginTop: "3rem",
-  },
-}));
-
 function ListRoom(props) {
-  const classes = useStyles();
-
   const [hostels, setHostels] = useState([]);
-  const [rooms, setRooms] = useState([]);
-  const [count, setCount] = useState(1);
   const [filters, setFilters] = useState({
     pageIndex: 1,
-    pageSize: 6,
+    pageSize: 9,
   });
 
   const fetchData = async () => {
     const hostelsApi = await HostelAPI.getHostels(filters);
-    setHostels(hostelsApi);
+    console.log("hostelsApi: ", hostelsApi);
+    setHostels(hostelsApi.data);
   };
 
   useEffect(() => {
@@ -45,13 +30,6 @@ function ListRoom(props) {
     }
   }, []);
 
-  const handlePageChange = (e, page) => {
-    setFilters((prevFilters) => ({
-      ...prevFilters,
-      pageIndex: page,
-    }));
-  };
-
   return (
     <div>
       <Banner />
@@ -59,15 +37,6 @@ function ListRoom(props) {
         <div className="row">
           <div className="col-12 col-md-9 order-last order-md-first">
             <ShowRoom />
-            <Box className={classes.pagination}>
-              <Pagination
-                count={Math.ceil(count / filters.pageSize)}
-                variant="outlined"
-                color="error"
-                page={filters.pageIndex}
-                onChange={handlePageChange}
-              />
-            </Box>
           </div>
           <div className="col-12 col-md-3">
             <ListOption />

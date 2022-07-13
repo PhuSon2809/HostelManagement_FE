@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import Hostel from "../hostel/Hostel";
 
 HostelList.propTypes = {
-  hostels: PropTypes.object,
+  hostels: PropTypes.array,
 };
 
 function HostelList({ hostels }) {
@@ -28,8 +28,8 @@ function HostelList({ hostels }) {
       </div>
 
       <div className="box-content">
-        {hostels.data?.map((hostel) => (
-          <Hostel hostel={hostel}/>
+        {hostels?.map((hostel) => (
+          <Hostel hostel={hostel} key={hostel.id} />
         ))}
       </div>
 

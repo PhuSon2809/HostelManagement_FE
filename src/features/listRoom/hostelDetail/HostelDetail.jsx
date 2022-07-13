@@ -1,13 +1,13 @@
 import React from "react";
 import PropTypes from "prop-types";
-import "./hostel.scss";
+import "./hostelDetail.scss";
 import { useNavigate } from "react-router-dom";
 
-Hostel.propTypes = {
+HostelDetail.propTypes = {
   hostel: PropTypes.object,
 };
 
-function Hostel({ hostel }) {
+function HostelDetail({ hostel }) {
   const navigate = useNavigate();
 
   const handleClick = () => {
@@ -17,7 +17,7 @@ function Hostel({ hostel }) {
   return (
     <div className="infor">
       <div className="image">
-        <img src="./images/show1.jfif" alt="hostel" className="img-fluid" />
+        <img src="./images/show1.png" alt="demo" className="img-fluid" />
         <div className="icons">
           <a href="#">
             <i className="fa fa-user" /> by {hostel.account.name}
@@ -32,7 +32,7 @@ function Hostel({ hostel }) {
         <p>{hostel.address}</p>
 
         {hostel.roomTypes.map((roomType) => (
-          <div className="d-flex mb-2" key={roomType.id}>
+          <div className="d-flex" key={roomType.id}>
             <span className="mr-auto">{roomType.acreage} m2</span>
             <span>{roomType.price} VNĐ</span>
           </div>
@@ -48,4 +48,4 @@ function Hostel({ hostel }) {
   );
 }
 
-export default Hostel;
+export default HostelDetail;
