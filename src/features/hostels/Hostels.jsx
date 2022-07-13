@@ -1,16 +1,56 @@
-import React, { useState } from "react";
-import PropTypes from "prop-types";
+import React, { useState, useEffect } from "react";
 import Banner from "../../components/banner/Banner";
 import ListTitle from "./listTitle/ListTitle";
 import ListBox from "./listBox/BoxContent";
 import ListType from "./listType/ListType";
+import HostelAPI from "../../apis/hostelApi";
+import Pagination from "@mui/material/Pagination";
+import { Box } from "@mui/material/";
+import { makeStyles } from "@mui/styles";
 
-Hostel.propTypes = {};
+const useStyles = makeStyles((theme) => ({
+  pagination: {
+    display: "flex",
+    flexFlow: "row nowrap",
+    justifyContent: "center",
+    marginTop: "3rem",
+  },
+}));
 
-function Hostel(props) {
+function Hostels(props) {
+  const classes = useStyles();
+
+  const [hostels, setHostels] = useState([]);
+  const [count, setCount] = useState(1);
+  const [filters, setFilters] = useState({
+    pageIndex: 1,
+    pageSize: 9,
+  });
+
+  const fetchData = async () => {
+    const hostelsListApi = await HostelAPI.getHostels(filters);
+    setHostels(hostelsListApi.data);
+    setCount(hostelsListApi.count);
+  };
+
+  useEffect(() => {
+    try {
+      fetchData();
+    } catch (error) {
+      console.log("Fail to get hostel");
+    }
+  }, [filters]);
+  // [] để thì sẽ gọi 1 một lần th
+
+  const handlePageChange = (e, page) => {
+    setFilters((prevFilters) => ({
+      ...prevFilters,
+      pageIndex: page,
+    }));
+  };
 
   return (
-    <div>
+    <div className="hostels">
       <Banner />
       <div className=" mt-5 mb-5">
         <div className="containers">
@@ -19,7 +59,16 @@ function Hostel(props) {
           </div>
           <div className="row mt-4">
             <div className="col-12 col-md-9 order-last order-md-first">
-              <ListBox />
+              <ListBox hostels={hostels} />
+              <Box className={classes.pagination}>
+                <Pagination
+                  count={Math.ceil(count / filters.pageSize)}
+                  variant="outlined"
+                  color="error"
+                  page={filters.pageIndex}
+                  onChange={handlePageChange}
+                />
+              </Box>
             </div>
             <div className="col-12 col-md-3 order-first">
               <ListType />
@@ -31,4 +80,4 @@ function Hostel(props) {
   );
 }
 
-export default Hostel;
+export default Hostels;

@@ -23,10 +23,8 @@ import Create_Hostel from "./features/owner2/create_hostel/index";
 import Create_Room from "./features/owner2/create_room/index";
 import OwnerManagement from "./features/admin/owner";
 
-
 function App() {
-
-  const currentUser = useSelector(state => state.login.infoUser?.roleId);
+  const currentUser = useSelector((state) => state.login.infoUser?.roleId);
 
   return (
     <div className="App">
@@ -42,19 +40,23 @@ function App() {
           </Routes>
       } */}
       <Routes>
-        <Route path='/' element={<Authenticated />} />
+        <Route path="/" element={<Authenticated />} />
         <Route element={<UserRouter />}>
-          <Route path='/home' element={<Home />} />
-          <Route path='/listRoom' element={<ListRoom />} />
+          <Route path="/home" element={<Home />} />
+          {/* <Route path='/listRoom' element={<ListRoom />} /> */}
           <Route path="/hostel" exact element={<Hostel />} />
-          <Route path="/room" exact element={<RoomDetail />} />
+          <Route path="/listRoom/:hostelId" exact element={<ListRoom />} />
+          <Route
+            path="/room/:roomId/:hostelId"
+            exact
+            element={<RoomDetail />}
+          />
           <Route path="/profile" exact element={<Profile />} />
           {/* <Route path="/owner/*" exact element={<Owner />} /> */}
           <Route path="/booking" exact element={<Booking />} />
         </Route>
         <Route element={<OwnerRouter />}>
-
-          <Route path='/owner' element={<Owner />} >
+          <Route path="/owner" element={<Owner />}>
             <Route index element={<OwnerDashboard />} />
             <Route path="list_user" exact element={<ListUser />} />
             <Route path="list_room" exact element={<ListRoomManagement />} />
@@ -63,13 +65,13 @@ function App() {
             <Route path="create_room" exact element={<Create_Room />} />
           </Route>
 
-          <Route path='/home' element={<Home />} />
+          <Route path="/home" element={<Home />} />
           <Route path="/owner" exact element={<Owner />} />
           <Route path="/owner/*" exact element={<Owner />} />
         </Route>
 
         <Route element={<AdminRouter />}>
-          <Route path='/admin' element={<Admin />} >
+          <Route path="/admin" element={<Admin />}>
             <Route index element={<AdminDasboard />} />
             <Route path="user" element={<UserManagement />} />
             <Route path="owner" element={<OwnerManagement />} />

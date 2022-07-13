@@ -5,95 +5,13 @@
 }
 
 .box-content {
-  @include grid(16rem);
+  @include grid(17rem);
   transition: 0.6s all linear;
-    
-  .infor {
-    width: 16rem;
-    margin: auto;
-    border-radius: 12px;
-    box-shadow: 0.3rem 0.3rem #1b34532b;
-    position: relative;
-
-    &:hover {
-      transform: scale(1.03);
-
-      .image {
-        .icons {
-          transform: translateY(0);
-        }
-      }
-    }
-
-    .image {
-      position: relative;
-      overflow: hidden;
-
-      img {
-        width: 100%;
-        border-top-left-radius: 10px;
-        border-top-right-radius: 10px;
-      }
-
-      .icons {
-        background: #1b3453c6;
-        height: 2.7rem;
-        width: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        position: absolute;
-        bottom: 0rem;
-        padding: 0 1rem;
-        z-index: 10;
-        transform: translateY(10rem);
-
-        a {
-          color: $white;
-          text-transform: capitalize;
-          text-decoration: none;
-
-          i {
-            color: $red;
-            font-size: 1.2rem;
-          }
-        }
-      }
-    }
-
-    .content {
-      padding: 0.7rem;
-
-      h3 {
-        @include title(1.6rem);
-      }
-
-      p {
-        color: $gray;
-      }
-
-      span {
-        color: $navi;
-      }
-    }
-  }
-}
-
-.btn-group {
-  display: block;
-  text-align: center;
-  .btn {
-    border: none;
-  }
 }
 
 @media only screen and (max-width: 600px) {
   .box-content {
     @include grid(20rem);
     transition: 0.6s all linear;
-
-    .infor {
-      width: 20rem;
-    }
   }
 }

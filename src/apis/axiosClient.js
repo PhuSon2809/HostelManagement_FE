@@ -18,6 +18,17 @@ export const axiosClient = {
   getWithFilter(url, params) {
     return axios.get(`${url}`, params).catch((error) => console.log(error));
   },
+  getWithIdFilter(url, slug = "", params) {
+    return axios
+      .get(`${url}/${slug}`, params)
+      .catch((error) => console.log(error));
+  },
+  getWithId(url, slug = "") {
+    return axios.get(`${url}/${slug}`).catch((error) => console.log(error));
+  },
+  getWith2Id(url, slug = "", slug2 = "") {
+    return axios.get(`${url}/${slug}/${slug2}`).catch((error) => console.log(error));
+  },
   // getWithFilterMiddleId(url, url2, slug = "", params) {
   //   return axios
   //     .get(`${url}/${slug}/${url2}`, params)

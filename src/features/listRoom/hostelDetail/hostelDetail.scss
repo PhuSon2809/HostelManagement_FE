@@ -1,16 +1,35 @@
 @import "../../../App.scss";
 
-.btn {
-  @include btn;
+.SlideRoom_item {
+  width: 100%;
+  background: #bfd7ea28;
+  border: 2px solid #1b34532b;
+  border-radius: 12px;
+  padding: 0.5rem 1rem;
+  margin: 2.5rem 0;
+
+  .swiper-wrapper {
+    width: 100%;
+    position: relative;
+    margin: 0 0 1rem 0;
+    padding: 1rem 0;
+  }
+
+  .swiper-pagination {
+    position: absolute;
+    bottom: 0;
+  }
 }
 
 .infor {
-  width: 20rem;
-
+  z-index: 1000;
+  width: 90%;
   margin: auto;
+  margin-top: 0.5rem;
   border-radius: 12px;
   box-shadow: 0.3rem 0.3rem #1b34532b;
-  border: $border;
+  background: $white;
+  border: 0.2px solid #1b34532b;
   position: relative;
 
   &:hover {
@@ -28,7 +47,6 @@
     overflow: hidden;
 
     img {
-      width: 100%;
       border-top-left-radius: 10px;
       border-top-right-radius: 10px;
     }
@@ -62,15 +80,16 @@
   .content {
     padding: 0.7rem;
 
-    .h3 {
-      height: 4.6rem;
-      h3 {
-        font-size: 1.6rem;
-      }
+    h3 {
+      @include title(1.6rem);
     }
 
     p {
-      height: 3.9rem;
+      color: $gray;
+    }
+
+    span {
+      color: $navi;
     }
   }
 }

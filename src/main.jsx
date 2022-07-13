@@ -3,13 +3,11 @@ import { Route, Routes } from "react-router-dom";
 import Header from "./components/header/Header";
 import Footer from "./components/footer/Footer";
 import Home from "./features/home/Home";
-import Hostel from "./features/hostels/Hostels";
+import Hostels from "./features/hostels/Hostels";
 import ListRoom from "./features/listRoom/ListRoom";
 import RoomDetail from "./features/roomDetail/RoomDetail";
 import Profile from "./features/profile/Profile";
 import Owner from "./features/owner/index";
-import { useEffect } from "react";
-import HostelAPI from "./apis/hostel";
 import Booking from "./features/booking";
 import Authenticated from "./features/authenticated";
 import { Navigate } from "react-router-dom";
@@ -35,6 +33,14 @@ function Main() {
           <Header />
         </header>
         <Routes>
+          {/* <Route path="/" exact element={<Authenticated />} /> */}
+          <Route path="/home" exact element={<Home />} />
+          <Route path="/hostel" exact element={<Hostels />} />
+          <Route path="/listRoom/:hostelId" exact element={<ListRoom />} />
+          <Route path="/room/:roomId/:hostelId" exact element={<RoomDetail />} />
+          <Route path="/profile" exact element={<Profile />} />
+          <Route path="/owner/*" exact element={<Owner />} />
+          <Route path="/booking" exact element={<Booking />} />
           {/* <Route path="/home" exact element={<Home />} /> */}
 
           {/* <Route

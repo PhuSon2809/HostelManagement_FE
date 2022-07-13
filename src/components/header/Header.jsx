@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+
 import "./header.scss";
 import { Link, NavLink } from "react-router-dom";
 import {
@@ -19,6 +20,8 @@ import { useDispatch } from "react-redux";
 import { logoutAccount } from "../../redux/actions/login";
 
 function Header(props) {
+  const current = JSON.parse(window.localStorage.getItem("accounts"))?.accounts;
+
   const [isNavOpen, setIsNavOpen] = useState(false);
   const [dropdown, setDropdown] = useState(false);
 
@@ -69,8 +72,12 @@ function Header(props) {
 
         <Dropdown isOpen={dropdown} toggle={toggleDropdown}>
           <DropdownToggle caret className="btn">
-            <img src="./images/avatar.jpg" alt="avatar" className="img-fluid" />
-            <span> Tran Phu Son</span>
+              <img
+                src="./images/avatar.jpg"
+                alt="avatar"
+                className="img-fluid"
+              />
+              <span> Tran Phu Son</span>
           </DropdownToggle>
           <DropdownMenu>
             <DropdownItem>
@@ -99,10 +106,6 @@ function Header(props) {
             </DropdownItem>
           </DropdownMenu>
         </Dropdown>
-
-        <Link to="/home" className="btn">
-          <span className="fa fa-sign-in fa-lg" /> Sign in
-        </Link>
       </Collapse>
     </Navbar>
   );

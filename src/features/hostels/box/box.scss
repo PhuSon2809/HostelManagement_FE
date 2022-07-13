@@ -5,12 +5,10 @@
 }
 
 .infor {
-  width: 20rem;
-
+  width: 17rem;
   margin: auto;
   border-radius: 12px;
   box-shadow: 0.3rem 0.3rem #1b34532b;
-  border: $border;
   position: relative;
 
   &:hover {
@@ -62,15 +60,23 @@
   .content {
     padding: 0.7rem;
 
-    .h3 {
-      height: 4.6rem;
-      h3 {
-        font-size: 1.6rem;
-      }
+    h3 {
+      @include title(1.5rem);
     }
 
     p {
-      height: 3.9rem;
+      color: $gray;
+      font-size: 0.95rem;
     }
+
+    span {
+      color: $navi;
+    }
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .infor {
+    width: 20rem;
   }
 }
