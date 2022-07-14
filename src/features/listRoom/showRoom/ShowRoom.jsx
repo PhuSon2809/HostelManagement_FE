@@ -2,25 +2,20 @@ import React, { useState, useEffect } from "react";
 import Title from "./title/Title";
 import Rooms from "./rooms/Rooms";
 import Pagination from "@mui/material/Pagination";
-import { makeStyles } from "@mui/styles";
 import { Box } from "@mui/material";
 import { useParams } from "react-router";
 import RoomAPI from "../../../apis/roomApi";
+import { styled } from "@mui/material/styles";
 
-const useStyles = makeStyles((theme) => ({
-  pagination: {
-    display: "flex",
-    flexFlow: "row nowrap",
-    justifyContent: "center",
-    marginBottom: "2rem",
-  },
+const PaginationStyle = styled("div")(() => ({
+  display: "flex",
+  flexFlow: "row nowrap",
+  justifyContent: "center",
+  marginTop: "2rem",
 }));
 
 function ShowRoom(props) {
-  const classes = useStyles();
-
   const { hostelId } = useParams(); //lấy ID truyền tới
-
   console.log("id from router: ", hostelId);
 
   const [rooms, setRooms] = useState([]);
@@ -34,7 +29,7 @@ function ShowRoom(props) {
     const roomsApi = await RoomAPI.getRoomByIdFilter(hostelId, filters);
     console.log("roomsApi: ", roomsApi);
     setRooms(roomsApi?.data);
-    setCount(roomsApi?.count);
+    setCount(roomsApi?.totalRecord);
   };
 
   useEffect(() => {
@@ -59,7 +54,7 @@ function ShowRoom(props) {
       </div>
       <div>
         <Rooms rooms={rooms} />
-        <Box className={classes.pagination}>
+        <PaginationStyle>
           <Pagination
             count={Math.ceil(count / filters.pageSize)}
             variant="outlined"
@@ -67,7 +62,7 @@ function ShowRoom(props) {
             page={filters.pageIndex}
             onChange={handlePageChange}
           />
-        </Box>
+        </PaginationStyle>
       </div>
     </div>
   );

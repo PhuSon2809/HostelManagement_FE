@@ -1,10 +1,6 @@
 @import "../../../App.scss";
 
-.btn {
-  @include btn;
-}
-
-.infor {
+.inforss {
   width: 17rem;
   margin: auto;
   border-radius: 12px;
@@ -19,6 +15,10 @@
         transform: translateY(0);
       }
     }
+  }
+
+  .btn {
+    @include btn;
   }
 
   .image {
@@ -59,15 +59,22 @@
 
   .content {
     padding: 0.7rem;
-    .h3 {
-      h3 {
-        @include title(1.4rem);
-      }
+
+    #phone {
+      font-size: 1.3rem;
+      color: $red;
+      margin-right: 0.5rem;
+    }
+    
+    h3 {
+      @include title(1.4rem);
     }
 
     p {
       color: $gray;
       font-size: 0.95rem;
+      height: 3rem;
+      margin-bottom: 0.5rem;
     }
 
     span {

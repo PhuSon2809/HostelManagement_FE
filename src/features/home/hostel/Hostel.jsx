@@ -16,7 +16,7 @@ function Hostel({ hostel }) {
   };
 
   return (
-    <div className="infor">
+    <div className="infors">
       <div className="image">
         <img
           src="https://firebasestorage.googleapis.com/v0/b/hostelmanagement-ae202.appspot.com/o/Hostels%2Fh2.jpg?alt=media&token=4c5da274-9413-49a0-a202-145c38fb293a"
@@ -30,14 +30,12 @@ function Hostel({ hostel }) {
         </div>
       </div>
       <div className="content">
-        <div className="h3">
-          <h3>{hostel.name}</h3>
-        </div>
+        <h3>{hostel.name}</h3>
 
         <p>{hostel.address}</p>
 
         <div className="d-flex mb-2">
-          <i className="fa fa-phone" id="phone"/>
+          <i className="fa fa-phone" id="phone" />
           <span className="d-inline">{hostel.account.phone}</span>
         </div>
 

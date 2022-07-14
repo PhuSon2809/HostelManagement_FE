@@ -5,21 +5,16 @@ import ListBox from "./listBox/BoxContent";
 import ListType from "./listType/ListType";
 import HostelAPI from "../../apis/hostelApi";
 import Pagination from "@mui/material/Pagination";
-import { Box } from "@mui/material/";
-import { makeStyles } from "@mui/styles";
+import { styled } from "@mui/material/styles";
 
-const useStyles = makeStyles((theme) => ({
-  pagination: {
-    display: "flex",
-    flexFlow: "row nowrap",
-    justifyContent: "center",
-    marginTop: "3rem",
-  },
+const PaginationStyle = styled("div")(() => ({
+  display: "flex",
+  flexFlow: "row nowrap",
+  justifyContent: "center",
+  marginTop: "2rem",
 }));
 
 function Hostels(props) {
-  const classes = useStyles();
-
   const [hostels, setHostels] = useState([]);
   const [count, setCount] = useState(1);
   const [filters, setFilters] = useState({
@@ -39,8 +34,7 @@ function Hostels(props) {
     } catch (error) {
       console.log("Fail to get hostel");
     }
-  }, [filters]);
-  // [] để thì sẽ gọi 1 một lần th
+  }, [filters]); // [] để thì sẽ gọi 1 một lần th
 
   const handlePageChange = (e, page) => {
     setFilters((prevFilters) => ({
@@ -52,7 +46,7 @@ function Hostels(props) {
   return (
     <div className="hostels">
       <Banner />
-      <div className=" mt-5 mb-5">
+      <div className=" mt-4 mb-5">
         <div className="containers">
           <div className="row">
             <ListTitle />
@@ -60,7 +54,7 @@ function Hostels(props) {
           <div className="row mt-4">
             <div className="col-12 col-md-9 order-last order-md-first">
               <ListBox hostels={hostels} />
-              <Box className={classes.pagination}>
+              <PaginationStyle>
                 <Pagination
                   count={Math.ceil(count / filters.pageSize)}
                   variant="outlined"
@@ -68,7 +62,7 @@ function Hostels(props) {
                   page={filters.pageIndex}
                   onChange={handlePageChange}
                 />
-              </Box>
+              </PaginationStyle>
             </div>
             <div className="col-12 col-md-3 order-first">
               <ListType />
