@@ -21,12 +21,14 @@ function Create_Hostel() {
             </label>
             <input
               type="text"
-              class="form-control"
+              class="form-control w-75"
               name="hostelName"
               placeHolder="Tên nhà trọ"
               onChange={handleChange}
             />
-            {errors.hostelName && <p>{errors.hostelName}</p>}
+            {errors.hostelName && (
+              <p className="text-danger">{errors.hostelName}</p>
+            )}
           </div>
           <div className="row">
             <div className="form-group col-6">
@@ -40,7 +42,9 @@ function Create_Hostel() {
                 placeHolder="Địa chỉ"
                 onChange={handleChange}
               />
-              {errors.hostelAddress && <p>{errors.hostelAddress}</p>}
+              {errors.hostelAddress && (
+                <p className="text-danger">{errors.hostelAddress}</p>
+              )}
             </div>
             <div className="form-group col-5 offset-1">
               <label for="hostelQuan" className="col-form-label">
@@ -80,10 +84,12 @@ function Create_Hostel() {
               accept="image/png, image/jpeg"
               className="p-2"
               multiple
+              onChange={handleChange}
             />
+            {errors.photo && <p className="text-danger">{errors.photo}</p>}
           </div>
           <div className="submit-btn">
-            <button type="submit" className="btn btn-primary">
+            <button type="submit" className="btn">
               Create Hostel
             </button>
           </div>

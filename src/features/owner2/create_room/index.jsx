@@ -1,3 +1,4 @@
+import { error } from "jquery";
 import React from "react";
 import useForm from "../../../../src/components/Hooks/useForm";
 
@@ -28,7 +29,9 @@ function Create_Room() {
                   placeHolder="Tên phòng"
                   onChange={handleChange}
                 />
-                {errors.roomName && <p>{errors.roomName}</p>}
+                {errors.roomName && (
+                  <p className="text-danger">{errors.roomName}</p>
+                )}
               </div>
               <div className="form-group col-5 offset-1">
                 <label for="roomtypes" className="col-form-label">
@@ -53,9 +56,10 @@ function Create_Room() {
                   class="form-control"
                   name="acreage"
                   placeHolder="Diện tích"
-                  onChange={handleChange}
                 />
-                {errors.acreage && <p>{errors.acreage}</p>}
+                {/* {errors.acreage && (
+                  <p className="text-danger">{errors.acreage}</p>
+                )} */}
               </div>
               <div className="form-group col-5 offset-1">
                 <label for="price" className="col-form-label">
@@ -68,7 +72,7 @@ function Create_Room() {
                   placeHolder="Giá"
                   onChange={handleChange}
                 />
-                {errors.price && <p>{errors.price}</p>}
+                {errors.price && <p className="text-danger">{errors.price}</p>}
               </div>
             </div>
             <div className="form-group">
@@ -77,15 +81,17 @@ function Create_Room() {
               </label>
               <input
                 type="file"
-                id="avatar"
-                name="avatar"
+                id="photo"
+                name="photo"
                 accept="image/png, image/jpeg"
                 className="p-2"
                 multiple
+                onChange={handleChange}
               />
+              {errors.photo && <p className="text-danger">{errors.photo}</p>}
             </div>
             <div className="submit-btn">
-              <button type="submit" className="btn btn-primary">
+              <button type="submit" className="btn">
                 Create Room
               </button>
             </div>

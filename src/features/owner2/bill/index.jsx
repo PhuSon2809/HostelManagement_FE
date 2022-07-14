@@ -6,9 +6,9 @@ Bill.prototype = {};
 
 function Bill() {
   const data = [
-    { name: "Anom", avage: 19, link: "/hostel1" },
-    { name: "Megha", avage: 19, link: "/hostel2" },
-    { name: "Subham", avage: 25, link: "/hostel3" },
+    { name: "Anom", avage: 19, link: "owner/bill/hostel1" },
+    { name: "Megha", avage: 19, link: "owner/bill/hostel2" },
+    { name: "Subham", avage: 25, link: "owner/bill/hostel3" },
   ];
   return (
     <div className="table">

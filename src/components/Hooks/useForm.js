@@ -106,6 +106,17 @@ const useForm = (callback) => {
           setErrors(newObject);
         }
         break;
+      case "photo":
+        if (value.length <= 0) {
+          setErrors({
+            ...errors,
+            photo: "Image accept .png .jpeg",
+          });
+        } else {
+          let newObject = omit(errors, "photo");
+          setErrors(newObject);
+        }
+        break;
       default:
         break;
     }
@@ -155,12 +166,27 @@ const useForm = (callback) => {
     }
   };
 
+  const handleSubmitCreate = (event) => {
+    if (event) event.preventDefault();
+    if (Object.keys(errors).length === 0 && Object.keys(values).length !== 0) {
+      callback();
+      // alert("Submit successfully!");
+      alertify.success("Create successful!");
+      setValues("");
+      handleReset();
+    } else {
+      // alert("There is Error!");
+      alertify.error("Please! Check your input again!");
+    }
+  };
+
   return {
     values,
     errors,
     handleChange,
     handleSubmit,
     handleReset,
+    handleSubmitCreate,
   };
 };
 
