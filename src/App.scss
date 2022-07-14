@@ -34,17 +34,17 @@ $border: 1px solid #1b34532b;
 }
 
 @mixin btn {
-    background: $red;
-    color: $white;
-    cursor: pointer;
-    margin: 0.3rem 0.3rem;
-    padding: 0.5rem 1rem;
-    transition: 0.4s all linear;
+    background: $red !important;
+    color: $white !important;
+    cursor: pointer !important;
+    margin: 0.3rem 0.3rem !important;
+    padding: 0.5rem 1rem !important;
+    transition: 0.4s all linear !important;
 
     &:hover {
-        transform: scale(1.03);
-        background: $red;
-        color: $white;
+        transform: scale(1.03) !important;
+        background: $red !important;
+        color: $white !important;
     }
 }
 

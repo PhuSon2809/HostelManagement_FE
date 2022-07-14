@@ -17,7 +17,7 @@ function Box({ hostel }) {
   return (
     <div className="infor">
       <div className="image">
-        <img src="./images/show1.jfif" className="img-fluid" />
+        <img src="https://firebasestorage.googleapis.com/v0/b/hostelmanagement-ae202.appspot.com/o/Hostels%2Fh2.jpg?alt=media&token=4c5da274-9413-49a0-a202-145c38fb293a" className="img-fluid" />
         <div className="icons">
           <a href="#">
             <i className="fa fa-user" /> by {hostel.account.name}
@@ -39,9 +39,9 @@ function Box({ hostel }) {
         ))}
 
         <div className="col-12 text-center">
-          <buttom onClick={handleClick} className="btn">
+          <button onClick={handleClick} className="btn">
             View room
-          </buttom>
+          </button>
         </div>
       </div>
     </div>

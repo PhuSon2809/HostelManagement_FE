@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 import "./header.scss";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import {
   Navbar,
   NavbarBrand,
@@ -14,16 +14,18 @@ import {
   DropdownMenu,
   DropdownItem,
 } from "reactstrap";
-import axiosClient from "../../apis/axiosClient";
-import StorageKeys from "../../constants/storage-keys";
 import { useDispatch } from "react-redux";
 import { logoutAccount } from "../../redux/actions/login";
+import { useSelector } from "react-redux";
 
 function Header(props) {
-  const current = JSON.parse(window.localStorage.getItem("accounts"))?.accounts;
+  const current = useSelector((state) => state.login.infoUser);
+  console.log("current: ", current);
 
   const [isNavOpen, setIsNavOpen] = useState(false);
   const [dropdown, setDropdown] = useState(false);
+
+  const navigate = useNavigate();
 
   const dispatch = useDispatch();
 
@@ -37,13 +39,30 @@ function Header(props) {
 
   const handleLogout = () => {
     dispatch(logoutAccount(true));
-  }
+  };
+
+  const handleClickBill = () => {
+    navigate("/profile/bill");
+  };
+
+  const handleClickAccount = () => {
+    navigate("/profile/account");
+  };
+
+  const handleClickBooking = () => {
+    navigate("/profile/booking");
+  };
 
   return (
     <Navbar dark expand="md">
       <NavbarToggler onClick={toggleNav} />
       <NavbarBrand className="mr-md-auto" href="/">
-        <img src="./images/logo_white.png" alt="logo" height={70} width={70} />
+        <img
+          src="https://firebasestorage.googleapis.com/v0/b/hostelmanagement-ae202.appspot.com/o/logo_white.png?alt=media&token=64caa8ff-0a85-4130-a3c8-405eb031572f"
+          alt="logo"
+          height={70}
+          width={70}
+        />
         <span className="text-white"> HOM</span>
       </NavbarBrand>
       <Collapse isOpen={isNavOpen} navbar>
@@ -72,31 +91,27 @@ function Header(props) {
 
         <Dropdown isOpen={dropdown} toggle={toggleDropdown}>
           <DropdownToggle caret className="btn">
-              <img
-                src="./images/avatar.jpg"
-                alt="avatar"
-                className="img-fluid"
-              />
-              <span> Tran Phu Son</span>
+            <img src={current.avatar} alt="avatar" className="img-fluid" />
+            <span>{current.name}</span>
           </DropdownToggle>
           <DropdownMenu>
             <DropdownItem>
-              <Link to="/profile" className="nav-link">
+              <span onClick={handleClickBooking} className="nav-link">
                 <i className="fa fa-calendar" aria-hidden="true"></i>
                 <span> Booking</span>
-              </Link>
+              </span>
             </DropdownItem>
             <DropdownItem>
-              <Link to="/profile" className="nav-link">
+              <span onClick={handleClickAccount} className="nav-link">
                 <i className="fa fa-user"> </i>
                 <span> Account</span>
-              </Link>
+              </span>
             </DropdownItem>
             <DropdownItem>
-              <Link to="/profile" className="nav-link">
+              <span onClick={handleClickBill} className="nav-link">
                 <i className="fa fa-money"> </i>
                 <span> Bill</span>
-              </Link>
+              </span>
             </DropdownItem>
             <DropdownItem onClick={handleLogout}>
               <Link to="/" className="nav-link">

@@ -59,9 +59,10 @@
 
   .content {
     padding: 0.7rem;
-
-    h3 {
-      @include title(1.5rem);
+    .h3 {
+      h3 {
+        @include title(1.4rem);
+      }
     }
 
     p {

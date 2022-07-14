@@ -1,17 +1,16 @@
 @import "../../../App.scss";
 
-.btn {
-  @include btn;
-}
-
 .infor {
   width: 20rem;
-
   margin: auto;
   border-radius: 12px;
   box-shadow: 0.3rem 0.3rem #1b34532b;
   border: $border;
   position: relative;
+
+  .btn {
+    @include btn;
+  }
 
   &:hover {
     transform: scale(1.03);
@@ -61,7 +60,11 @@
 
   .content {
     padding: 0.7rem;
-
+#phone{
+  font-size: 1.3rem;
+  color: $red;
+  margin-right: 0.5rem;
+}
     .h3 {
       height: 4.6rem;
       h3 {

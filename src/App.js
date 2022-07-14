@@ -43,7 +43,6 @@ function App() {
         <Route path="/" element={<Authenticated />} />
         <Route element={<UserRouter />}>
           <Route path="/home" element={<Home />} />
-          {/* <Route path='/listRoom' element={<ListRoom />} /> */}
           <Route path="/hostel" exact element={<Hostel />} />
           <Route path="/listRoom/:hostelId" exact element={<ListRoom />} />
           <Route
@@ -51,7 +50,11 @@ function App() {
             exact
             element={<RoomDetail />}
           />
-          <Route path="/profile" exact element={<Profile />} />
+          <Route path="/profile" element={<Profile />}>
+            <Route path="bill" element={<Profile />} />
+            <Route path="account" element={<Profile />} />
+            <Route path="booking" element={<Profile />} />
+          </Route>
           {/* <Route path="/owner/*" exact element={<Owner />} /> */}
           <Route path="/booking" exact element={<Booking />} />
         </Route>

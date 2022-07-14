@@ -29,8 +29,8 @@ function Hostels(props) {
 
   const fetchData = async () => {
     const hostelsListApi = await HostelAPI.getHostels(filters);
-    setHostels(hostelsListApi.data);
-    setCount(hostelsListApi.count);
+    setHostels(hostelsListApi?.data);
+    setCount(hostelsListApi?.totalRecord);
   };
 
   useEffect(() => {

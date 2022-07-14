@@ -10,7 +10,11 @@ function Footer(props) {
       <div className="row">
         <div className="col-12 col-md-4 align-self-center logo">
           <a href="#">
-            <img src="./images/logo_white.png" height={100} width={110} />
+            <img
+              src="https://firebasestorage.googleapis.com/v0/b/hostelmanagement-ae202.appspot.com/o/logo_white.png?alt=media&token=64caa8ff-0a85-4130-a3c8-405eb031572f"
+              height={100}
+              width={100}
+            />
             <span> HOM</span>
           </a>
           <h4>Hostel - Option good for live</h4>
