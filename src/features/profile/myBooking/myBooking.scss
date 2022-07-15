@@ -1,0 +1,32 @@
+@import "../../../App.scss";
+
+.myBooking {
+  padding: 0 1rem;
+
+  .table {
+    border: $border;
+    margin: auto;
+    th {
+      border-bottom: none;
+    }
+    thead {
+      th {
+        border-bottom: 2px solid $red;
+        text-align: center;
+        color: $navi !important;
+        background: white !important;
+        font-size: 1rem !important;
+        font-weight: 600 !important;
+      }
+    }
+    tbody {
+      th {
+        text-align: center;
+        color: black !important;
+      }
+      td {
+        text-align: center;
+      }
+    }
+  }
+}

@@ -1,0 +1,43 @@
+@import "../../../App.scss";
+
+.blog {
+  .titles {
+    @include title(4rem);
+    margin: 1rem;
+  }
+
+  img {
+    width: 98%;
+  }
+
+  .name {
+    color: $navi;
+    margin-top: 1rem;
+  }
+
+  i {
+    color: $red;
+    font-size: 1.5rem;
+  }
+
+  p {
+    color: $gray;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .blog {
+    .titles {
+      @include title(3.5rem);
+      margin: 1rem 0rem 0rem 0rem;
+    }
+
+    img {
+      width: 100%;
+    }
+
+    .name {
+      margin-top: 0rem;
+    }
+  }
+}

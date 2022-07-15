@@ -1,0 +1,54 @@
+@import "../../App.scss";
+
+.controllTabs {
+  margin-bottom: 1rem;
+
+  h1 {
+    @include title(3rem);
+    max-width: 40%;
+    margin: auto;
+  }
+
+  .nav-tabs {
+    .nav-item {
+      width: calc(100% / 3);
+
+      button {
+        width: 100%;
+        font-size: 1.2rem;
+        font-weight: 600;
+        color: $navi;
+        background: none;
+        border: none;
+        border-bottom: $red solid 0px;
+
+        &:hover {
+          color: $red;
+        }
+
+        &:focus {
+          background: rgb(238, 238, 238);
+          outline: none;
+        }
+      }
+
+      .active {
+        color: $red;
+        border-bottom: $red solid 2.5px;
+        transition: linear 0.7s;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .controllTabs {
+    margin-bottom: 1rem;
+  
+    h1 {
+      @include title(2.6rem);
+      max-width: 90%;
+      margin: auto;
+    }
+  }
+}

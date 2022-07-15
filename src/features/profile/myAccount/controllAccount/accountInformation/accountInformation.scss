@@ -1,0 +1,54 @@
+@import "../../../../../App.scss";
+
+.accountInformation {
+  .upload {
+    img {
+      height: 7rem;
+      width: 7rem;
+      border-radius: 50%;
+    }
+
+    .btn {
+      position: relative;
+
+      input {
+        cursor: pointer;
+        position: absolute;
+        left: 0;
+        top: 0;
+        opacity: 0;
+      }
+    }
+  }
+
+  .information {
+    margin-top: 0.5rem;
+
+    label {
+      margin-left: 0.5rem;
+      color: $navi;
+    }
+
+    input {
+      color: $navi;
+    }
+
+    span {
+      margin-right: 3rem;
+      margin-top: 1rem;
+    }
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .accountInformation {
+    .information {
+      .first{
+        margin-left: 1.8rem;
+      }
+      .form-label{
+        display: block;
+      }
+    }
+  }
+}

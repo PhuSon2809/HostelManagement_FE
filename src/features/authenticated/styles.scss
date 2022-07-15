@@ -1,0 +1,24 @@
+.authenticated {
+  background-image: url("../../../public/images/slide1.webp");
+  height: 100vh;
+  width: 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+//   position: relative;
+  filter: brightness(70%);
+//   backdrop-filter: blur(80%);
+
+
+}
+.form__login__register {
+    background-color: #fff;
+    padding: 50px;
+    text-align: center;
+    position: absolute;
+    top: 20%;
+    left: 17%;
+    // display: flex;
+    // justify-content: center;
+    // align-items: center;
+  }

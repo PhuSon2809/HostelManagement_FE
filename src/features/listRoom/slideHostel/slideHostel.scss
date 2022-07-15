@@ -1,0 +1,30 @@
+@import "../../../App.scss";
+
+.SlideRoom {
+  width: 100%;
+
+  h3 {
+    @include title(2.8rem);
+  }
+
+  .SlideRoom_item {
+    width: 100%;
+    background: #bfd7ea28;
+    border: 2px solid #1b34532b;
+    border-radius: 12px;
+    padding: 0.5rem 1rem;
+    margin: 2.5rem 0;
+
+    .swiper-wrapper {
+      width: 100%;
+      position: relative;
+      margin: 0 0 1rem 0;
+      padding: 1rem 0;
+    }
+
+    .swiper-pagination {
+      position: absolute;
+      bottom: 0;
+    }
+  }
+}

@@ -1,0 +1,29 @@
+@import "../../../../App.scss";
+
+.category {
+  text-decoration: none;
+  background-color: #bbbdbf22;
+  border: $border;
+  border-radius: 5px;
+  .nav-pills {
+    .nav-link {
+      display: block;
+      color: $gray;
+      font-size: 1.12rem;
+      line-height: 2.5rem;
+
+      &:hover {
+        color: $red;
+      }
+    }
+
+    .active {
+      background-color: $red;
+      color: $white;
+
+      &:hover {
+        color: white;
+      }
+    }
+  }
+}

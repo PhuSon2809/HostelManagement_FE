@@ -1,0 +1,35 @@
+@import "../../../App.scss";
+
+.utilities {
+  border: $border;
+  border-radius: 0.4rem;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  margin-right: 1rem;
+  @include grid(15rem);
+
+  .item-service{
+    width: 15rem;
+    color: $red;
+    text-align: center;
+
+    span{
+        color: $navi;
+        font-size: 1.2rem;
+    }
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .utilities {
+    margin-right: 0;
+    @include grid(10rem);
+    .item-service{
+        width: 10rem;
+
+        span{
+          font-size: 1.1rem;
+        }
+    }
+  }
+}

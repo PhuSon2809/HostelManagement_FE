@@ -1,0 +1,42 @@
+@import "../../../../App.scss";
+
+.btn {
+  @include btn;
+}
+
+.name {
+  h3 {
+    @include title(2.5rem);
+    text-align: left;
+    display: inline;
+  }
+
+  p {
+    font-size: 1.2rem;
+    color: $gray;
+    margin: 0.5rem 0;
+
+    i {
+      color: $red;
+      font-size: 1.5rem;
+      width: 2rem;
+      text-align: center;
+    }
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .name {
+    h3 {
+      @include title(2.2rem);
+    }
+
+    p {
+      font-size: 1.1rem;
+
+      i {
+        font-size: 1.4rem;
+      }
+    }
+  }
+}

@@ -1,0 +1,17 @@
+.breadcrumb_d{
+.container-fluid{
+    margin-top: 6.3rem;
+    ol.breadcrumb li {
+        font-size: 1.3rem;
+    }
+
+    ol.breadcrumb li+li::before {
+        content: "\00a0 > \00a0";
+    }
+
+    ol.breadcrumb li a:hover {
+        text-decoration: underline;
+        color: #0f0f0f;
+    }
+}
+}
