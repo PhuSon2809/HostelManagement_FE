@@ -4,17 +4,19 @@ import "./myAccount.scss";
 import { Tab, Row, Col } from "react-bootstrap";
 import Category from "./category/Category";
 import ControllAccount from "./controllAccount/ControllAccount";
+import { useSelector } from "react-redux";
 
 MyAccount.propTypes = {};
 
 function MyAccount(props) {
+  const current = useSelector((state) => state.login.infoUser);
   return (
     <div className="myaccount">
       <div className="row">
       <div className="col-12 aboutus mb-4">
-        <img src="./images/avatar.jpg" alt="avatar" className="mr-4" />
+        <img src={current.avatar} alt="avatar" className="mr-4" />
         <div>
-          <span>Tran Phu Son</span>
+          <span>{current.name}</span>
           <i>Personalize your account by updating your information</i>
         </div>
       </div>

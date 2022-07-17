@@ -1,0 +1,15 @@
+@import "../../../../App.scss";
+
+.Opps{
+    display: flex;
+    height: 15rem;
+    justify-content: center;
+    align-items: center;
+    color: $red;
+    
+    span{
+        color: $navi;
+        margin: 0 0.5rem;
+        font-size: 3.5rem;
+    }
+}

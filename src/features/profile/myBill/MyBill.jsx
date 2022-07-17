@@ -1,11 +1,28 @@
-import React from "react";
-import PropTypes from "prop-types";
+import React, { useState } from "react";
 import "./myBill.scss";
 import { Table } from "reactstrap";
-
-MyBill.propTypes = {};
+import BillAPI from "../../../apis/billApi";
+import { useEffect } from "react";
+import { useSelector } from "react-redux";
 
 function MyBill(props) {
+  const current = useSelector((state) => state.login.infoUser);
+  const [bills, setBills] = useState([]);
+
+  const fetchData = async () => {
+    const billApi = await BillAPI.getBillById(current.id);
+    setBills(billApi?.data);
+    console.log("bills: ", bills);
+  };
+
+  useEffect(() => {
+    try {
+      fetchData()
+    } catch (error) {
+      console.log("Fail to get bills");
+    }
+  }, [current.id])
+
   return (
     <div className="myBill">
       <Table striped>

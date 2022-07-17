@@ -1,116 +1,92 @@
 import React, { useState } from "react";
-import PropTypes from "prop-types";
-import { Input, Form, FormGroup, FormFeedback, Label } from "reactstrap";
 import "./accountInformation.scss";
-import { event } from "jquery";
-
-AccountInformation.propTypes = {};
+import { useSelector } from "react-redux";
+import InformationForm from "../informationForm/InformationForm";
 
 function AccountInformation(props) {
-  const [avatar, setAvatar] = useState();
-  const [fullName, setFullName] = useState('');
-  const [gender, setGender] = useState();
-  const [phone, setPhone] = useState('');
+  const current = useSelector((state) => state.login.infoUser);
 
-  const [error, setError] = useState({});
+  const [fullNameError, setFullNameError] = useState("");
+  const [phoneError, setPhoneError] = useState("");
+  const [genderError, setGenderError] = useState("");
 
-  // const validate = (e, name, value) => {
-  //   switch (name) {
-  //     case ""
-  //   }
-  // }
+  const [inputValue, setInputValue] = useState({
+    fullName: "",
+    phone: "",
+    gender: {
+      male: "Male",
+      femal: "Female",
+      other: "Orther",
+    },
+  });
 
+  const [image, setImage] = useState(current.avatar);
+
+  const onImageChange = (event) => {
+    if (event.target.files && event.target.files[0]) {
+      setImage(URL.createObjectURL(event.target.files[0]));
+    }
+  };
+
+  const handleOnChange = (e) => {
+    const name = e.target.name;
+    const value = e.target.value;
+    const inputNew = {
+      ...inputValue,
+      [name]: value,
+    };
+    setInputValue(inputNew);
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+  };
+
+  const handleValidate = (e) => {
+    const name = e.target.name;
+    const value = e.target.value;
+    const phonePattern = /^(03|05|07|08|09|01[2|6|8|9])+([0-9]{8})\b/;
+
+    const phoneTest = phonePattern.test(value);
+
+    if (name === "fullName" && value.length === 0) {
+      setFullNameError("Please field your name.");
+    } else {
+      setFullNameError("");
+    }
+
+    if (name === "phone") {
+      if (value.length === 0) {
+        setPhoneError("Please field your phone.");
+      } else if (!phoneTest) {
+        setPhoneError(
+          "Phone must start with 03, 05, 07, 08, 09 and have 10 number"
+        );
+      } else {
+        setPhoneError("");
+      }
+    }
+
+    if(name === "gender"){
+      if(value.ch)
+    }
+  };
 
   return (
     <div className="accountInformation">
-      <Form>
-        <div className="upload">
-          <img src="./images/avatar.jpg" alt="avatar" className="mr-4" />
-          <button type="button" className="btn">
-            <i className="fa fa-upload"></i> Upload File
-            <input type="file" />
-          </button>
-        </div>
-        <div className="information">
-          <FormGroup>
-            <Label for="fullName">Full Name:</Label>
-            <Input
-              type="text"
-              id="fullName"
-              name="fullName"
-              placeholder="fullName"
-              value={fullName}
-              onChange={(event) => setFullName(event.target.value)}
-              valid={error === ""}
-              invalid={error !== ""}
-              // onBlur={this.handleInputBlur}
-            />
-            <FormFeedback></FormFeedback>
-          </FormGroup>
-          <FormGroup>
-            <Label for="phone">Phone:</Label>
-            <Input
-              type="number"
-              id="phone"
-              name="phone"
-              placeholder="phone"
-              value={phone}
-              onChange={(event) => setPhone(event.target.value)}
-              valid={error === ""}
-              invalid={error !== ""}
-              // onBlur={this.handleInputBlur}
-            />
-            <FormFeedback></FormFeedback>
-          </FormGroup>
-          <FormGroup>
-            <Label for="gender" className="mr-5">Gender:</Label>
-            <span className="first">
-              <Input
-                type="radio"
-                id="gender"
-                name="gender"
-                placeholder="gender"
-                // value={this.state.fullName}
-                // valid={this.state.error.fullName === ""}
-                // invalid={this.state.error.fullName !== ""}
-                // onChange={this.handleInputChange}
-                // onBlur={this.handleInputBlur}
-              />
-              Male
-            </span>
-            <span>
-              <Input
-                type="radio"
-                id="gender"
-                name="gender"
-                placeholder="gender"
-                // value={this.state.fullName}
-                // valid={this.state.error.fullName === ""}
-                // invalid={this.state.error.fullName !== ""}
-                // onChange={this.handleInputChange}
-                // onBlur={this.handleInputBlur}
-              />
-              Female
-            </span>
-            <span>
-              <Input
-                type="radio"
-                id="gender"
-                name="gender"
-                placeholder="gender"
-                // value={this.state.fullName}
-                // valid={this.state.error.fullName === ""}
-                // invalid={this.state.error.fullName !== ""}
-                // onChange={this.handleInputChange}
-                // onBlur={this.handleInputBlur}
-              />
-              Orther
-            </span>
-            <FormFeedback></FormFeedback>
-          </FormGroup>
-          <input type="submit" value="Update" className="btn text-white" />
-        </div>
-      </Form>
+      
+      <InformationForm
+        current={current}
+        inputValue={inputValue}
+        image={image}
+        onImageChange={onImageChange}
+        handleOnChange={handleOnChange}
+        handleSubmit={handleSubmit}
+        handleValidate={handleValidate}
+        fullNameError={fullNameError}
+        phoneError={phoneError}
+        genderError={genderError}
+      />
     </div>
   );
 }

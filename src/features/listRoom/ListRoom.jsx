@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import Banner from "../../components/banner/Banner";
 import ShowRoom from "./showRoom/ShowRoom";
 import ListOption from "./listOption/ListOption";
-import SlideRoom from "./slideHostel/SlideHostel";
+import SlideHostel from "./slideHostel/SlideHostel";
 import { useEffect } from "react";
 import HostelAPI from "../../apis/hostelApi";
 
@@ -43,7 +43,7 @@ function ListRoom(props) {
           </div>
         </div>
         <div className="row ml-2 mr-2 ml-md-0 mr-md-0">
-          <SlideRoom hostels={hostels} />
+          <SlideHostel hostels={hostels} />
         </div>
       </div>
     </div>

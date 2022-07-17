@@ -1,13 +1,17 @@
 @import "../../../App.scss";
 
-.SlideRoom {
+.SlideHostel {
   width: 100%;
+
+  .btn {
+    @include btn;
+  }
 
   h3 {
     @include title(2.8rem);
   }
 
-  .SlideRoom_item {
+  .SlideHostel_item {
     width: 100%;
     background: #bfd7ea28;
     border: 2px solid #1b34532b;

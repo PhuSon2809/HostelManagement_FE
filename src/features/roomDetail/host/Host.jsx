@@ -1,20 +1,22 @@
 import React from "react";
 import PropTypes from "prop-types";
 import "./host.scss";
+import { useSelector } from "react-redux";
 
 Host.propTypes = {};
 
 function Host(props) {
+  const current = useSelector((state) => state.login.infoUser);
   return (
-    <div className="host">
+    <div className="host" key={current.id}>
       <div className="hostItem">
         <h3>Host</h3>
         <div className="row information">
-          <img src="./images/room1.png" className="img-fluid" />
+          <img src={current.avatar} className="img-fluid" />
           <div className="col">
-            <h5>Tran Phu Son</h5>
+            <h5>{current.name}</h5>
             <div>
-              <i className="fa fa-phone mr-2"></i>0914360736
+              <i className="fa fa-phone mr-2"></i>{current.phone}
             </div>
           </div>
         </div>

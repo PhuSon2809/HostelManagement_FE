@@ -1,6 +1,5 @@
 import axios from "axios";
 
-
 axios.defaults.baseURL = "https://hom-apim.azure-api.net/api/v1";
 axios.defaults.headers.post["Content-Type"] = "application/json";
 
@@ -23,11 +22,23 @@ export const axiosClient = {
       .get(`${url}/${slug}`, params)
       .catch((error) => console.log(error));
   },
+  getWithIdFilterMiddleParams(url, slug = "", params) {
+    return axios
+      .get(
+        // `${url}/?pageIndex=${params.pageIndex}&pageSize=${params.pageSize}/${slug}`
+        `${url}`,
+        { params },
+        `${slug}`
+      )
+      .catch((error) => console.log(error));
+  },
   getWithId(url, slug = "") {
     return axios.get(`${url}/${slug}`).catch((error) => console.log(error));
   },
   getWith2Id(url, slug = "", slug2 = "") {
-    return axios.get(`${url}/${slug}/${slug2}`).catch((error) => console.log(error));
+    return axios
+      .get(`${url}/${slug}/${slug2}`)
+      .catch((error) => console.log(error));
   },
   // getWithFilterMiddleId(url, url2, slug = "", params) {
   //   return axios
@@ -81,9 +92,11 @@ export const axiosClient = {
       ? JSON.parse(window.localStorage.getItem("access_token"))
       : "";
   },
+
   setHeaderAuth(token) {
     axios.defaults.headers.common.Authorization = `Bearer ${token}`;
   },
+  
   clearToken() {},
 };
 

@@ -1,11 +1,28 @@
-import React from "react";
-import PropTypes from "prop-types";
+import React, { useEffect, useState } from "react";
 import "./myBooking.scss";
 import { Table } from "reactstrap";
-
-MyBooking.propTypes = {};
+import { useSelector } from "react-redux";
+import BookingAPI from "../../../apis/bookingApi";
 
 function MyBooking(props) {
+  const current = useSelector((state) => state.login.infoUser);
+  console.log(current.id);
+  const [bookings, setBookings] = useState([]);
+
+  const fetchData = async () => {
+    const bookingApi = await BookingAPI.getBookingById(current.id);
+    setBookings(bookingApi.data);
+    console.log("bookings: ", bookings);
+  };
+
+  useEffect(() => {
+    try {
+      fetchData()
+    } catch (error) {
+      console.log("Fail to get bookings");
+    }
+  }, [current.id])
+
   return (
     <div className="myBooking">
       <Table striped>

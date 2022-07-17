@@ -8,12 +8,11 @@ OneRoom.propTypes = {
 };
 
 function OneRoom({ room }) {
+  
   const navigate = useNavigate();
 
   const handleClick = () => {
-    navigate("/room", {
-      state: { roomId: room?.id, hostelId: room?.hostelId },
-    });
+    navigate(`/room/${room.id}/${room.hostelId}`);
   };
 
   return (
@@ -21,26 +20,53 @@ function OneRoom({ room }) {
       <div className="rooms row">
         <div className="col-12 col-md-5">
           <div className="image">
-            <img src="./images/room1.png" className="img-fluid img1" />
-            <img src="./images/room2.png" className="img-fluid img2" />
+            <img
+              src="https://firebasestorage.googleapis.com/v0/b/hostelmanagement-ae202.appspot.com/o/Rooms%2Fh1-10.jpg?alt=media&token=62f826e7-00d2-465a-a7ec-f490edf2091c"
+              className="img-fluid img1"
+            />
+            <img
+              src="https://firebasestorage.googleapis.com/v0/b/hostelmanagement-ae202.appspot.com/o/Rooms%2Fh1-11.jpg?alt=media&token=3ff1ca17-10cf-47d3-ae4c-c7aa5c23d826"
+              className="img-fluid img2"
+            />
           </div>
         </div>
         <div className="col-12 col-md-7 pl-0">
           <div className="content mt-2 mt-md-0">
-            <h3>Deluxe Queen Room With Street View</h3>
-            <p>1 Bedroom / 1 Bathroom / Wifi / Kitchen</p>
-            <i className="fa fa-star" />
-            <i className="fa fa-star" />
-            <i className="fa fa-star" />
-            <i className="fa fa-star" />
-            <i className="fa fa-star-half" />
-            <p>Thanh pho Ho Chi Minh</p>
-            <div className="house-price">
-              <p>30 m2</p>
-              <p className="red">
-                &amp; 100 <span>/ day</span>
-              </p>
+            <h3>Room name: {room.name}</h3>
+            {room.roomType.furniture ? (
+              <div>
+                <p className="mb-1">
+                  2 Bed room / 1 Bath room / Wifi / Kitchen
+                </p>
+                <i className="fa fa-star" />
+                <i className="fa fa-star" />
+                <i className="fa fa-star" />
+                <i className="fa fa-star" />
+                <i className="fa fa-star-half" />
+              </div>
+            ) : (
+              <div>
+                <p> Mezzanine / 1 Bath room / Wifi / Kitchen</p>
+                <i className="fa fa-star" />
+                <i className="fa fa-star" />
+                <i className="fa fa-star" />
+                <i className="fa fa-star-half" />
+              </div>
+            )}
+
+            <div key={room.roomType.id}>
+              <h5 className="d-block mt-1">
+                <span>Room: </span>
+                {room.roomType.name}
+              </h5>
+              <div className="house-price">
+                <p>{room.roomType.acreage} m2</p>
+                <p className="red">
+                  &amp; {room.roomType.price} <span>/ month</span>
+                </p>
+              </div>
             </div>
+
             <div className="text-center text-md-left">
               <button onClick={handleClick} className="btn">
                 View Detail

@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import './utilities.scss';
-import { SvgIcon } from '@mui/material';
 import ElectricBoltIcon from '@mui/icons-material/ElectricBolt';
 import InvertColorsIcon from '@mui/icons-material/InvertColors';
 import LocalParkingIcon from '@mui/icons-material/LocalParking';
@@ -10,10 +9,10 @@ import AttachMoneyIcon from '@mui/icons-material/AttachMoney';
 import CellWifiIcon from '@mui/icons-material/CellWifi';
 
 Utilities.propTypes = {
-    
+    roomDetail: PropTypes.object,
 };
 
-function Utilities(props) {
+function Utilities({ roomDetail }) {
     return (
         <div className='utilities' id='utilities'>
             <div className='item-service'>

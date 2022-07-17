@@ -1,10 +1,10 @@
 @import "../../../App.scss";
 
-.btn {
-  @include btn;
-}
-
 .carousel {
+  .btn {
+    @include btn;
+  }
+  
   .carousel-indicators {
     li {
       width: 0.5rem;

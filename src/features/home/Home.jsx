@@ -18,6 +18,7 @@ function Home(props) {
   const fetchData = async () => {
     const hostelsApi = await HostelAPI.getHostels(filters);
     setHostels(hostelsApi.data);
+    console.log("hostels: ", hostels);
   };
 
   console.log("hostels: ", hostels);

@@ -3,9 +3,12 @@ import PropTypes from "prop-types";
 import "./title.scss";
 import HostelAPI from "../../../../apis/hostelApi";
 
-Title.propTypes = {};
+Title.propTypes = {
+  hostelId: PropTypes.string,
+  count: PropTypes.number,
+};
 
-function Title({ hostelId, rooms }) {
+function Title({ hostelId, count }) {
   const [hostelInfor, setHostelInfor] = useState({});
 
   const fetchData = async () => {
@@ -24,16 +27,18 @@ function Title({ hostelId, rooms }) {
 
   return (
     <div className="name">
-      <h3>{hostelInfor.name}</h3>
+      <h3>Hostel: {hostelInfor.name}</h3>
       <p>
-        <i className="fa fa-check"></i> 36 rooms
+        <i className="fa fa-check"></i> {count} rooms
       </p>
-      <p>
-        <i className="fa fa-phone-square"></i> 0914 360 736
-      </p>
-      <p>
-        <i className="fa fa-envelope"></i> greenhostel@gmail.com
-      </p>
+      <div > 
+        <p>
+          <i className="fa fa-user"></i> Host: {hostelInfor.account?.name}
+        </p>
+        <p>
+          <i className="fa fa-phone-square"></i> {hostelInfor.account?.phone}
+        </p>
+      </div>
       <p>
         <i className="fa fa-map-marker"></i> {hostelInfor.address}
       </p>

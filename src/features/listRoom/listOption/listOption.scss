@@ -1,12 +1,10 @@
 @import "../../../App.scss";
 
-.btn {
-  @include btn;
-}
-
-@import "../../../App.scss";
-
 .listOption {
+  .btn {
+    @include btn;
+  }
+
   .sidebar {
     border: 1.5px solid #1b34532b;
     box-shadow: 0.3rem 0.3rem #1b34532b;

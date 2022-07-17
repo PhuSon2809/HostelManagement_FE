@@ -9,10 +9,9 @@ ListBox.propTypes = {
 
 function ListBox({ hostels }) {
   console.log("list hostel page: ", hostels);
-
   return (
     <div className="box-content justify-content-center">
-      {hostels.map((hostel) => (
+      {hostels?.map((hostel) => (
         <Box hostel={hostel} key={hostel.id} />
       ))}
     </div>

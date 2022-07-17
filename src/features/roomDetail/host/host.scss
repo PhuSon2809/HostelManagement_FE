@@ -1,11 +1,11 @@
 @import "../../../App.scss";
 
-.btn {
-  @include btn;
-}
-
 .host {
   padding: 0 0 1rem 0;
+
+  .btn {
+    @include btn;
+  }
 
   .hostItem {
     border: $border;

@@ -11,15 +11,15 @@ import { Pagination, Autoplay } from "swiper";
 import "./slideHostel.scss";
 import HostelDetail from "../hostelDetail/HostelDetail";
 
-SlideRoom.propTypes = {
-  hostels: PropTypes.object,
+SlideHostel.propTypes = {
+  hostels: PropTypes.array,
 };
 
-function SlideRoom({ hostels }) {
+function SlideHostel({ hostels }) {
   return (
-    <div className="SlideRoom">
+    <div className="SlideHostel">
       <h3>Another Hostel</h3>
-      <div className="SlideRoom_item w-md-100">
+      <div className="SlideHostel_item w-md-100">
         <Swiper
           slidesPerView={3}
           spaceBetween={30}
@@ -57,4 +57,4 @@ function SlideRoom({ hostels }) {
   );
 }
 
-export default SlideRoom;
+export default SlideHostel;

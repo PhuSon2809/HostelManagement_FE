@@ -1,49 +1,25 @@
 import PropTypes from "prop-types";
 import React from "react";
+import ImageSlider from "../imageSlider/ImageSlider";
 import "./roomImage.scss";
 
-RoomImage.propTypes = {};
+RoomImage.propTypes = {
+  roomDetail: PropTypes.object,
+};
 
-function RoomImage(props) {
+function RoomImage({ roomDetail }) {
   return (
     <div className="roomImage">
       <div className="nameTitle">
-        <h3>Puda Vida Room</h3>
+        <h3>{roomDetail.name} Room</h3>
         <i className="fa fa-star" />
         <i className="fa fa-star" />
         <i className="fa fa-star" />
         <i className="fa fa-star" />
         <i className="fa fa-star" />
       </div>
-      <div className="grid-container">
-        <div className="grid-item item1">
-          <img src="./images/room1.png" className="img-fluid" />
-          <div className="black"></div>
-        </div>
-        <div className="grid-item item2">
-          <img src="./images/room2.png" className="img-fluid" />
-          <div className="black"></div>
-        </div>
-        <div className="grid-item item3">
-          <img src="./images/room3.png" className="img-fluid" />
-          <div className="black"></div>
-        </div>
-        <div className="grid-item item4">
-          <img src="./images/room4.png" className="img-fluid" />
-          <div className="black"></div>
-        </div>
-        <div className="grid-item item5">
-          <img src="./images/room1.png" className="img-fluid" />
-          <div className="black"></div>
-        </div>
-        <div className="grid-item item6">
-          <img src="./images/room2.png" className="img-fluid" />
-          <div className="black"></div>
-        </div>
-        <div className="grid-item item7">
-          <img src="./images/room3.png" className="img-fluid" />
-          <div className="black"></div>
-        </div>
+      <div>
+        <ImageSlider imageList={roomDetail.images} />
       </div>
     </div>
   );

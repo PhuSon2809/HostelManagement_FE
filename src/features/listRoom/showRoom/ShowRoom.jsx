@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import Title from "./title/Title";
 import Rooms from "./rooms/Rooms";
 import Pagination from "@mui/material/Pagination";
-import { Box } from "@mui/material";
 import { useParams } from "react-router";
 import RoomAPI from "../../../apis/roomApi";
 import { styled } from "@mui/material/styles";
@@ -11,7 +10,8 @@ const PaginationStyle = styled("div")(() => ({
   display: "flex",
   flexFlow: "row nowrap",
   justifyContent: "center",
-  marginTop: "2rem",
+  marginTop: "1.5rem",
+  marginBottom: "1.4rem",
 }));
 
 function ShowRoom(props) {
@@ -26,11 +26,13 @@ function ShowRoom(props) {
   });
 
   const fetchData = async () => {
-    const roomsApi = await RoomAPI.getRoomByIdFilter(hostelId, filters);
-    console.log("roomsApi: ", roomsApi);
-    setRooms(roomsApi?.data);
-    setCount(roomsApi?.totalRecord);
+    const responseRoom = await RoomAPI.getRoomByIdFilter(hostelId, filters);
+    console.log("responseRoom: ", responseRoom);
+    console.log("room state: ", rooms);
+    setRooms(responseRoom?.data);
+    setCount(responseRoom?.totalRecord);
   };
+  console.log("rooms: ", rooms);
 
   useEffect(() => {
     try {
@@ -50,7 +52,7 @@ function ShowRoom(props) {
   return (
     <div className="listRoom">
       <div className="row mt-4 ml-4">
-        <Title hostelId={hostelId} rooms={rooms} />
+        <Title hostelId={hostelId} count={count} />
       </div>
       <div>
         <Rooms rooms={rooms} />

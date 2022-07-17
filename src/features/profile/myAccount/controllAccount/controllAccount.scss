@@ -5,4 +5,8 @@
     border-radius: 5px;
     border: $border;
     padding: 1rem;
+
+    .btn {
+        @include btn;
+      }
 }

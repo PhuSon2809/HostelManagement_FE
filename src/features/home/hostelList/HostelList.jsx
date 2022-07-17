@@ -3,13 +3,13 @@ import PropTypes from "prop-types";
 import "./hostelList.scss";
 import { Link } from "react-router-dom";
 import Hostel from "../hostel/Hostel";
+import SentimentVeryDissatisfiedIcon from "@mui/icons-material/SentimentVeryDissatisfied";
 
 HostelList.propTypes = {
   hostels: PropTypes.array,
 };
 
 function HostelList({ hostels }) {
-  console.log("hostels props: ", hostels);
 
   return (
     <div className="hostelList" id="hostelList">
@@ -28,9 +28,21 @@ function HostelList({ hostels }) {
       </div>
 
       <div className="box-content">
-        {hostels?.map((hostel) => (
-          <Hostel hostel={hostel} key={hostel.id} />
-        ))}
+        {hostels.length <= 0 ? (
+          <h2 className="Opps">
+            <span>
+              <SentimentVeryDissatisfiedIcon sx={{ fontSize: 70 }} />
+              Opps
+            </span>{" "}
+            - hostel have no rooms here
+          </h2>
+        ) : (
+          <>
+            {hostels?.map((hostel) => (
+              <Hostel hostel={hostel} key={hostel.id} />
+            ))}
+          </>
+        )}
       </div>
 
       <div className="col-12 text-center list_more">

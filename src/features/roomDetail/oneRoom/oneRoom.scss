@@ -12,6 +12,10 @@
     box-shadow: 0.3rem 0.3rem 0.3rem #1b34532b;
   }
 
+  .btn {
+    @include btn;
+  }
+
   .image {
     position: relative;
 
@@ -36,6 +40,10 @@
     h3 {
       font-size: 1.2rem;
       color: $navi;
+    }
+
+    h5{
+      font-size: 1.1rem;
     }
 
     i {

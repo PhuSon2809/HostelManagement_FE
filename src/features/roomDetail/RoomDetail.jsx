@@ -11,17 +11,12 @@ import { useEffect } from "react";
 
 function RoomDetail(props) {
   const { roomId, hostelId } = useParams();
-  console.log("roomId :", roomId);
-  console.log("hostelId :", hostelId);
-
   const [roomDetail, setRoomDetail] = useState({});
 
   const fetchData = async () => {
-    const roomByIdApi = await RoomAPI.getRoomById(roomId);
-    setRoomDetail(roomByIdApi);
+    const roomDetailByIdApi = await RoomAPI.getRoomById(roomId);
+    setRoomDetail(roomDetailByIdApi);
   };
-
-  console.log("roomByIdApi :", roomDetail);
 
   useEffect(() => {
     try {
@@ -32,17 +27,17 @@ function RoomDetail(props) {
   }, [roomId]);
 
   return (
-    <div className="containers">
+    <div className="containers" key={roomDetail.id}>
       <div className="row">
-        <RoomImage />
+        <RoomImage roomDetail={roomDetail}/>
       </div>
       <div className="row">
         <Menu />
       </div>
       <div className="row">
         <div className="col-12 col-md-9 p-0 order-last order-md-first">
-          <Overview />
-          <Utilities />
+          <Overview roomDetail={roomDetail}/>
+          <Utilities roomDetail={roomDetail}/>
         </div>
         <div className="col-12 col-md-3 p-0 order-first">
           <Host />

@@ -1,9 +1,5 @@
 @import "../../App.scss";
 
-.btn {
-  @include btn;
-}
-
 .banner {
   display: flex;
   align-items: center;
@@ -14,6 +10,10 @@
   padding-top: 17rem;
   padding-bottom: 10rem;
   margin-right: 0;
+
+  .btn {
+    @include btn;
+  }
 
   .content {
     text-align: center;

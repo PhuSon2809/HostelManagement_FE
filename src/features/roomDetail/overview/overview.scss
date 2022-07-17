@@ -1,15 +1,16 @@
 @import "../../../App.scss";
 
-.btn {
-  @include btn;
-}
-
 .overview {
   border: $border;
   border-radius: 0.4rem;
   padding: 1rem;
   color: $navi;
   margin: 0 1rem 1rem 0;
+
+  .btn {
+    @include btn;
+  }
+
   .address {
     i {
       width: 3%;
@@ -21,6 +22,11 @@
 
     p {
       color: $gray;
+    }
+
+    .price {
+      font-size: 1.2rem;
+      color: $red;
     }
   }
 
@@ -38,5 +44,11 @@
 @media only screen and (max-width: 600px) {
   .overview {
     margin-right: 0;
+
+    .address {
+      i {
+        margin-right: 1rem;
+      }
+    }
   }
 }

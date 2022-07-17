@@ -8,7 +8,6 @@ Hostel.propTypes = {
 };
 
 function Hostel({ hostel }) {
-  console.log(hostel);
   const navigate = useNavigate();
 
   const handleClick = () => {
@@ -18,11 +17,14 @@ function Hostel({ hostel }) {
   return (
     <div className="infors">
       <div className="image">
-        <img
-          src="https://firebasestorage.googleapis.com/v0/b/hostelmanagement-ae202.appspot.com/o/Hostels%2Fh2.jpg?alt=media&token=4c5da274-9413-49a0-a202-145c38fb293a"
-          alt="hostel"
-          className="img-fluid"
-        />
+        {hostel.images?.map((image) => (
+          <img
+            key={image.id}
+            src={image.url}
+            alt="hostel"
+            className="img-fluid"
+          />
+        ))}
         <div className="icons">
           <a href="#">
             <i className="fa fa-user" /> by {hostel.account.name}

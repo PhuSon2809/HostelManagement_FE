@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-
 import "./header.scss";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import {
@@ -17,10 +16,10 @@ import {
 import { useDispatch } from "react-redux";
 import { logoutAccount } from "../../redux/actions/login";
 import { useSelector } from "react-redux";
+import { Avatar } from "@mui/material";
 
 function Header(props) {
   const current = useSelector((state) => state.login.infoUser);
-  console.log("current: ", current);
 
   const [isNavOpen, setIsNavOpen] = useState(false);
   const [dropdown, setDropdown] = useState(false);
@@ -89,9 +88,10 @@ function Header(props) {
           </NavItem>
         </Nav>
 
-        <Dropdown isOpen={dropdown} toggle={toggleDropdown}>
+        <Dropdown isOpen={dropdown} toggle={toggleDropdown} key={current.id}>
           <DropdownToggle caret className="btn">
             <img src={current.avatar} alt="avatar" className="img-fluid" />
+            {/* <Avatar/> */}
             <span>{current.name}</span>
           </DropdownToggle>
           <DropdownMenu>

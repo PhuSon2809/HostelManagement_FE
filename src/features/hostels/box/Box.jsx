@@ -17,10 +17,14 @@ function Box({ hostel }) {
   return (
     <div className="inforss">
       <div className="image">
-        <img
-          src="https://firebasestorage.googleapis.com/v0/b/hostelmanagement-ae202.appspot.com/o/Hostels%2Fh2.jpg?alt=media&token=4c5da274-9413-49a0-a202-145c38fb293a"
-          className="img-fluid"
-        />
+        {hostel.images?.map((image) => (
+          <img
+            key={image.id}
+            src={image.url}
+            alt="hostel"
+            className="img-fluid"
+          />
+        ))}
         <div className="icons">
           <a href="#">
             <i className="fa fa-user" /> by {hostel.account.name}

@@ -1,81 +1,93 @@
 import React, { useState } from "react";
-import PropTypes from "prop-types";
-import { Input, Form, FormGroup, FormFeedback, Label } from "reactstrap";
 import "./changePassword.scss";
-
-ChangePassword.propTypes = {};
+import PasswordForm from "../passwordForm/PasswordForm";
 
 function ChangePassword(props) {
-  const [currentPassword, setCurrentPassword] = useState();
+  const [oldPasswordError, setOldPasswordError] = useState("");
+  const [newPasswordError, setNewPasswordError] = useState("");
+  const [confirmPasswordError, setConfirmPasswordError] = useState("");
 
-  const [form, setForm] = useState({
+  const [passwordInput, setPasswordInput] = useState({
+    oldPassword: "",
     newPassword: "",
-    confirmNewPassword: "",
+    confirmPassword: "",
   });
 
-  const handleInputChange = (e) => {
-    const valueInput = {
-      ...form,
-      [e.target.name]: e.target.value,
+  const handleOnChange = (e) => {
+    const name = e.target.name;
+    const value = e.target.value.trim();
+    const input = {
+      ...passwordInput,
+      [name]: value,
     };
-    setForm(valueInput);
+    setPasswordInput(input);
   };
 
-  const handleSubmit = e => {
+  const handleValidation = (e) => {
+    const name = e.target.name;
+    const value = e.target.value.trim();
+
+    if (name === "newPassword") {
+      const uppercasePattern = /(?=.*?[A-Z])/;
+      const lowercasePattern = /(?=.*?[a-z])/;
+      const digitsPattern = /(?=.*?[0-9])/;
+      const minLengthPattern = /.{6,}/;
+
+      const passwordLength = value.length;
+      const uppercasePassword = uppercasePattern.test(value);
+      const lowercasePassword = lowercasePattern.test(value);
+      const digitsPassword = digitsPattern.test(value);
+      const minLengthPassword = minLengthPattern.test(value);
+
+      let errorMessage = "";
+      if (passwordLength === 0) {
+        errorMessage = "Please field password.";
+      } else if (!uppercasePassword) {
+        errorMessage = "At least one Uppercase.";
+      } else if (!lowercasePassword) {
+        errorMessage = "At least one Lowercase.";
+      } else if (!digitsPassword) {
+        errorMessage = "At least one digit.";
+      } else if (!minLengthPassword) {
+        errorMessage = "At least minumum 6 characters.";
+      } else if (passwordInput.newPassword === passwordInput.oldPassword) {
+        errorMessage = "New password same with old password.";
+      } else {
+        errorMessage = "";
+      }
+      setNewPasswordError(errorMessage);
+    }
+
+    if (name === "oldPassword" && value.length === 0) {
+      setOldPasswordError("Please field old password");
+    } else {
+      setOldPasswordError("");
+    }
+
+    if (name === "confirmPassword" && value.length === 0) {
+      setConfirmPasswordError("Please field confirm password.");
+    } else if (passwordInput.confirmPassword !== passwordInput.newPassword) {
+      setConfirmPasswordError("Confirm password is not matched.");
+    } else {
+      setConfirmPasswordError("");
+    }
+  };
+
+  const handleSubmit = (e) => {
     e.preventDefault();
-  }
+  };
 
   return (
     <div className="changePassword">
-      <Form>
-        <FormGroup>
-          <Label for="currentPassword">Current password:</Label>
-          <Input
-            type="text"
-            id="currentPassword"
-            name="currentPassword"
-            placeholder="Current password"
-            // value={fullName}
-            // valid={this.state.error.fullName === ""}
-            // invalid={this.state.error.fullName !== ""}
-            // onChange={(event) => setFullName(event.target.value)}
-            // onBlur={this.handleInputBlur}
-          />
-          <FormFeedback></FormFeedback>
-        </FormGroup>
-        <FormGroup>
-          <Label for="newPassword">New password:</Label>
-          <Input
-            type="text"
-            id="newPassword"
-            name="newPassword"
-            placeholder="New password"
-            value={form.newPassword}
-            onChange={handleInputChange}
-            // valid={this.state.error.fullName === ""}
-            // invalid={this.state.error.fullName !== ""}
-            
-            // onBlur={this.handleInputBlur}
-          />
-          <FormFeedback></FormFeedback>
-        </FormGroup>
-        <FormGroup>
-          <Label for="confirmNewPassword">Confirm new password:</Label>
-          <Input
-            type="text"
-            id="confirmNewPassword"
-            name="confirmNewPassword"
-            placeholder="confirm new password"
-            value={form.confirmNewPassword}
-            onChange={handleInputChange}
-            // valid={this.state.error.fullName === ""}
-            // invalid={this.state.error.fullName !== ""}
-            // onBlur={this.handleInputBlur}
-          />
-          <FormFeedback></FormFeedback>
-        </FormGroup>
-        <input type="submit" value="Update" className="btn text-white" />
-      </Form>
+      <PasswordForm
+        handleOnChange={handleOnChange}
+        handleValidation={handleValidation}
+        handleSubmit={handleSubmit}
+        passwordInput={passwordInput}
+        oldPasswordError={oldPasswordError}
+        newPasswordError={newPasswordError}
+        confirmPasswordError={confirmPasswordError}
+      />
     </div>
   );
 }

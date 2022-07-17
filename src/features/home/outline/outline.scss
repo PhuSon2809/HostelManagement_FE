@@ -1,20 +1,21 @@
-@import '../../../App.scss';
-
-.btn {
-    @include btn;
-}
+@import "../../../App.scss";
 
 .outline {
-    background-image: linear-gradient(to right, $navi, transparent), url('../../../../public/images/banner-2.png');
-    background-size: cover;
-    background-position: center;
-    padding: 5%;
-    margin: 1.5rem 0;
-    border-radius: 10px;
-    width: 100%;
-    color: $white;
+  background-image: linear-gradient(to right, $navi, transparent),
+    url("../../../../public/images/banner-2.png");
+  background-size: cover;
+  background-position: center;
+  padding: 5%;
+  margin: 1.5rem 0;
+  border-radius: 10px;
+  width: 100%;
+  color: $white;
 
-    p {
-        color: #fff;
-    }
+  .btn {
+    @include btn;
+  }
+
+  p {
+    color: #fff;
+  }
 }
