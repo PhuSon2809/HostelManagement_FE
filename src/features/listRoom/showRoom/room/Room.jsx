@@ -2,6 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import "./room.scss";
 import { useNavigate } from "react-router-dom";
+import currencyFormat from "../../../../utils/formatPrize";
 
 Room.propTypes = {
   room: PropTypes.object,
@@ -52,7 +53,7 @@ function Room({ room }) {
             <div className="house-price">
               <p>{room.roomType.acreage} m2</p>
               <p className="red">
-                {room.roomType.price} <span> VNĐ/month</span>
+                {currencyFormat(room.roomType.price)} <span>/month</span>
               </p>
             </div>
           </div>

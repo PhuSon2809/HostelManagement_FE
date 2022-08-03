@@ -13,7 +13,7 @@ function BookingList(props) {
 
   const fetchData = async () => {
     const bookingApi = await BookingAPI.getBookingById(current.id);
-    setBookings(bookingApi.data);
+    setBookings(bookingApi?.data);
     console.log("bookings: ", bookingApi);
   };
 
@@ -50,7 +50,7 @@ function BookingList(props) {
             </tr>
           </thead>
           <tbody>
-            {bookings.map((booking, index) => (
+            {bookings?.map((booking, index) => (
               <BookingDetail
                 key={booking.id}
                 booking={booking}

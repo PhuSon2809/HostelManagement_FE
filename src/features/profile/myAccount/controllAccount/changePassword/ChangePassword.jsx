@@ -1,10 +1,9 @@
 import React, { useState } from "react";
-import "./changePassword.scss";
-import PasswordForm from "../passwordForm/PasswordForm";
-import accountApi from "../../../../../apis/accountApi";
 import Swal from "sweetalert2";
-import StorageKeys from "../../../../../constants/storage-keys";
+import accountApi from "../../../../../apis/accountApi";
 import axiosClient from "../../../../../apis/axiosClient";
+import PasswordForm from "../passwordForm/PasswordForm";
+import "./changePassword.scss";
 
 function ChangePassword(props) {
   const [oldPasswordError, setOldPasswordError] = useState("");
@@ -37,12 +36,14 @@ function ChangePassword(props) {
       const lowercasePattern = /(?=.*?[a-z])/;
       const digitsPattern = /(?=.*?[0-9])/;
       const minLengthPattern = /.{6,}/;
+      const specialCharRegPattern = /(?=.*?[#?!@$%^&*-])/;
 
       const passwordLength = value.length;
       const uppercasePassword = uppercasePattern.test(value);
       const lowercasePassword = lowercasePattern.test(value);
       const digitsPassword = digitsPattern.test(value);
       const minLengthPassword = minLengthPattern.test(value);
+      const specialCharReg = specialCharRegPattern.test(value);
 
       let errorMessage = "";
       if (passwordLength === 0) {
@@ -55,6 +56,8 @@ function ChangePassword(props) {
         errorMessage = "At least one digit.";
       } else if (!minLengthPassword) {
         errorMessage = "At least minumum 6 characters.";
+      } else if (!specialCharReg) {
+        errorMessage = "At least At least one Special Characters.";
       } else if (passwordInput.newPassword === passwordInput.oldPassword) {
         errorMessage = "New password same with old password.";
       } else {

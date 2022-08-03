@@ -12,7 +12,7 @@ function BillList(props) {
 
   const fetchData = async () => {
     const billApi = await BillAPI.getBillById(current.id);
-    setBills(billApi.data);
+    setBills(billApi?.data);
     console.log("billApi: ", billApi);
   };
 
@@ -26,7 +26,7 @@ function BillList(props) {
 
   return (
     <div className="myBill">
-      {bills.length <= 0 ? (
+      {bills?.length <= 0 ? (
         <h2 className="Opps">
           <span>
             <SentimentVeryDissatisfiedIcon sx={{ fontSize: 70 }} />
@@ -48,7 +48,7 @@ function BillList(props) {
             </tr>
           </thead>
           <tbody>
-            {bills.map((bill, index) => (
+            {bills?.map((bill, index) => (
               <BillDetail key={bill.id} bill={bill} index={index} />
             ))}
           </tbody>

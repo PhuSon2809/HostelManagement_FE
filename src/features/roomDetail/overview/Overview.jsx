@@ -1,5 +1,6 @@
-import React from "react";
 import PropTypes from "prop-types";
+import React from "react";
+import currencyFormat from "../../../utils/formatPrize";
 import "./overview.scss";
 
 Overview.propTypes = {
@@ -12,7 +13,7 @@ function Overview({ roomDetail }) {
       <div className="address">
         <div className="pb-2 price">
           <i className="fa fa-money" aria-hidden="true"></i>
-          {roomDetail.roomType?.price} / month
+          {currencyFormat(roomDetail.roomType?.price)} / month
         </div>
         <div className="pb-2">
           <i className="fa fa-building-o" aria-hidden="true"></i> Apartment ·

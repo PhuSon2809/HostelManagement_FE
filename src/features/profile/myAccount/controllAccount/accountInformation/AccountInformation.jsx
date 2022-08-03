@@ -69,8 +69,8 @@ function AccountInformation({ reload }) {
     try {
       const newEdit = {
         id: current.id,
-        name: inputValue.fullName,
-        phone: inputValue.phone,
+        name: inputValue.fullName ? inputValue.fullName : current.name,
+        phone: inputValue.phone ? inputValue.phone : current.phone,
         gender: selected ? selected : current.gender,
         roleId: current.roleId,
         avatar: imagesLink[0] ? imagesLink[0] : current.avatar,
@@ -81,8 +81,8 @@ function AccountInformation({ reload }) {
       const pushNewEdited = {
         ...current,
         id: current.id,
-        name: inputValue.fullName,
-        phone: inputValue.phone,
+        name: inputValue.fullName ? inputValue.fullName : current.name,
+        phone: inputValue.phone ? inputValue.phone : current.phone,
         gender: selected ? selected : current.gender,
         roleId: current.roleId,
         avatar: imagesLink[0] ? imagesLink[0] : current.avatar,
