@@ -1,0 +1,49 @@
+@import "../../../../App.scss";
+
+.listOption {
+  margin-top: 15rem;
+  .btn {
+    @include btn;
+  }
+
+  .sidebar {
+    border: 1.5px solid #1b34532b;
+    box-shadow: 0.3rem 0.3rem #1b34532b;
+    border-radius: 10px;
+    
+
+    h3 {
+      @include title(1.8rem);
+    }
+
+    .filter {
+      text-align: center;
+      a {
+        display: block;
+        background: white !important;
+        border: 1px solid $red;
+        color: $red !important;
+        font-size: 1.1rem;
+        font-weight: 500;
+        cursor: pointer;
+
+        p {
+          margin: 0 0.2rem;
+        }
+
+        &:hover {
+          background: $red !important;
+          color: white !important;
+          transition: 0.1s all;
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .listOption {
+    width: 85%;
+    margin: auto;
+  }
+}

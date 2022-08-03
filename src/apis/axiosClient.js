@@ -4,8 +4,13 @@ axios.defaults.baseURL = "https://hom-apim.azure-api.net/api/v1";
 axios.defaults.headers.post["Content-Type"] = "application/json";
 
 export const axiosClient = {
-  get(url, params = "") {
+  get(url, params) {
     return axios.get(`${url}/${params}`).catch((error) => console.log(error));
+  },
+  getType(url, slug = "", params) {
+    return axios
+      .get(`${url}`, slug, params)
+      .catch((error) => console.log(error));
   },
   getNo(url) {
     return axios.get(`${url}`).catch((error) => console.log(error));
@@ -32,14 +37,17 @@ export const axiosClient = {
       )
       .catch((error) => console.log(error));
   },
+
   getWithId(url, slug = "") {
-    return axios.get(`${url}/${slug}`).catch((error) => console.log(error));
+    return axios.get(`${url}`, slug).catch((error) => console.log(error));
   },
+
   getWith2Id(url, slug = "", slug2 = "") {
     return axios
       .get(`${url}/${slug}/${slug2}`)
       .catch((error) => console.log(error));
   },
+
   // getWithFilterMiddleId(url, url2, slug = "", params) {
   //   return axios
   //     .get(`${url}/${slug}/${url2}`, params)
@@ -50,12 +58,15 @@ export const axiosClient = {
   //     .get(`${url}/${slug}/${url2}`)
   //     .catch((error) => console.log(error));
   // },
+
   query(url) {
     return axios.get(`${url}`).catch((error) => console.log(error));
   },
+
   post(url, params, config) {
     return axios.post(`${url}`, params, config);
   },
+
   // postWithId(url, slug, params, config) {
   //   return axios.post(`${url}/${slug}`, params, config);
   // },
@@ -68,9 +79,9 @@ export const axiosClient = {
   put(url, params, config) {
     return axios.put(`${url}`, params, config);
   },
-  // putWithId(url, slug) {
-  //   return axios.put(`${url}/${slug}`);
-  // },
+  putWithId(url, slug = "", params) {
+    return axios.put(`${url}`, slug, params);
+  },
   // putWithMiddleId(url, slug = "", url2) {
   //   return axios.put(`${url}/${slug}/${url2}`);
   // },
@@ -79,6 +90,9 @@ export const axiosClient = {
   // },
   delete(url, params, config) {
     return axios.delete(`${url}`, params, config);
+  },
+  deleteWithId(url, slug = "") {
+    return axios.delete(`${url}/${slug}`);
   },
   saveToken(token, expired) {
     window.localStorage.setItem("access_token", JSON.stringify(token));
@@ -96,7 +110,7 @@ export const axiosClient = {
   setHeaderAuth(token) {
     axios.defaults.headers.common.Authorization = `Bearer ${token}`;
   },
-  
+
   clearToken() {},
 };
 

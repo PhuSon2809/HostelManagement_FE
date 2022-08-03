@@ -2,7 +2,6 @@ import { useSelector } from "react-redux";
 import { Route, Routes } from "react-router-dom";
 import "./App.scss";
 import Authenticated from "./features/authenticated";
-import Booking from "./features/booking";
 import Home from "./features/home/Home";
 import Hostel from "./features/hostels/Hostels";
 import ListRoom from "./features/listRoom/ListRoom";
@@ -43,8 +42,14 @@ function App() {
         <Route path="/" element={<Authenticated />} />
         <Route element={<UserRouter />}>
           <Route path="/home" element={<Home />} />
-          <Route path="/hostel" exact element={<Hostel />} />
-          <Route path="/listRoom/:hostelId" exact element={<ListRoom />} />
+          <Route path="/hostel/" exact element={<Hostel />}>
+            <Route path=":district" exact element={<ListRoom />} />
+          </Route>
+          <Route path="/listRoom/" exact element={<ListRoom />}>
+            <Route path=":hostelId" exact element={<ListRoom />}>
+              <Route path=":roomTypeName" exact element={<ListRoom />} />
+            </Route>
+          </Route>
           <Route
             path="/room/:roomId/:hostelId"
             exact
@@ -55,8 +60,6 @@ function App() {
             <Route path="account" element={<Profile />} />
             <Route path="booking" element={<Profile />} />
           </Route>
-          {/* <Route path="/owner/*" exact element={<Owner />} /> */}
-          <Route path="/booking" exact element={<Booking />} />
         </Route>
         <Route element={<OwnerRouter />}>
           <Route path="/owner" element={<Owner />}>

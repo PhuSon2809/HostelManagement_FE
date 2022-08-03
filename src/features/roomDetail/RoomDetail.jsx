@@ -32,7 +32,7 @@ function RoomDetail(props) {
         <RoomImage roomDetail={roomDetail}/>
       </div>
       <div className="row">
-        <Menu />
+        <Menu roomDetail={roomDetail}/>
       </div>
       <div className="row">
         <div className="col-12 col-md-9 p-0 order-last order-md-first">

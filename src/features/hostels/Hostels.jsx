@@ -1,11 +1,11 @@
-import React, { useState, useEffect } from "react";
-import Banner from "../../components/banner/Banner";
-import ListTitle from "./listTitle/ListTitle";
-import ListBox from "./listBox/BoxContent";
-import ListType from "./listType/ListType";
-import HostelAPI from "../../apis/hostelApi";
 import Pagination from "@mui/material/Pagination";
 import { styled } from "@mui/material/styles";
+import React, { useEffect, useState } from "react";
+import HostelAPI from "../../apis/hostelApi";
+import Banner from "../../components/banner/Banner";
+import ListBox from "./listBox/BoxContent";
+import ListTitle from "./listTitle/ListTitle";
+import ListType from "./listType/ListType";
 
 const PaginationStyle = styled("div")(() => ({
   display: "flex",
@@ -16,6 +16,8 @@ const PaginationStyle = styled("div")(() => ({
 
 function Hostels(props) {
   const [hostels, setHostels] = useState([]);
+
+  const [district, setDistrict] = useState(null);
   const [count, setCount] = useState(1);
   const [filters, setFilters] = useState({
     pageIndex: 1,
@@ -23,9 +25,19 @@ function Hostels(props) {
   });
 
   const fetchData = async () => {
-    const hostelsListApi = await HostelAPI.getHostels(filters);
-    setHostels(hostelsListApi?.data);
-    setCount(hostelsListApi?.totalRecord);
+    if (district === null) {
+      const hostelsListApi = await HostelAPI.getHostels(filters);
+      setHostels(hostelsListApi.data);
+      setCount(hostelsListApi.totalRecord);
+    } else {
+      const params = new URLSearchParams(filters);
+      const hostelsListApi = await HostelAPI.getHostelByDistrict(
+        district + "&" + params
+      );
+      console.log("params", district);
+      setHostels(hostelsListApi.data);
+      setCount(hostelsListApi.totalRecord);
+    }
   };
 
   useEffect(() => {
@@ -34,12 +46,20 @@ function Hostels(props) {
     } catch (error) {
       console.log("Fail to get hostel");
     }
-  }, [filters]); // [] để thì sẽ gọi 1 một lần th
+  }, [filters, district]); // [] để thì sẽ gọi 1 một lần th
 
   const handlePageChange = (e, page) => {
     setFilters((prevFilters) => ({
       ...prevFilters,
       pageIndex: page,
+    }));
+  };
+
+  const handleDistrict = (newDistrict) => {
+    setDistrict(newDistrict);
+    setFilters((prevFilters) => ({
+      ...prevFilters,
+      pageIndex: 1,
     }));
   };
 
@@ -65,7 +85,7 @@ function Hostels(props) {
               </PaginationStyle>
             </div>
             <div className="col-12 col-md-3 order-first">
-              <ListType />
+              <ListType districtParams={district} count={count} onChange={handleDistrict} />
             </div>
           </div>
         </div>

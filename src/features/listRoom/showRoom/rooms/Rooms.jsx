@@ -11,7 +11,7 @@ Rooms.propTypes = {
 function Rooms({ rooms }) {
   return (
     <div>
-      {rooms.length <= 0 ? (
+      {rooms?.length <= 0 ? (
         <h2 className="Opps">
           <span>
             <SentimentVeryDissatisfiedIcon sx={{ fontSize: 70 }} />

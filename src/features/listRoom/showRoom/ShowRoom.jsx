@@ -1,10 +1,11 @@
-import React, { useState, useEffect } from "react";
-import Title from "./title/Title";
-import Rooms from "./rooms/Rooms";
 import Pagination from "@mui/material/Pagination";
+import { styled } from "@mui/material/styles";
+import React, { useEffect, useState } from "react";
 import { useParams } from "react-router";
 import RoomAPI from "../../../apis/roomApi";
-import { styled } from "@mui/material/styles";
+import ListOption from "./listOption/ListOption";
+import Rooms from "./rooms/Rooms";
+import Title from "./title/Title";
 
 const PaginationStyle = styled("div")(() => ({
   display: "flex",
@@ -16,23 +17,33 @@ const PaginationStyle = styled("div")(() => ({
 
 function ShowRoom(props) {
   const { hostelId } = useParams(); //lấy ID truyền tới
-  console.log("id from router: ", hostelId);
+  console.log("hostelId: ", hostelId);
 
   const [rooms, setRooms] = useState([]);
+  const [typeRoomName, setTypeRoomName] = useState(null);
   const [count, setCount] = useState(1);
   const [filters, setFilters] = useState({
     pageIndex: 1,
     pageSize: 6,
   });
 
+  console.log("typeRoomName: ", typeRoomName);
+
   const fetchData = async () => {
-    const responseRoom = await RoomAPI.getRoomByIdFilter(hostelId, filters);
-    console.log("responseRoom: ", responseRoom);
-    console.log("room state: ", rooms);
-    setRooms(responseRoom?.data);
-    setCount(responseRoom?.totalRecord);
+    if (typeRoomName === null) {
+      const responseRoom = await RoomAPI.getRoomByIdFilter(hostelId, filters);
+      setRooms(responseRoom.data);
+      setCount(responseRoom.totalRecord);
+    } else {
+      const params = new URLSearchParams(filters);
+      const responseRoom = await RoomAPI.getRoomByTypeRoom(
+        hostelId,
+        typeRoomName + "&" + params
+      );
+      setRooms(responseRoom?.data);
+      setCount(responseRoom?.totalRecord);
+    }
   };
-  console.log("rooms: ", rooms);
 
   useEffect(() => {
     try {
@@ -40,7 +51,7 @@ function ShowRoom(props) {
     } catch (error) {
       console.log("Fail to get hostel");
     }
-  }, [hostelId, filters]);
+  }, [hostelId, filters, typeRoomName]);
 
   const handlePageChange = (e, page) => {
     setFilters((prevFilters) => ({
@@ -49,22 +60,35 @@ function ShowRoom(props) {
     }));
   };
 
+  const handleTypeRoom = (newTypeRoomName) => {
+    setTypeRoomName(newTypeRoomName);
+    setFilters((prevFilters) => ({
+      ...prevFilters,
+      pageIndex: 1,
+    }));
+  };
+
   return (
-    <div className="listRoom">
-      <div className="row mt-4 ml-4">
-        <Title hostelId={hostelId} count={count} />
+    <div className="row listRoom">
+      <div className="col-12 col-md-9 order-last order-md-first">
+        <div className="mt-4 ml-4">
+          <Title hostelId={hostelId} count={count} />
+        </div>
+        <div>
+          <Rooms rooms={rooms} />
+          <PaginationStyle>
+            <Pagination
+              count={Math.ceil(count / filters.pageSize)}
+              variant="outlined"
+              color="error"
+              page={filters.pageIndex}
+              onChange={handlePageChange}
+            />
+          </PaginationStyle>
+        </div>
       </div>
-      <div>
-        <Rooms rooms={rooms} />
-        <PaginationStyle>
-          <Pagination
-            count={Math.ceil(count / filters.pageSize)}
-            variant="outlined"
-            color="error"
-            page={filters.pageIndex}
-            onChange={handlePageChange}
-          />
-        </PaginationStyle>
+      <div className="col-12 col-md-3">
+        <ListOption onChange={handleTypeRoom}/>
       </div>
     </div>
   );

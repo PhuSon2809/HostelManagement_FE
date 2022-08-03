@@ -2,8 +2,11 @@ import axiosClient from "./axiosClient";
 
 const RoomDetailAPI = {
   async getRoomDetailById(id) {
-    const data = await axiosClient.getWithId("/Rooms", id);
-    return data;
+    const token = axiosClient.getToken();
+    if (token) {
+      const data = await axiosClient.getWithId(`/Rooms/${id}`);
+      return data;
+    }
   },
 };
 

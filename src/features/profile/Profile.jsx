@@ -1,21 +1,20 @@
 import React, { useEffect, useState } from "react";
-import PropTypes from "prop-types";
-import { Tabs, Tab } from "react-bootstrap";
+import { Tab, Tabs } from "react-bootstrap";
+import { useLocation, useNavigate } from "react-router";
+import BillList from "./BillList/BillList";
+import BookingList from "./BookingList/BookingList";
 import MyAccount from "./myAccount/MyAccount";
-import MyBill from "./myBill/MyBill";
-import MyBooking from "./myBooking/MyBooking";
 import "./profile.scss";
-import { useLocation, useNavigate, useParams } from "react-router";
 
 Profile.propTypes = {};
 
 function Profile(props) {
   const [key, setKey] = useState("account");
-  // const { navKey } = useParams();
   const search = useLocation();
   const navigate = useNavigate();
 
   console.log("search: ", search.pathname.split("/")[2]);
+  console.log("search: ", search);
   let navKey = search.pathname.split("/")[2];
 
   useEffect(() => {
@@ -28,7 +27,7 @@ function Profile(props) {
     if (navKey === "account") {
       setKey("account");
     } else {
-      console.log(2);
+      console.log(3);
     }
   }, [navKey]);
 
@@ -52,10 +51,10 @@ function Profile(props) {
             <MyAccount />
           </Tab>
           <Tab eventKey="bill" title="Bill">
-            <MyBill />
+            <BillList />
           </Tab>
           <Tab eventKey="booking" title="Booking">
-            <MyBooking />
+            <BookingList />
           </Tab>
         </Tabs>
       </div>

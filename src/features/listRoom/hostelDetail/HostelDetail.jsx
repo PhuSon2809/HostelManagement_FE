@@ -17,11 +17,7 @@ function HostelDetail({ hostel }) {
   return (
     <div className="inforSlide">
       <div className="image">
-        <img
-          src="https://firebasestorage.googleapis.com/v0/b/hostelmanagement-ae202.appspot.com/o/Hostels%2Fh3.jpg?alt=media&token=e90bd972-a5aa-4cc2-8859-df486a9a1024"
-          alt="demo"
-          className="img-fluid"
-        />
+        <img src={hostel.images[0].url} alt="demo" className="img-fluid" />
         <div className="icons">
           <a href="#">
             <i className="fa fa-user" /> by {hostel.account.name}

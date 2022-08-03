@@ -1,11 +1,12 @@
-import React from "react";
-import PropTypes from "prop-types";
+import React, { useState } from "react";
 import { Form, FormFeedback, FormGroup, Input, Label } from "reactstrap";
+import "./informationForm.scss";
 
 InformationForm.propTypes = {};
 
 function InformationForm({
   inputValue,
+  handleChangeGender,
   image,
   onImageChange,
   handleOnChange,
@@ -13,11 +14,18 @@ function InformationForm({
   handleValidate,
   fullNameError,
   phoneError,
-  genderError,
 }) {
+  const handleOnSubmit = (e) => {
+    e.preventDefault();
+    handleSubmit();
+  };
+  const hanldeChange = (e) => {
+    handleChangeGender(e.target.value)
+    console.log("e: ", e.target.value);
+  };
   return (
     <div>
-      <Form onSubmit={handleSubmit}>
+      <Form onSubmit={handleOnSubmit}>
         <div className="upload">
           <img src={image} alt="avatar" className="mr-4" />
           <button type="button" className="btn">
@@ -57,51 +65,24 @@ function InformationForm({
             <FormFeedback>{phoneError}</FormFeedback>
           </FormGroup>
           <FormGroup>
-            <Label for="gender" className="mr-5">
+            <Label for="gender" className="mr-2">
               Gender:
             </Label>
-            <span className="first">
-              <Input
-                type="radio"
-                id="gender"
-                name="gender"
-                placeholder="gender"
-                value={inputValue.gender.male}
-                valid={genderError === ""}
-                invalid={genderError !== ""}
-                onChange={handleOnChange}
-                onBlur={handleValidate}
-              />
-              Male
-            </span>
-            <span>
-              <Input
-                type="radio"
-                id="gender"
-                name="gender"
-                placeholder="gender"
-                value={inputValue.gender.femal}
-                valid={genderError === ""}
-                invalid={genderError !== ""}
-                onChange={handleOnChange}
-                onBlur={handleValidate}
-              />
-              Female
-            </span>
-            <span>
-              <Input
-                type="radio"
-                id="gender"
-                name="gender"
-                placeholder="gender"
-                value={inputValue.gender.other}
-                valid={genderError === ""}
-                invalid={genderError !== ""}
-                onChange={handleOnChange}
-                onBlur={handleValidate}
-              />
-              Orther
-            </span>
+            <select
+              className="form-select"
+              aria-label="Default select example"
+              onChange={hanldeChange}
+            >
+              <option value="Male" >
+                Male
+              </option>
+              <option value="Female" >
+                Female
+              </option>
+              <option value="Orther" >
+                Orther
+              </option>
+            </select>
             <FormFeedback></FormFeedback>
           </FormGroup>
         </div>

@@ -1,13 +1,8 @@
-import React, { useState } from "react";
-import PropTypes from "prop-types";
+import React, { useEffect, useState } from "react";
+import HostelAPI from "../../apis/hostelApi";
 import Banner from "../../components/banner/Banner";
 import ShowRoom from "./showRoom/ShowRoom";
-import ListOption from "./listOption/ListOption";
 import SlideHostel from "./slideHostel/SlideHostel";
-import { useEffect } from "react";
-import HostelAPI from "../../apis/hostelApi";
-
-ListRoom.propTypes = {};
 
 function ListRoom(props) {
   const [hostels, setHostels] = useState([]);
@@ -18,7 +13,6 @@ function ListRoom(props) {
 
   const fetchData = async () => {
     const hostelsApi = await HostelAPI.getHostels(filters);
-    console.log("hostelsApi: ", hostelsApi);
     setHostels(hostelsApi.data);
   };
 
@@ -28,19 +22,14 @@ function ListRoom(props) {
     } catch (error) {
       console.log("Fail to get hostel");
     }
-  }, []);
+  }, [filters])
 
   return (
     <div>
       <Banner />
       <div className="containers">
-        <div className="row">
-          <div className="col-12 col-md-9 order-last order-md-first">
-            <ShowRoom />
-          </div>
-          <div className="col-12 col-md-3">
-            <ListOption />
-          </div>
+        <div>
+          <ShowRoom />
         </div>
         <div className="row ml-2 mr-2 ml-md-0 mr-md-0">
           <SlideHostel hostels={hostels} />

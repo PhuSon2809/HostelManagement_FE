@@ -30,6 +30,8 @@
     .filter {
       display: flex;
       align-items: center;
+      cursor: pointer;
+      color: gray;
 
       p {
         margin: 0 0.2rem;
