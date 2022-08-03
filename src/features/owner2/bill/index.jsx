@@ -119,6 +119,7 @@ function ListBillManagement() {
   };
 
   const handleClickSelectHostel = (hostel) => {
+    console.log("hostel: ", hostel);
     setHostelSelected(hostel);
     setOpenSelectHostel(false);
     setOpenFormCreateBill(true);

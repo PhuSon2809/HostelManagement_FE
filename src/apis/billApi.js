@@ -11,9 +11,10 @@ const BillAPI = {
   },
 
   async getHostelById(id) {
+    console.log("id ", id);
     const data = await axiosClient.getWithId("/Bills", id);
     return data;
   },
-}
+};
 
 export default BillAPI;

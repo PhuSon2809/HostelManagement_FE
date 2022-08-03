@@ -104,8 +104,8 @@ function Header(props) {
 
         <Dropdown isOpen={dropdown} toggle={toggleDropdown} key={current.id}>
           <DropdownToggle caret className="btn">
-            <img src={account.avatar} alt="avatar" className="img-fluid" />
-            <span>{account.name}</span>
+            <img src={account?.avatar} alt="avatar" className="img-fluid" />
+            <span>{account?.name}</span>
           </DropdownToggle>
           <DropdownMenu>
             <DropdownItem>

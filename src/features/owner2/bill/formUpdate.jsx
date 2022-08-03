@@ -49,7 +49,6 @@ function FormUpdateBill({ bill }) {
   const current = useSelector((state) => state.login.infoUser);
   const hostel = useSelector((state) => state.ownerHostel.hostel);
   const listRoom = useSelector((state) => state.ownerRoom.rooms);
-  
 
   console.log("listRoom: ", listRoom);
 
@@ -69,7 +68,7 @@ function FormUpdateBill({ bill }) {
   useEffect(() => {
     dispatch(getHostelById(bill.room?.hostel?.id));
     dispatch(getRoomByAccountId(current.id, bill.room?.hostel?.id, filters));
-  }, [bill.room?.hostel?.id]);
+  }, [bill?.room?.hostel?.id]);
 
   useEffect(() => {
     if (bill != null) {
