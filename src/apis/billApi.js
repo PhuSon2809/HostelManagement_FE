@@ -12,7 +12,7 @@ const BillAPI = {
 
   async getHostelById(id) {
     console.log("id ", id);
-    const data = await axiosClient.getWithId("/Bills", id);
+    const data = await axiosClient.getWithIdFixBug("/Bills", id);
     return data;
   },
 };

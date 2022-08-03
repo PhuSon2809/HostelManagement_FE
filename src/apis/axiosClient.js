@@ -42,6 +42,9 @@ export const axiosClient = {
   getWithId(url, slug = "") {
     return axios.get(`${url}`, `${slug}`).catch((error) => console.log(error));
   },
+  getWithIdFixBug(url, slug = "") {
+    return axios.get(`${url}/${slug}`).catch((error) => console.log(error));
+  },
 
   getWith2Id(url, slug = "", slug2 = "") {
     return axios

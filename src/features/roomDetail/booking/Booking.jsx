@@ -30,8 +30,20 @@ function Booking({ toggle, modal, roomDetail }) {
     currentDate.getDay() < 10
       ? `0${currentDate.getDay()}`
       : currentDate.getDay();
+  const hoursFormat =
+    currentDate.getHours() < 10
+      ? `0${currentDate.getHours()}`
+      : currentDate.getHours();
+  const minuteFormat =
+    currentDate.getMinutes() < 10
+      ? `0${currentDate.getMinutes()}`
+      : currentDate.getMinutes();
+  const secondFormat =
+    currentDate.getSeconds() < 10
+      ? `0${currentDate.getSeconds()}`
+      : currentDate.getSeconds();
 
-  const currentDateFormat = `${currentDate.getFullYear()}-${monthFormat}-${dayFormat}T${currentDate.getHours()}:${currentDate.getMinutes()}:${currentDate.getSeconds()}.${currentDate.getMilliseconds()}Z`;
+  const currentDateFormat = `${currentDate.getFullYear()}-${monthFormat}-${dayFormat}T${hoursFormat}:${minuteFormat}:${secondFormat}.${currentDate.getMilliseconds()}Z`;
 
   const [meetingDateError, setMeetingDateError] = useState("");
   const [meetingDate, setMeetingDate] = useState("2022-08-11T19:30");

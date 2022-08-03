@@ -72,6 +72,7 @@ function ListBillManagement() {
 
   const [active, setActive] = useState("hostel");
   const [hostelSelected, setHostelSelected] = useState({});
+  const [hostelIdSelected, setHostelIdSelected] = useState('');
   const [openFormCreateBill, setOpenFormCreateBill] = useState(false);
   const [value, setValue] = useState("select");
   const [inputValue, setInputValue] = useState("");
@@ -119,7 +120,7 @@ function ListBillManagement() {
   };
 
   const handleClickSelectHostel = (hostel) => {
-    console.log("hostel: ", hostel);
+    console.log("hostel after Click: ", hostel);
     setHostelSelected(hostel);
     setOpenSelectHostel(false);
     setOpenFormCreateBill(true);
@@ -194,6 +195,7 @@ function ListBillManagement() {
   const handleClickhostelItem = (event, id, name) => {
     console.log("hostel id click: ", id);
     setSelectedHostel(name);
+    setHostelIdSelected(id);
     const newFilter = {
       pageIndex: 1,
       pageSize: 9,
@@ -245,7 +247,7 @@ function ListBillManagement() {
       pageSize: 9,
     };
     dispatch(
-      getBillsByHostelAndRoom(current.id, hostelSelected.id, id, newFilter)
+      getBillsByHostelAndRoom(current.id, hostelIdSelected, id, newFilter)
     );
     setFilterRoom((prevFilters) => ({
       ...prevFilters,
