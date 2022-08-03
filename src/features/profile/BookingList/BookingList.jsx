@@ -14,7 +14,7 @@ function BookingList(props) {
   const fetchData = async () => {
     const bookingApi = await BookingAPI.getBookingById(current.id);
     setBookings(bookingApi?.data);
-    console.log("bookings: ", bookingApi);
+    console.log("bookings: ", bookings);
   };
 
   useEffect(() => {

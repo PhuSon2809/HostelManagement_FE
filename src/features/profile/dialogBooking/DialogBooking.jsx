@@ -7,6 +7,8 @@ DialogBooking.propTypes = {
 };
 
 function DialogBooking({ booking, handleDeleteBooking }) {
+  console.log("props booking: ", booking);
+
   return (
     <div
       className="modal fade"
@@ -41,7 +43,7 @@ function DialogBooking({ booking, handleDeleteBooking }) {
                     </p>
                   </div>
                   <div className="col-7">
-                    {booking.room.hostel.account.name}
+                    {booking?.room?.hostel.account.name}
                   </div>
                 </div>
                 <div className="row mb-1">
@@ -51,7 +53,7 @@ function DialogBooking({ booking, handleDeleteBooking }) {
                     </p>
                   </div>
                   <div className="col-7">
-                    {booking.room.hostel.account.phone}
+                    {booking?.room?.hostel.account.phone}
                   </div>
                 </div>
               </div>
@@ -63,7 +65,7 @@ function DialogBooking({ booking, handleDeleteBooking }) {
                       <i className="fa fa-home" /> <span>Hostel:</span>
                     </p>
                   </div>
-                  <div className="col-7">{booking.room.hostel.name}</div>
+                  <div className="col-7">{booking?.room?.hostel?.name}</div>
                 </div>
                 <div className="row mb-1">
                   <div className="col-5">
@@ -71,7 +73,7 @@ function DialogBooking({ booking, handleDeleteBooking }) {
                       <i className="fa fa-bed" /> <span>Room:</span>
                     </p>
                   </div>
-                  <div className="col-7">{booking.room.name}</div>
+                  <div className="col-7">{booking?.room?.name}</div>
                 </div>
               </div>
             </div>
@@ -113,7 +115,7 @@ function DialogBooking({ booking, handleDeleteBooking }) {
           </div>
         </div>
       </div>
-   </div>
+    </div>
   );
 }
 

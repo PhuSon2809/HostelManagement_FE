@@ -1,0 +1,7 @@
+@import "../../../App.scss";
+
+.dialog {
+  .modal-title {
+    @include title(1.2rem);
+  }
+}
