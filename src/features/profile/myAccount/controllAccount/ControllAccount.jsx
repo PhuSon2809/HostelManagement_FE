@@ -1,21 +1,23 @@
-import React from "react";
 import PropTypes from "prop-types";
-import "./controllAccount.scss";
+import React from "react";
 import { Tab } from "react-bootstrap";
 import AccountInformation from "./accountInformation/AccountInformation";
 import ChangePassword from "./changePassword/ChangePassword";
+import "./controllAccount.scss";
 
-ControllAccount.propTypes = {};
+ControllAccount.propTypes = {
+  reload: PropTypes.bool,
+};
 
-function ControllAccount(props) {
+function ControllAccount({ reload }) {
   return (
     <div className="controllAccount">
       <Tab.Content>
         <Tab.Pane eventKey="first">
-            <AccountInformation/>
+          <AccountInformation reload={reload} />
         </Tab.Pane>
         <Tab.Pane eventKey="second">
-            <ChangePassword/>
+          <ChangePassword />
         </Tab.Pane>
       </Tab.Content>
     </div>

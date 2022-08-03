@@ -9,7 +9,7 @@ function Outline(props) {
   return (
     <div className="outline">
       <h2>Our Hostel Outline </h2>
-      <Link to="/listRoom" className="btn">
+      <Link to="/hostel" className="btn">
         View more
       </Link>
     </div>

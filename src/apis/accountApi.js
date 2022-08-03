@@ -16,8 +16,29 @@ const accountApi = {
 
   async getAccountById(id) {
     console.log("Id api :", id);
-    const data = await axiosClient.getWithId("/Accounts", id);
-    return data;
+    const token = axiosClient.getToken();
+    if (token) {
+      axiosClient.setHeaderAuth(token);
+      const data = await axiosClient.getWithId(`/Accounts/${id}`);
+      return data;
+    }
+  },
+
+  async changePassword(params) {
+    const token = axiosClient.getToken();
+    if (token) {
+      axiosClient.setHeaderAuth(token);
+      return axiosClient.put("/Accounts/ChangePassword", params);
+    }
+  },
+
+  async editAccount(id, params) {
+    console.log("params: ", id, params);
+    const token = axiosClient.getToken();
+    if (token) {
+      axiosClient.setHeaderAuth(token);
+      return axiosClient.putWithId(`/Accounts/${id}`, params);
+    }
   },
 };
 

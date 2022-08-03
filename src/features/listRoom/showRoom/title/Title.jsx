@@ -15,7 +15,6 @@ function Title({ hostelId, count }) {
     const hostelByIdApi = await HostelAPI.getHostelById(hostelId);
     setHostelInfor(hostelByIdApi);
   };
-  console.log("hostelInfor: ", hostelInfor);
 
   useEffect(() => {
     try {
@@ -27,7 +26,7 @@ function Title({ hostelId, count }) {
 
   return (
     <div className="name">
-      <h3>Hostel: {hostelInfor.name}</h3>
+      <h3>Hostel: {hostelInfor?.name}</h3>
       <p>
         <i className="fa fa-check"></i> {count} rooms
       </p>

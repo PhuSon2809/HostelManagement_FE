@@ -21,10 +21,12 @@
 
     .img1 {
       width: 100%;
+      height: 11rem;
     }
 
     .img2 {
       width: 100%;
+      height: 11rem;
       position: absolute;
       top: 0;
       left: 0;
@@ -42,7 +44,7 @@
       color: $navi;
     }
 
-    h5{
+    h5 {
       font-size: 1.1rem;
     }
 
@@ -71,6 +73,20 @@
 
     .btn {
       font-size: 0.9rem;
+    }
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .rooms {
+    .image {
+      .img1 {
+        height: 15rem;
+      }
+
+      .img2 {
+        height: 15rem;
+      }
     }
   }
 }

@@ -1,11 +1,11 @@
-import React from "react";
-import PropTypes from "prop-types";
+import React, { useState } from "react";
 import "./menu.scss";
-import { Link } from "react-router-dom";
+import Booking from "../booking/Booking";
 
-Menu.propTypes = {};
+function Menu({ roomDetail }) {
+  const [modal, setModal] = useState(false);
+  const toggle = () => setModal(!modal);
 
-function Menu(props) {
   return (
     <div className="menu">
       <ul className="nav align-s">
@@ -25,9 +25,10 @@ function Menu(props) {
           </a>
         </li>
       </ul>
-      <Link to="/booking" className="btn d-block">
+      <a className="btn d-block" onClick={toggle}>
         <span className="fa fa-book fa-lg" /> Booking
-      </Link>
+      </a>
+      <Booking toggle={toggle} modal={modal} roomDetail={roomDetail} />
     </div>
   );
 }

@@ -38,7 +38,7 @@ function HostelList({ hostels }) {
           </h2>
         ) : (
           <>
-            {hostels?.map((hostel) => (
+            {hostels.map((hostel) => (
               <Hostel hostel={hostel} key={hostel.id} />
             ))}
           </>

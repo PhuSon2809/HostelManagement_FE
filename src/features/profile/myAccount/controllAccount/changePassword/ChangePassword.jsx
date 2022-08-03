@@ -1,11 +1,16 @@
 import React, { useState } from "react";
 import "./changePassword.scss";
 import PasswordForm from "../passwordForm/PasswordForm";
+import accountApi from "../../../../../apis/accountApi";
+import Swal from "sweetalert2";
+import StorageKeys from "../../../../../constants/storage-keys";
+import axiosClient from "../../../../../apis/axiosClient";
 
 function ChangePassword(props) {
   const [oldPasswordError, setOldPasswordError] = useState("");
   const [newPasswordError, setNewPasswordError] = useState("");
   const [confirmPasswordError, setConfirmPasswordError] = useState("");
+  const [tokene, setTokene] = useState(axiosClient.getToken);
 
   const [passwordInput, setPasswordInput] = useState({
     oldPassword: "",
@@ -73,8 +78,30 @@ function ChangePassword(props) {
     }
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  const handleSubmitChange = async () => {
+    console.log("tess    t", axiosClient.getToken().split("/"));
+
+    try {
+      const newChangePass = {
+        token: tokene,
+        currentPassword: passwordInput.oldPassword,
+        newPassword: passwordInput.newPassword,
+      };
+      console.log("newChangePass: ", newChangePass);
+      const reponse = await accountApi.changePassword(newChangePass);
+      console.log("reponse: ", reponse);
+      await Swal.fire(
+        "Change password successfully",
+        "Click button to continute!",
+        "success"
+      );
+    } catch (error) {
+      await Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "Something went wrong!",
+      });
+    }
   };
 
   return (
@@ -82,7 +109,7 @@ function ChangePassword(props) {
       <PasswordForm
         handleOnChange={handleOnChange}
         handleValidation={handleValidation}
-        handleSubmit={handleSubmit}
+        handleSubmitChange={handleSubmitChange}
         passwordInput={passwordInput}
         oldPasswordError={oldPasswordError}
         newPasswordError={newPasswordError}

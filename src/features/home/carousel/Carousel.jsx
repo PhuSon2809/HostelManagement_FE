@@ -1,7 +1,9 @@
 import React from "react";
 import "./carousel.scss";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 
 function Carousel(props) {
+ 
   return (
     <div id="myCarousel" className="carousel" data-ride="carousel">
       <ol className="carousel-indicators">
@@ -19,7 +21,7 @@ function Carousel(props) {
           <div className="carousel-caption d-none d-md-block">
             <h1>Flast Hostel</h1>
             <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
-            <a href="#hostel" className="btn">Booking Now</a>
+            <Link to="/hostel" className="btn">Booking Now</Link>
           </div>
         </div>
         <div className="carousel-item">
@@ -43,7 +45,6 @@ function Carousel(props) {
           <div className="carousel-caption d-none d-md-block">
             <h1>Pool Hostel</h1>
             <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
-            <a href="#hostel" className="btn">Booking Now</a>
           </div>
         </div>
       </div>

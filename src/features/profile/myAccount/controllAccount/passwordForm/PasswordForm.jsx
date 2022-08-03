@@ -13,12 +13,16 @@ import {
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 
-PasswordForm.propTypes = {};
+PasswordForm.propTypes = {
+  handleOnChange: PropTypes.func,
+  handleValidation: PropTypes.func,
+  handleSubmitChange: PropTypes.func,
+};
 
 function PasswordForm({
   handleOnChange,
   handleValidation,
-  handleSubmit,
+  handleSubmitChange,
   passwordInput,
   oldPasswordError,
   newPasswordError,
@@ -38,9 +42,14 @@ function PasswordForm({
     setshowConPassword(!showConPassword);
   };
 
+  const handleOnSubmit = (e) => {
+    e.preventDefault();
+    handleSubmitChange();
+  };
+
   return (
     <div>
-      <Form onSubmit={handleSubmit}>
+      <form onSubmit={handleOnSubmit}>
         <FormGroup>
           <Label for="oldPassword">Old password:</Label>
           <InputGroup>
@@ -120,7 +129,7 @@ function PasswordForm({
           </InputGroup>
         </FormGroup>
         <input type="submit" value="Update" className="btn text-white" />
-      </Form>
+      </form>
     </div>
   );
 }

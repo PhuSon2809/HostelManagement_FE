@@ -2,17 +2,17 @@ import React from "react";
 import PropTypes from "prop-types";
 import "./oneRoom.scss";
 import { useNavigate } from "react-router";
+import currencyFormat from "../../../utils/formatPrize";
 
 OneRoom.propTypes = {
   room: PropTypes.object,
 };
 
 function OneRoom({ room }) {
-  
   const navigate = useNavigate();
 
   const handleClick = () => {
-    navigate(`/room/${room.id}/${room.hostelId}`);
+    navigate(`/room/${room.id}/${room.roomType.hostelId}`);
   };
 
   return (
@@ -20,14 +20,8 @@ function OneRoom({ room }) {
       <div className="rooms row">
         <div className="col-12 col-md-5">
           <div className="image">
-            <img
-              src="https://firebasestorage.googleapis.com/v0/b/hostelmanagement-ae202.appspot.com/o/Rooms%2Fh1-10.jpg?alt=media&token=62f826e7-00d2-465a-a7ec-f490edf2091c"
-              className="img-fluid img1"
-            />
-            <img
-              src="https://firebasestorage.googleapis.com/v0/b/hostelmanagement-ae202.appspot.com/o/Rooms%2Fh1-11.jpg?alt=media&token=3ff1ca17-10cf-47d3-ae4c-c7aa5c23d826"
-              className="img-fluid img2"
-            />
+            <img src={room.images[2].url} className="img-fluid img1" />
+            <img src={room.images[3].url} className="img-fluid img2" />
           </div>
         </div>
         <div className="col-12 col-md-7 pl-0">
@@ -62,7 +56,7 @@ function OneRoom({ room }) {
               <div className="house-price">
                 <p>{room.roomType.acreage} m2</p>
                 <p className="red">
-                  &amp; {room.roomType.price} <span>/ month</span>
+                  {currencyFormat(room.roomType.price)} <span> VNĐ/month</span>
                 </p>
               </div>
             </div>

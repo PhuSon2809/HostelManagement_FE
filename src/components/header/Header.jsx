@@ -1,28 +1,42 @@
-import React, { useState } from "react";
-import "./header.scss";
+import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import {
+  Collapse,
+  Dropdown,
+  DropdownItem,
+  DropdownMenu,
+  DropdownToggle,
+  Nav,
   Navbar,
   NavbarBrand,
   NavbarToggler,
-  Collapse,
-  Nav,
-  NavItem,
-  Dropdown,
-  DropdownToggle,
-  DropdownMenu,
-  DropdownItem,
+  NavItem
 } from "reactstrap";
-import { useDispatch } from "react-redux";
+import accountApi from "../../apis/accountApi";
 import { logoutAccount } from "../../redux/actions/login";
-import { useSelector } from "react-redux";
-import { Avatar } from "@mui/material";
+import "./header.scss";
 
 function Header(props) {
   const current = useSelector((state) => state.login.infoUser);
 
   const [isNavOpen, setIsNavOpen] = useState(false);
   const [dropdown, setDropdown] = useState(false);
+  const [account, setAccount] = useState({});
+  const [reload, setReload] = useState(false);
+
+  const fetchData = async () => {
+    const accountDetailApi = await accountApi.getAccountById(current.id);
+    setAccount(accountDetailApi);
+  };
+
+  useEffect(() => {
+    try {
+      fetchData();
+    } catch (error) {
+      console.log("Fail to get account detail!");
+    }
+  }, [current.id]);
 
   const navigate = useNavigate();
 
@@ -90,9 +104,8 @@ function Header(props) {
 
         <Dropdown isOpen={dropdown} toggle={toggleDropdown} key={current.id}>
           <DropdownToggle caret className="btn">
-            <img src={current.avatar} alt="avatar" className="img-fluid" />
-            {/* <Avatar/> */}
-            <span>{current.name}</span>
+            <img src={account.avatar} alt="avatar" className="img-fluid" />
+            <span>{account.name}</span>
           </DropdownToggle>
           <DropdownMenu>
             <DropdownItem>
