@@ -19,7 +19,6 @@ function Main() {
   // const isCurrentAdmin = window.localStorage.getItem("accounts")?.roleId === 1;
   // const isCurrentLandlord = window.localStorage.getItem("accounts")?.roleId === 3;
   const currentUser = useSelector((state) => state.login.infoUser.roleId);
-  console.log("currentUser main: ", currentUser);
 
   return (
     <>

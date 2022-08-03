@@ -26,7 +26,7 @@ export default function SidebarOwner({ reload }) {
             <div className="sidebarMenu">
               <ul className="sidebarList">
                 <Link to="/admin" className="link">
-                  <li className="sidebarListItem active">
+                  <li className="sidebarListItem">
                     <LineStyleIcon className="sidebarIcon" />
                     Home
                   </li>
@@ -43,8 +43,14 @@ export default function SidebarOwner({ reload }) {
                   List user
                 </li>
               </Link>
+              <Link to="/owner/list_hostel" className="link">
+                <li className="sidebarListItem ">
+                  <PermIdentityIcon className="sidebarIcon" />
+                  List hostel
+                </li>
+              </Link>
               <Link to="/owner/list_room" className="link">
-                <li className="sidebarListItem">
+                <li className="sidebarListItem ">
                   <PermIdentityIcon className="sidebarIcon" />
                   List room
                 </li>
@@ -63,7 +69,18 @@ export default function SidebarOwner({ reload }) {
               </Link>
             </ul>
           </div>
-
+          <div className="sidebarMenu">
+            <h3 className="sidebarTitle">Booking</h3>
+            <ul className="sidebarList">
+              <Link to="/owner/booking" className="link">
+                <li className="sidebarListItem">
+                  <AttachMoneyIcon className="sidebarIcon" />
+                  Booking
+                </li>
+              </Link>
+            </ul>
+          </div>
+{/* 
           <div className="sidebarMenu">
             <h3 className="sidebarTitle">Create New</h3>
             <ul className="sidebarList">
@@ -80,7 +97,7 @@ export default function SidebarOwner({ reload }) {
                 </li>
               </Link>
             </ul>
-          </div>
+          </div> */}
           {/* <div className="sidebarMenu">
             <h3 className="sidebarTitle">Manage Contest</h3>
             <ul className="sidebarList">

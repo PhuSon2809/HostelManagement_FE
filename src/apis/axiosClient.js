@@ -23,10 +23,18 @@ export const axiosClient = {
       .get(`${url}/${slug}`, params)
       .catch((error) => console.log(error));
   },
+  getWithIdFilterMiddleParams(url, slug = "", params) {
+    return axios
+      .get(`${url}`, { params }, `${slug}`)
+      .catch((error) => console.log(error));
+  },
   getWithId(url, slug = "") {
     return axios.get(`${url}/${slug}`).catch((error) => console.log(error));
   },
   getWith2Id(url, slug = "", slug2 = "") {
+    return axios.get(`${url}/${slug}/${slug2}`).catch((error) => console.log(error));
+  },
+  getWith2IdParams(url, slug = "", slug2 = "") {
     return axios.get(`${url}/${slug}/${slug2}`).catch((error) => console.log(error));
   },
   // getWithFilterMiddleId(url, url2, slug = "", params) {
@@ -57,9 +65,12 @@ export const axiosClient = {
   put(url, params, config) {
     return axios.put(`${url}`, params, config);
   },
-  // putWithId(url, slug) {
-  //   return axios.put(`${url}/${slug}`);
-  // },
+  putWithId(url, slug) {
+    return axios.put(`${url}/${slug}`);
+  },
+  putWithIdAndParams(url, slug, params) {
+    return axios.put(`${url}/${slug}`, params);
+  },
   // putWithMiddleId(url, slug = "", url2) {
   //   return axios.put(`${url}/${slug}/${url2}`);
   // },
@@ -84,7 +95,7 @@ export const axiosClient = {
   setHeaderAuth(token) {
     axios.defaults.headers.common.Authorization = `Bearer ${token}`;
   },
-  clearToken() {},
+  clearToken() { },
 };
 
 // Add a request interceptor

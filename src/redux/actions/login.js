@@ -10,9 +10,9 @@ export const login = (params) => {
         await axiosClient.post('/Accounts/SignIn', params)
             .then((response) => {
                 axiosClient.saveToken(response.token)
-                localStorage.setItem(StorageKeys.ACCOUNT, JSON.stringify(response.accounts));
+                localStorage.setItem(StorageKeys.ACCOUNT, JSON.stringify(response.account));
                 if (response) {
-                    dispatch(setLogin(response.accounts))
+                    dispatch(setLogin(response.account))
                 }
             })
             .catch((errors) => {
@@ -28,12 +28,9 @@ export const login = (params) => {
 
 export const register = (params, closeDialog) => {
     return (dispatch) => {
-        axiosClient.post('/accounts/AccountSystem', params)
+        axiosClient.post('/Accounts/SignUp', params)
             .then((response) => {
-                // localStorage.setItem(StorageKeys.TOKEN, data.jwt);
-                // localStorage.setItem(StorageKeys.ACCOUNT, JSON.stringify(data.user));
                 if (response) {
-                    // dispatch(setRegister(response))
                     if (closeDialog) {
                         closeDialog();
                     }
@@ -48,7 +45,7 @@ export const register = (params, closeDialog) => {
                 Swal.fire({
                     icon: 'error',
                     title: 'Oops...',
-                    text: error,
+                    text: error.response.data.title,
                 })
             })
     }

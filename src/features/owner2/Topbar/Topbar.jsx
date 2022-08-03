@@ -39,32 +39,7 @@ function Topbar({ reload }) {
     // const [reload, setReload] = useState(false);
     const [notiCount, setNotiCount] = useState('');
     const [notiList, setNotiList] = useState([]);
-    // useEffect(async () => {
-    //     const reponse = await notiApi.getAllByAccountId(currentUser.accountId);
-    //     setNotiList(reponse.data)
-    //     setNotiCount(reponse.count)
-    // }, [3000, reload])
-
-    // const handleReaded = async (noti) => {
-    //     if (noti.postId) {
-    //         navigate(`/post/${noti?.postId}`)
-    //     } else if (noti.tradingPostId) {
-    //         navigate(`/tradingPost/${noti?.tradingPostId}`)
-    //     } else if (noti.contestId) {
-    //         navigate(`/contest/${noti?.contestId}`)
-    //     }
-    //     try {
-    //         const itemId = {
-    //             id: noti.id
-    //         }
-    //         const reponse = await notiApi.changeReaded(noti.id);
-    //         // setReload(!reload)
-    //         reload();
-    //     } catch (error) {
-    //         console.log("fail noti: ", error);
-    //     }
-    // }
-
+  
     const handleMenuClose = () => {
         setAnchorEl(null);
         setAnchorElNoti(null);
@@ -119,47 +94,14 @@ function Topbar({ reload }) {
             open={isMenuOpen}
             onClose={handleMenuClose}
         >
-            <MenuItem onClick={handleOpenProfile}>Profile</MenuItem>
-            <MenuItem onClick={handleOpenSetting}>Edit Account</MenuItem>
-            <MenuItem onClick={handleOpenProposal}>Proposal Open Contest</MenuItem>
-            <MenuItem onClick={handleOpenMemberPage}>Go to member page</MenuItem>
+            {/* <MenuItem onClick={handleOpenProfile}>Profile</MenuItem> */}
+            {/* <MenuItem onClick={handleOpenSetting}>Edit Account</MenuItem> */}
+            {/* <MenuItem onClick={handleOpenProposal}>Proposal Open Contest</MenuItem> */}
+            {/* <MenuItem onClick={handleOpenMemberPage}>Go to member page</MenuItem> */}
             <MenuItem onClick={handleLogoutClick}>Log out</MenuItem>
 
         </Menu>
     );
-    // Menu in Notification
-    // const notifiId = 'primary-search-account-menu';
-    // const renderNotifi = (
-    //     <Menu
-    //         anchorEl={anchorElNoti}
-    //         anchorOrigin={{
-    //             vertical: 'bottom',
-    //             horizontal: 'right',
-    //         }}
-    //         transformOrigin={{
-    //             vertical: 'top',
-    //             horizontal: 'right',
-    //         }}
-    //         id={notifiId}
-    //         keepMounted
-    //         open={isNotiOpen}
-    //         onClose={handleMenuClose}
-    //     >
-    //         {notiList?.map((noti, index) => (
-    //             <MenuItem key={index} sx={{ backgroundColor: noti.isReaded ? "#fff" : '#bdc3c7' }} onClick={() => handleReaded(noti)}>
-    //                 <Box >
-    //                     <Typography>
-    //                         {noti.content}
-    //                     </Typography>
-    //                     <Typography>
-    //                         {formatDate(noti.createTime)}
-    //                     </Typography>
-    //                 </Box>
-
-    //             </MenuItem>
-    //         ))}
-    //     </Menu>
-    // );
 
     return (
         <div className="topbar">
@@ -172,12 +114,12 @@ function Topbar({ reload }) {
 
                 </div>
                 <div className="topRight">
-                    <IconButton onClick={handleMessage} size="large" aria-label="show 4 new mails" >
+                    {/* <IconButton onClick={handleMessage} size="large" aria-label="show 4 new mails" >
                         <Badge>
                             <Chat />
                         </Badge>
-                    </IconButton>
-                    <IconButton
+                    </IconButton> */}
+                    {/* <IconButton
                         size="large"
                         aria-label="show 17 new notifications"
                         // aria-controls={notifiId}
@@ -187,7 +129,7 @@ function Topbar({ reload }) {
                         <Badge badgeContent={notiCount} color="error">
                             <NotificationsIcon />
                         </Badge>
-                    </IconButton>
+                    </IconButton> */}
                     <IconButton
                         size="large"
                         edge="end"

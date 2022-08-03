@@ -2,31 +2,27 @@ import React from "react";
 import PropTypes from "prop-types";
 import RegisterForm from "../registerForm";
 import accountApi from "../../../apis/accountApi";
+import { register } from "../../../redux/actions/login";
+import { useDispatch } from "react-redux";
 
-Register.propTypes = {};
-
-function Register(props) {
-
-    const handleSubmit = async (values) => {
-
-        try {
-            console.log("register values: ", values);
-
-            const data = accountApi.register(values);
-
-
-            // // autoset ussername = email
-            // values.username = values.email;
-
-            // const action = register(values);
-            // const resultAction = await dispatch(action);
-            // const account = unwrapResult(resultAction);
-
-        } catch (error) {
-            console.log('Failed to register: ', error);
-        }
+Register.propTypes = {
+  closeDialog: PropTypes.func,
+};
+function Register({ closeDialog }) {
+  const dispatch = useDispatch();
+  const handleSubmit = async (values) => {
+    try {
+      console.log("register values: ", values);
+      // const newUser = {
+      //   name: values.fullName,
+      //   phone: values.phone,
+      //   password: values.password,
+      // };
+      dispatch(register(values, closeDialog));
+    } catch (error) {
+      console.log("Failed to register: ", error);
     }
-
+  };
   return (
     <div>
       <RegisterForm onSubmit={handleSubmit} />

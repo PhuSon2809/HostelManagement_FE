@@ -127,47 +127,13 @@ function Topbar({ reload }) {
 
         </Menu>
     );
-    // Menu in Notification
-    // const notifiId = 'primary-search-account-menu';
-    // const renderNotifi = (
-    //     <Menu
-    //         anchorEl={anchorElNoti}
-    //         anchorOrigin={{
-    //             vertical: 'bottom',
-    //             horizontal: 'right',
-    //         }}
-    //         transformOrigin={{
-    //             vertical: 'top',
-    //             horizontal: 'right',
-    //         }}
-    //         id={notifiId}
-    //         keepMounted
-    //         open={isNotiOpen}
-    //         onClose={handleMenuClose}
-    //     >
-    //         {notiList?.map((noti, index) => (
-    //             <MenuItem key={index} sx={{ backgroundColor: noti.isReaded ? "#fff" : '#bdc3c7' }} onClick={() => handleReaded(noti)}>
-    //                 <Box >
-    //                     <Typography>
-    //                         {noti.content}
-    //                     </Typography>
-    //                     <Typography>
-    //                         {formatDate(noti.createTime)}
-    //                     </Typography>
-    //                 </Box>
-
-    //             </MenuItem>
-    //         ))}
-    //     </Menu>
-    // );
-
     return (
         <div className="topbar">
             <div className="topbarWrapper">
                 <div className="topLeft">
                     {
                         currentUser.roleId === 1 ? <span className="logo">HOM Admin</span> :
-                            currentUser.roleId === 3 ? <span className="logo">HOM Owner</span> : <></>
+                            currentUser.roleId === 3 ? <span className="logo">HOM Owner</span> : <span className="logo">HOM Owner</span>
                     }
 
                 </div>

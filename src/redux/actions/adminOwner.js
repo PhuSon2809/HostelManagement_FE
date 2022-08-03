@@ -3,6 +3,7 @@ import {
     ADMINOWNER,
     ADMINUSER
 } from './types'
+import Swal from "sweetalert2";
 
 export const getListOwner = () => {
     return (dispatch) => {
@@ -18,6 +19,34 @@ export const getListOwner = () => {
                 })
                 .catch((error) => {
                     console.log(error)
+                })
+        }
+    }
+}
+
+export const deactiveAccount = (userID) => {
+    return (dispatch) => {
+        const token = axiosClient.getToken();
+
+        if (token) {
+            axiosClient.setHeaderAuth(token)
+
+            axiosClient.put(`/Accounts/ActiveOrDeactive?id=${userID}`)
+                .then((response) => {
+                    dispatch(getListOwner())
+                    Swal.fire(
+                        'Update successfully',
+                        'Click button to continute!',
+                        'success'
+                    )
+                })
+                .catch((error) => {
+                    console.log(error)
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Oops...',
+                        text: 'Something went wrong!',
+                    })
                 })
         }
     }
