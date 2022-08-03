@@ -21,6 +21,15 @@ const RoomAPI = {
     }
   },
 
+  async getDistrict(params) {
+    const token = axiosClient.getToken();
+    if (token) {
+      axiosClient.setHeaderAuth(token);
+      const data = await axiosClient.post("/Filter", params);
+      return data;
+    }
+  },
+
   async getRoomByTypeRoom(hostelId, typeRoomName) {
     console.log("getRoomByTypeRoom: ", hostelId, typeRoomName);
     const token = axiosClient.getToken();

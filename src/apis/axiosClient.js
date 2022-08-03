@@ -39,7 +39,7 @@ export const axiosClient = {
   },
 
   getWithId(url, slug = "") {
-    return axios.get(`${url}`, slug).catch((error) => console.log(error));
+    return axios.get(`${url}`, `${slug}`).catch((error) => console.log(error));
   },
 
   getWith2Id(url, slug = "", slug2 = "") {
@@ -79,7 +79,7 @@ export const axiosClient = {
   put(url, params, config) {
     return axios.put(`${url}`, params, config);
   },
-  putWithId(url, slug = "", params) {
+  putWithId(url, slug="", params) {
     return axios.put(`${url}`, slug, params);
   },
   // putWithMiddleId(url, slug = "", url2) {

@@ -56,7 +56,7 @@ function OneRoom({ room }) {
               <div className="house-price">
                 <p>{room.roomType.acreage} m2</p>
                 <p className="red">
-                  {currencyFormat(room.roomType.price)} <span> VNĐ/month</span>
+                  {currencyFormat(room.roomType.price)} <span>/month</span>
                 </p>
               </div>
             </div>

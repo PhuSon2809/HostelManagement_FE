@@ -11,10 +11,10 @@ export const login = (params) => {
         axiosClient.saveToken(response.token);
         localStorage.setItem(
           StorageKeys.ACCOUNT,
-          JSON.stringify(response.accounts)
+          JSON.stringify(response.account)
         );
         if (response) {
-          dispatch(setLogin(response.accounts));
+          dispatch(setLogin(response.account));
         }
       })
       .catch((errors) => {

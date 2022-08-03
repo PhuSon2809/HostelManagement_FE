@@ -1,14 +1,10 @@
-import React, { useState } from "react";
-import PropTypes from "prop-types";
-import "./myAccount.scss";
-import { Tab, Row, Col } from "react-bootstrap";
-import Category from "./category/Category";
-import ControllAccount from "./controllAccount/ControllAccount";
+import React, { useEffect, useState } from "react";
+import { Col, Row, Tab } from "react-bootstrap";
 import { useSelector } from "react-redux";
 import accountApi from "../../../apis/accountApi";
-import { useEffect } from "react";
-
-MyAccount.propTypes = {};
+import Category from "./category/Category";
+import ControllAccount from "./controllAccount/ControllAccount";
+import "./myAccount.scss";
 
 function MyAccount(props) {
   const current = useSelector((state) => state.login.infoUser);
@@ -26,7 +22,7 @@ function MyAccount(props) {
     } catch (error) {
       console.log("Fail to get account detail!");
     }
-  }, [current.id, reload]);
+  }, [reload]);
 
   return (
     <div className="myaccount">
@@ -45,7 +41,7 @@ function MyAccount(props) {
             <Category />
           </Col>
           <Col sm={9}>
-            <ControllAccount reload={() => setReload(!reload)}/>
+            <ControllAccount account={account} reload={() => setReload(!reload)}/>
           </Col>
         </Row>
       </Tab.Container>

@@ -37,6 +37,12 @@
         margin: 0 0.2rem;
         flex: 1;
       }
+
+      &:hover{
+        color: $red;
+        transition: 0.2s all;
+        transform: scale(1.04);
+      }
     }
   }
 }
