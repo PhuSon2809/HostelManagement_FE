@@ -17,7 +17,6 @@ const initState = {
 }
 
 const loginReducer = (state = initState, action) => {
-    console.log("payload: ", action.payload);
     switch (action.type) {
         case LOGIN.SET_LOGIN:
             return {

@@ -41,6 +41,13 @@ const RoomAPI = {
       return data;
     }
   },
+
+
+  // async getRoomById(id, hostelId) {
+  //   console.log("Id api :", id, hostelId);
+  //   const data = await axiosClient.getWith2Id("/Rooms", id, hostelId);
+  //   return data;
+  // },
 };
 
 export default RoomAPI;

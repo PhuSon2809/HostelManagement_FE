@@ -10,17 +10,18 @@ Room.propTypes = {
 
 function Room({ room }) {
   const navigate = useNavigate();
+  console.log("room: ", room);
 
   const handleClick = () => {
     navigate(`/room/${room.id}/${room.roomType.hostelId}`);
   };
-  
+
   return (
     <div className="room row ml-2 mr-2">
       <div className="col-12 col-md-5">
         <div className="image">
-          <img src={room.images[2].url} className="img-fluid img1" />
-          <img src={room.images[4].url} className="img-fluid img2" />
+          <img src={room?.images[2]?.url} className="img-fluid img1" />
+          <img src={room?.images[4]?.url} className="img-fluid img2" />
         </div>
       </div>
       <div className="col-12 col-md-7">

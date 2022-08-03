@@ -10,11 +10,12 @@ const BookingAPI = {
     }
   },
 
-  async createNewBooking(data) {
+  async createNewBooking(params) {
+    console.log("params: ", params);
     const token = axiosClient.getToken();
     if (token) {
       axiosClient.setHeaderAuth(token);
-      const res = await axiosClient.post("/Bookings", data);
+      const res = await axiosClient.post("/Bookings", params);
       return res;
     }
   },

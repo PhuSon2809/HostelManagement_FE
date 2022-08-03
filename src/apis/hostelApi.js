@@ -27,6 +27,11 @@ const HostelAPI = {
       return data;
     }
   },
+
+  // async getHostelById(id) {
+  //   const data = await axiosClient.getWithId("/Hostels", id);
+  //   return data;
+  // },
 };
 
 export default HostelAPI;

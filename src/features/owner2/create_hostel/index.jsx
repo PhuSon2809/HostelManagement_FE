@@ -1,20 +1,73 @@
+import { TextField, Button, styled, Box } from "@mui/material";
 import React from "react";
-import useForm from "../../../../src/components/Hooks/useForm";
+import { useForm } from "react-hook-form";
+
+const TextFieldStyle = styled(TextField)(() => ({
+  height: "3rem",
+  width: "100%",
+  margin: "10px 0",
+}));
 
 Create_Hostel.prototype = {};
 
 function Create_Hostel() {
-  const formCreateHostel = () => {
-    console.log("Form values", values);
+  // const formregister = () => {
+  //   console.log("Form values", values);
+  // };
+  const { register, handleSubmit } = useForm({
+    defaultValues: {
+      hostelName: "",
+      address: "",
+      district: "",
+      images: [],
+    },
+  });
+
+  const submitForm = async (data) => {
+    console.log("data: ", data);
   };
-  const { handleChange, errors, values, handleSubmitCreate } =
-    useForm(formCreateHostel);
   return (
     <div className="welcome-table">
       <h3>Create Hostel</h3>
       <hr />
       <div>
-        <form onSubmit={handleSubmitCreate}>
+        <form onSubmit={handleSubmit(submitForm)}>
+            <TextFieldStyle
+              {...register("hostelName")}
+              autoComplete="off"
+              fullWidth
+              label="Hostel name"
+              id="outlined-basic"
+              variant="outlined"
+              margin="normal"
+            />
+          <TextFieldStyle
+            {...register("address")}
+            autoComplete="off"
+            id="outlined-basic"
+            fullWidth
+            label="Address"
+            variant="outlined"
+            margin="normal"
+          />
+          <TextFieldStyle
+            {...register("district")}
+            autoComplete="off"
+            fullWidth
+            label="District"
+            variant="outlined"
+            margin="normal"
+          />
+          <Button
+            type="submit"
+            className="btn-create"
+            variant="contained"
+            fullWidth
+          >
+            Create Hostel
+          </Button>
+        </form>
+        {/* <form onSubmit={handleSubmitCreate(submitHostel)}>
           <div className="form-group">
             <label for="hostelName" className="col-form-label">
               Tên nhà trọ
@@ -87,7 +140,7 @@ function Create_Hostel() {
               Create Hostel
             </button>
           </div>
-        </form>
+  </form> */}
       </div>
     </div>
   );

@@ -20,8 +20,8 @@ function OneRoom({ room }) {
       <div className="rooms row">
         <div className="col-12 col-md-5">
           <div className="image">
-            <img src={room.images[2].url} className="img-fluid img1" />
-            <img src={room.images[3].url} className="img-fluid img2" />
+            <img src={room?.images[2]?.url} className="img-fluid img1" />
+            <img src={room?.images[3]?.url} className="img-fluid img2" />
           </div>
         </div>
         <div className="col-12 col-md-7 pl-0">

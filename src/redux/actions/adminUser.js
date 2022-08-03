@@ -2,6 +2,7 @@ import axiosClient from '../../apis/axiosClient';
 import {
     ADMINUSER
 } from './types'
+import Swal from "sweetalert2";
 
 export const getListUser = () => {
     return (dispatch) => {
@@ -21,6 +22,62 @@ export const getListUser = () => {
         }
     }
 }
+
+export const deactiveAccount = (userID) => {
+    return (dispatch) => {
+        const token = axiosClient.getToken();
+
+        if (token) {
+            axiosClient.setHeaderAuth(token)
+
+            axiosClient.put(`/Accounts/ActiveOrDeactive?id=${userID}`)
+                .then((response) => {
+                    dispatch(getListUser())
+                    Swal.fire(
+                        'Update successfully',
+                        'Click button to continute!',
+                        'success'
+                    )
+                })
+                .catch((error) => {
+                    console.log(error)
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Oops...',
+                        text: 'Something went wrong!',
+                    })
+                })
+        }
+    }
+}
+
+// export const active = (userID) => {
+//     return (dispatch) => {
+//         const token = axiosClient.getToken();
+
+//         if (token) {
+//             axiosClient.setHeaderAuth(token)
+
+//             axiosClient.put(`/Accounts/ActiveOrDeactive?id=${userID}`)
+//                 .then((response) => {
+//                     dispatch(getListUser())
+//                     Swal.fire(
+//                         'Update successfully',
+//                         'Click button to continute!',
+//                         'success'
+//                     )
+//                 })
+//                 .catch((error) => {
+//                     console.log(error)
+//                     Swal.fire({
+//                         icon: 'error',
+//                         title: 'Oops...',
+//                         text: 'Something went wrong!',
+//                     })
+//                 })
+//         }
+//     }
+// }
 
 export const setAdminUsers = (payload) => {
     return {
