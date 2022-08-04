@@ -12,6 +12,7 @@ import {
 } from "reactstrap";
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
+import "./passwordForm.scss";
 
 PasswordForm.propTypes = {
   handleOnChange: PropTypes.func,
@@ -48,7 +49,7 @@ function PasswordForm({
   };
 
   return (
-    <div>
+    <div className="passwordForm">
       <form onSubmit={handleOnSubmit}>
         <FormGroup>
           <Label for="oldPassword">Old password:</Label>
