@@ -1,6 +1,12 @@
 @import "../../../../../App.scss";
 
-select{
+.informationForm {
+  select {
     height: 2rem;
     width: 6rem;
+  }
+
+  .btn {
+    @include btn;
+  }
 }

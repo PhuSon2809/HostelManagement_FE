@@ -24,7 +24,7 @@ function InformationForm({
     console.log("e: ", e.target.value);
   };
   return (
-    <div>
+    <div className="informationForm">
       <Form onSubmit={handleOnSubmit}>
         <div className="upload">
           <img src={image} alt="avatar" className="mr-4" />

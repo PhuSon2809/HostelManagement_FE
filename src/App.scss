@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Bitter:wght@400;500;600;700&family=Inter:wght@400;700&family=PT+Serif:wght@400;700&family=Poppins:wght@200;300;400;500;600;700&family=Raleway:ital,wght@0,100;0,300;0,400;0,500;1,600&family=Roboto+Slab:wght@100;200;300;400;500;600;700;800&family=Tiro+Devanagari+Sanskrit&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Bitter:wght@400;500;600;700&family=Inter:wght@400;700&family=PT+Serif:wght@400;700&family=Poppins:wght@200;300;400;500;600;700&family=Raleway:ital,wght@0,100;0,300;0,400;0,500;1,600&family=Roboto+Slab:wght@100;200;300;400;500;600;700;800&family=Tiro+Devanagari+Sanskrit&display=swap");
 
 $white: #fff;
 $black: #000;
@@ -10,58 +10,70 @@ $gray: gray;
 $border: 1px solid #1b34532b;
 
 @mixin grid($val) {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax($val, 1fr));
-    gap: 2rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax($val, 1fr));
+  gap: 2rem;
 }
 
 @mixin title($font-size) {
-    color: $navi;
-    font-size: $font-size;
-    position: relative;
-    text-align: center;
+  color: $navi;
+  font-size: $font-size;
+  position: relative;
+  text-align: center;
 
-    &::after {
-        content: '';
-        width: 100%;
-        height: 3px;
-        position: absolute;
-        background: $red;
-        bottom: -3px;
-        left: 0;
-        transition: 0.4s all linear;
-    }
+  &::after {
+    content: "";
+    width: 100%;
+    height: 3px;
+    position: absolute;
+    background: $red;
+    bottom: -3px;
+    left: 0;
+    transition: 0.4s all linear;
+  }
 }
 
 @mixin btn {
+  background: $red !important;
+  color: $white !important;
+  cursor: pointer !important;
+  margin: 0.3rem 0.3rem !important;
+  padding: 0.5rem 1rem !important;
+  transition: 0.4s all linear !important;
+
+  &:hover {
+    transform: scale(1.03) !important;
     background: $red !important;
     color: $white !important;
-    cursor: pointer !important;
-    margin: 0.3rem 0.3rem !important;
-    padding: 0.5rem 1rem !important;
-    transition: 0.4s all linear !important;
-
-    &:hover {
-        transform: scale(1.03) !important;
-        background: $red !important;
-        color: $white !important;
-    }
+  }
 }
+
+// @mixin btn2 {
+//   background: $red;
+//   color: $white;
+//   cursor: pointer;
+//   margin: 0.3rem 0.3rem;
+//   padding: 0.5rem 1rem;
+//   transition: 0.4s all linear;
+
+//   &:hover {
+//     transform: scale(1.03);
+//     background: $red;
+//     color: $white !important;
+//   }
+// }
 
 * {
-    font-family: 'Bitter', sans-serif;
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    outline: none;
-    text-decoration: none;
-    transition: all 0.4s linear;
+  font-family: "Bitter", sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  outline: none;
+  text-decoration: none;
+  transition: all 0.4s linear;
 }
 
-
-
-
-.containers{
-    padding-left: 11%;
-    padding-right: 11%;
+.containers {
+  padding-left: 11%;
+  padding-right: 11%;
 }

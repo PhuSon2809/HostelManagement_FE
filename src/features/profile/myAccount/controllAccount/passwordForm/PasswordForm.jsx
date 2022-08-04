@@ -1,17 +1,15 @@
-import React, { useState } from "react";
+import VisibilityIcon from "@mui/icons-material/Visibility";
+import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 import PropTypes from "prop-types";
+import React, { useState } from "react";
 import {
-  Button,
-  Form,
-  FormFeedback,
+  Button, FormFeedback,
   FormGroup,
   Input,
   InputGroup,
   InputGroupText,
-  Label,
+  Label
 } from "reactstrap";
-import VisibilityIcon from "@mui/icons-material/Visibility";
-import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 import "./passwordForm.scss";
 
 PasswordForm.propTypes = {
