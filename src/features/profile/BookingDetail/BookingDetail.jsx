@@ -15,6 +15,7 @@ BookingDetail.propTypes = {
 
 function BookingDetail({ booking, index, reload }) {
   const [tooltipOpen, setTooltipOpen] = useState(false);
+  const [tooltipCancleOpen, setTooltipCancleOpen] = useState(false);
 
   const [bookingClicked, setBookingClicked] = useState({});
   const [openConfirm, setOpenConfirm] = useState(false);
@@ -26,6 +27,7 @@ function BookingDetail({ booking, index, reload }) {
   console.log("bookingClicked: ", bookingClicked);
 
   const toggle = () => setTooltipOpen(!tooltipOpen);
+  const toggleCancle = () => setTooltipCancleOpen(!tooltipCancleOpen);
 
   const handleOnClickDelete = (bookingClk) => {
     setBookingClicked(bookingClk);
@@ -56,7 +58,12 @@ function BookingDetail({ booking, index, reload }) {
     <tr className="bookingDetail">
       <th scope="row">{index + 1}</th>
       <td>
-        <a href="#" id="TooltipExample" className="nav-link p-0" style={{color: "#1b3453"}}>
+        <a
+          href="#"
+          id="TooltipExample"
+          className="nav-link p-0"
+          style={{ color: "#1b3453" }}
+        >
           {booking.room.hostel.account.name}
         </a>
         <Tooltip isOpen={tooltipOpen} target="TooltipExample" toggle={toggle}>
@@ -71,6 +78,7 @@ function BookingDetail({ booking, index, reload }) {
 
       <td className="p-0">
         <IconButton
+          id="TooltipCancle"
           data-toggle="modal"
           data-target="#exampleModalCenter"
           className="mt-1"
@@ -78,6 +86,13 @@ function BookingDetail({ booking, index, reload }) {
         >
           <CancelIcon />
         </IconButton>
+        <Tooltip
+          isOpen={tooltipCancleOpen}
+          target="TooltipCancle"
+          toggle={toggleCancle}
+        >
+          Cancle
+        </Tooltip>
       </td>
 
       <Dialog
@@ -146,7 +161,9 @@ function BookingDetail({ booking, index, reload }) {
                     <i className="fa fa-calendar" /> <span>Booking Date:</span>
                   </p>
                 </div>
-                <div className="col-7">{formatDate(bookingClicked.bookingDate)}</div>
+                <div className="col-7">
+                  {formatDate(bookingClicked.bookingDate)}
+                </div>
               </div>
               <div className="row ml-1 mb-1">
                 <div className="col-4">
@@ -155,7 +172,9 @@ function BookingDetail({ booking, index, reload }) {
                     <span> Meeting Date:</span>
                   </p>
                 </div>
-                <div className="col-7">{formatDate(bookingClicked.meetingDate)}</div>
+                <div className="col-7">
+                  {formatDate(bookingClicked.meetingDate)}
+                </div>
               </div>
             </div>
             <div className="modal-footer pt-0 pb-0">
