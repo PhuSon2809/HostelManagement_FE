@@ -56,7 +56,7 @@ function BookingDetail({ booking, index, reload }) {
     <tr className="bookingDetail">
       <th scope="row">{index + 1}</th>
       <td>
-        <a href="#" id="TooltipExample" className="nav-link p-0">
+        <a href="#" id="TooltipExample" className="nav-link p-0" style={{color: "#1b3453"}}>
           {booking.room.hostel.account.name}
         </a>
         <Tooltip isOpen={tooltipOpen} target="TooltipExample" toggle={toggle}>
