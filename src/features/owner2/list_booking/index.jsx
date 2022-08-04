@@ -18,7 +18,7 @@ import EditIcon from "@mui/icons-material/Edit";
 import { useDispatch, useSelector } from "react-redux";
 import ManageAccountsIcon from "@mui/icons-material/ManageAccounts";
 import LockIcon from "@mui/icons-material/Lock";
-import DoneIcon from '@mui/icons-material/Done';
+import DoneIcon from "@mui/icons-material/Done";
 import CircularProgress from "@mui/material/CircularProgress";
 import LockOpenIcon from "@mui/icons-material/LockOpen";
 import Swal from "sweetalert2";
@@ -143,6 +143,7 @@ function BookingManagement() {
                 <th>No</th>
                 <th>Hostel's name</th>
                 <th>Room's name</th>
+                <th>User's name</th>
                 <th>Booking date</th>
                 <th>Meeting date</th>
                 <th>Status</th>
@@ -156,6 +157,7 @@ function BookingManagement() {
                     <td>{index + 1}</td>
                     <td>{booking.room.hostel.name}</td>
                     <td>{booking.room.name}</td>
+                    <td>{booking.account.name}</td>
                     <td>{formatDate(booking.bookingDate)}</td>
                     <td>{formatDate(booking.meetingDate)}</td>
                     {/* <td>{formatDate(booking.bookingDate)}</td>
@@ -182,7 +184,7 @@ function BookingManagement() {
                     <td>
                       <a
                         className="btn btn-edit"
-                        style={{backgroundColor: '#007bff !important'}}
+                        style={{ backgroundColor: "#007bff !important" }}
                         onClick={() => handleUpdateBooking(booking)}
                       >
                         <Tooltip title="Edit">

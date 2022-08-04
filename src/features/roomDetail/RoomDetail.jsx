@@ -16,6 +16,7 @@ function RoomDetail(props) {
   const fetchData = async () => {
     const roomDetailByIdApi = await RoomAPI.getRoomById(roomId);
     setRoomDetail(roomDetailByIdApi);
+    console.log("roomDetail: ", roomDetailByIdApi);
   };
 
   useEffect(() => {
@@ -40,7 +41,7 @@ function RoomDetail(props) {
           <Utilities roomDetail={roomDetail}/>
         </div>
         <div className="col-12 col-md-3 p-0 order-first">
-          <Host />
+          <Host roomDetail={roomDetail}/>
         </div>
       </div>
       <div className="row">

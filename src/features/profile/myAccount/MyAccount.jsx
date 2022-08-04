@@ -28,7 +28,15 @@ function MyAccount(props) {
     <div className="myaccount">
       <div className="row">
         <div className="col-12 aboutus mb-4">
-          <img src={account.avatar} alt="avatar" className="mr-4" />
+          {!account?.avatar ? (
+            <img
+              src="https://firebasestorage.googleapis.com/v0/b/hostelmanagement-ae202.appspot.com/o/Avatar%2Fimages.png?alt=media&token=9db5a385-f427-471e-a78f-8dc776fb03a3"
+              alt="avatar"
+              className="mr-4"
+            />
+          ) : (
+            <img src={account.avatar} alt="avatar" className="mr-4" />
+          )}
           <div>
             <span>{account.name}</span>
             <i>Personalize your account by updating your information</i>
@@ -41,7 +49,10 @@ function MyAccount(props) {
             <Category />
           </Col>
           <Col sm={9}>
-            <ControllAccount account={account} reload={() => setReload(!reload)}/>
+            <ControllAccount
+              account={account}
+              reload={() => setReload(!reload)}
+            />
           </Col>
         </Row>
       </Tab.Container>

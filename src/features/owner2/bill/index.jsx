@@ -72,7 +72,7 @@ function ListBillManagement() {
 
   const [active, setActive] = useState("hostel");
   const [hostelSelected, setHostelSelected] = useState({});
-  const [hostelIdSelected, setHostelIdSelected] = useState('');
+  const [hostelIdSelected, setHostelIdSelected] = useState("");
   const [openFormCreateBill, setOpenFormCreateBill] = useState(false);
   const [value, setValue] = useState("select");
   const [inputValue, setInputValue] = useState("");
@@ -157,12 +157,12 @@ function ListBillManagement() {
       console.log("newBill: ", newBill);
       setOpenFormCreateBill(false);
       await Swal.fire(
-        "Create room successfully",
+        "Create bill successfully",
         "Click button to continute!",
         "success"
       );
     } catch (error) {
-      console.log("failed to create room: ", error);
+      console.log("failed to create bill: ", error);
       await Swal.fire({
         icon: "error",
         title: "Oops...",
@@ -580,7 +580,7 @@ function ListBillManagement() {
         maxWidth="lg"
       >
         <DialogTitle sx={{ textAlign: "center" }}>
-          Create Room for {hostelSelected.name} hostel
+          Create bill for {hostelSelected.name} hostel
         </DialogTitle>
         <form onSubmit={handleSubmit(submitForm)}>
           <DialogContent>
@@ -674,7 +674,7 @@ function ListBillManagement() {
               variant="contained"
               fullWidth
             >
-              Create Room
+              Create Bill
             </Button>
           </DialogActions>
         </form>

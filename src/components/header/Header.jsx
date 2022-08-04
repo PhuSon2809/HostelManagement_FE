@@ -11,7 +11,7 @@ import {
   Navbar,
   NavbarBrand,
   NavbarToggler,
-  NavItem
+  NavItem,
 } from "reactstrap";
 import accountApi from "../../apis/accountApi";
 import { logoutAccount } from "../../redux/actions/login";
@@ -104,7 +104,15 @@ function Header(props) {
 
         <Dropdown isOpen={dropdown} toggle={toggleDropdown} key={current.id}>
           <DropdownToggle caret className="btn">
-            <img src={account?.avatar} alt="avatar" className="img-fluid" />
+            {!account?.avatar ? (
+              <img
+                src="https://firebasestorage.googleapis.com/v0/b/hostelmanagement-ae202.appspot.com/o/Avatar%2Fimages.png?alt=media&token=9db5a385-f427-471e-a78f-8dc776fb03a3"
+                alt="avatar"
+                className="img-fluid"
+              />
+            ) : (
+              <img src={account?.avatar} alt="avatar" className="img-fluid" />
+            )}
             <span>{account?.name}</span>
           </DropdownToggle>
           <DropdownMenu>

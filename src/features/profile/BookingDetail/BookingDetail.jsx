@@ -184,7 +184,7 @@ function BookingDetail({ booking, index, reload }) {
                 className="btn btn-secondary"
                 data-dismiss="modal"
               >
-                Cancle
+                Cancel
               </button>
               <button
                 type="button"

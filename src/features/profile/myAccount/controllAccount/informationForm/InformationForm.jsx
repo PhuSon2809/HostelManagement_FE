@@ -20,14 +20,22 @@ function InformationForm({
     handleSubmit();
   };
   const hanldeChange = (e) => {
-    handleChangeGender(e.target.value)
+    handleChangeGender(e.target.value);
     console.log("e: ", e.target.value);
   };
   return (
     <div className="informationForm">
       <Form onSubmit={handleOnSubmit}>
         <div className="upload">
-          <img src={image} alt="avatar" className="mr-4" />
+          {!image ? (
+            <img
+              src="https://firebasestorage.googleapis.com/v0/b/hostelmanagement-ae202.appspot.com/o/Avatar%2Fimages.png?alt=media&token=9db5a385-f427-471e-a78f-8dc776fb03a3"
+              alt="avatar"
+              className="img-fluid"
+            />
+          ) : (
+            <img src={image} alt="avatar" className="mr-4" />
+          )}
           <button type="button" className="btn">
             <i className="fa fa-upload"></i> Upload File
             <input type="file" onChange={onImageChange} />
@@ -73,15 +81,9 @@ function InformationForm({
               aria-label="Default select example"
               onChange={hanldeChange}
             >
-              <option value="Male" >
-                Male
-              </option>
-              <option value="Female" >
-                Female
-              </option>
-              <option value="Orther" >
-                Orther
-              </option>
+              <option value="Male">Male</option>
+              <option value="Female">Female</option>
+              <option value="Orther">Orther</option>
             </select>
             <FormFeedback></FormFeedback>
           </FormGroup>
