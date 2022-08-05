@@ -31,7 +31,7 @@ function Host({ roomDetail }) {
           </div>
         </div>
         <div className="about">
-          <p>View 1 more news</p>
+          <p>View 1 more newsss</p>
           <div>
             <i className="fa fa-tag"></i> Quick response in minutes
           </div>
