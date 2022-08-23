@@ -7,9 +7,13 @@ accommodation. This is project for subject SWP391 in FPTU.
 
 Team size: 4
 
-Role:
  + 2 Back-End: responsible for creating and maintaining technology at the back end of a website (the server, database and application), Assessing the efficiency and speed of current applications.
  + 2 Front-End: responsible for developing UX/UI, determining the structure and design of web pages.
+ 
+ 
+ Role:
+ - Front-End: Pham Le Tan Thinh.
+   + I'm responsible for design UX/UI for project. Determining the structure, design and build for admin and owner feature pages.
  
  
  ## TECHNICAL:
