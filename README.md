@@ -12,7 +12,7 @@ Team size: 4
  
  
  Role:
- - Front-End: Pham Le Tan Thinh.
+ - Front-End: Pham Le Tan Thinh vs Tran Phu Son.
    + I'm responsible for design UX/UI for project. Determining the structure, design and build for admin and owner feature pages.
  
  
